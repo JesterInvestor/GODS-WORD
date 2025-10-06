@@ -173,13 +173,12 @@ function BibleContent() {
         };
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-          // On touch devices, the touch handler will handle opening the modal
-          // This click handler is only for desktop mouse clicks
-          if (!isTouch) {
-            e.preventDefault();
-            e.stopPropagation();
-            setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
-          }
+          // Handle clicks for all devices (desktop and touch-capable desktops)
+          // The click event fires after touchend, but we prevent default in touchend
+          // so this won't double-fire on actual touch devices
+          e.preventDefault();
+          e.stopPropagation();
+          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
         };
 
         const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
