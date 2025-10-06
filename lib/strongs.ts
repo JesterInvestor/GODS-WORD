@@ -19,14 +19,9 @@ export async function loadHebrewDictionary(): Promise<StrongsData> {
   if (hebrewDictionary) return hebrewDictionary;
   
   try {
-    const response = await fetch('/data/strongs-hebrew-dictionary.js');
-    const text = await response.text();
-    // Extract the dictionary object from the JS file
-    const match = text.match(/var\s+strongsHebrewDictionary\s*=\s*({[\s\S]*});/);
-    if (match) {
-      hebrewDictionary = JSON.parse(match[1]);
-      return hebrewDictionary!;
-    }
+    const response = await fetch('/data/strongs-hebrew-dictionary.json');
+    hebrewDictionary = await response.json();
+    return hebrewDictionary!;
   } catch (error) {
     console.error('Error loading Hebrew dictionary:', error);
   }
@@ -37,14 +32,9 @@ export async function loadGreekDictionary(): Promise<StrongsData> {
   if (greekDictionary) return greekDictionary;
   
   try {
-    const response = await fetch('/data/strongs-greek-dictionary.js');
-    const text = await response.text();
-    // Extract the dictionary object from the JS file
-    const match = text.match(/var\s+strongsGreekDictionary\s*=\s*({[\s\S]*});/);
-    if (match) {
-      greekDictionary = JSON.parse(match[1]);
-      return greekDictionary!;
-    }
+    const response = await fetch('/data/strongs-greek-dictionary.json');
+    greekDictionary = await response.json();
+    return greekDictionary!;
   } catch (error) {
     console.error('Error loading Greek dictionary:', error);
   }
