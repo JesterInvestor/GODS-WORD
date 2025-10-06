@@ -25,6 +25,14 @@ export default function Home() {
               New Testament
             </Link>
           </div>
+          <div className="flex justify-center mt-4">
+            <Link 
+              href="/strongs"
+              className="inline-block bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
+            >
+              Strong&apos;s Concordance
+            </Link>
+          </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
             Click on any word to view Strong&apos;s Concordance reference
           </p>
