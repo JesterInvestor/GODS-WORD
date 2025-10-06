@@ -159,10 +159,9 @@ export default function BiblePage() {
         };
 
         const handleClick = () => {
-          if (isTouch) {
-            // On touch devices, open modal
-            setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
-          }
+          // On touch devices, open full modal
+          // On desktop, also open modal as a fallback/alternative to hover
+          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
         };
 
         return (
