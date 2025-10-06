@@ -94,8 +94,10 @@ export default function StrongsTooltip({ word, strongsRef, anchorElement, onClos
   return (
     <div
       ref={tooltipRef}
-      className="fixed z-50 bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 w-[400px] max-w-[90vw] max-h-[70vh] overflow-hidden"
+      className="fixed z-[55] bg-white dark:bg-gray-800 rounded-lg shadow-2xl border-2 border-gray-300 dark:border-gray-600 w-[400px] max-w-[90vw] max-h-[70vh] overflow-hidden"
       style={{ top: `${position.top}px`, left: `${position.left}px` }}
+      role="tooltip"
+      aria-label={`Strong's Concordance information for ${word}`}
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
@@ -104,8 +106,8 @@ export default function StrongsTooltip({ word, strongsRef, anchorElement, onClos
         </h3>
         <button
           onClick={onClose}
-          className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-xl font-bold"
-          aria-label="Close"
+          className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 rounded transition-all"
+          aria-label="Close tooltip"
         >
           ×
         </button>
@@ -117,11 +119,12 @@ export default function StrongsTooltip({ word, strongsRef, anchorElement, onClos
           {hebrewEntry && (
             <button
               onClick={() => setActiveTab('hebrew')}
-              className={`flex-1 py-2 px-3 text-sm font-semibold ${
+              className={`flex-1 py-2 px-3 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
                 activeTab === 'hebrew'
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
+              aria-label="Show Hebrew translation"
             >
               Hebrew {strongsRef && `(${strongsRef})`}
             </button>
@@ -129,11 +132,12 @@ export default function StrongsTooltip({ word, strongsRef, anchorElement, onClos
           {greekEntry && (
             <button
               onClick={() => setActiveTab('greek')}
-              className={`flex-1 py-2 px-3 text-sm font-semibold ${
+              className={`flex-1 py-2 px-3 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
                 activeTab === 'greek'
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
+              aria-label="Show Greek translation"
             >
               Greek {strongsRef && `(${strongsRef})`}
             </button>
