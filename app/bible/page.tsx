@@ -162,7 +162,10 @@ export default function BiblePage() {
                 <button
                   onClick={() => {
                     const element = document.getElementById('old-testament-section');
-                    element?.scrollIntoView({ behavior: 'smooth' });
+                    const sidebar = document.querySelector('.overflow-y-auto');
+                    if (element && sidebar) {
+                      sidebar.scrollTo({ top: element.offsetTop - 100, behavior: 'smooth' });
+                    }
                   }}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
                 >
@@ -171,7 +174,10 @@ export default function BiblePage() {
                 <button
                   onClick={() => {
                     const element = document.getElementById('new-testament-section');
-                    element?.scrollIntoView({ behavior: 'smooth' });
+                    const sidebar = document.querySelector('.overflow-y-auto');
+                    if (element && sidebar) {
+                      sidebar.scrollTo({ top: element.offsetTop - 100, behavior: 'smooth' });
+                    }
                   }}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
                 >
