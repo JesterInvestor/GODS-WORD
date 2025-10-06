@@ -1,14 +1,20 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
 import StrongsModal from '@/components/StrongsModal';
 import StrongsTooltip from '@/components/StrongsTooltip';
 import { isTouchDevice } from '@/lib/deviceDetection';
 
-export default function BiblePage() {
-  const [selectedBook, setSelectedBook] = useState<string>('Genesis');
+function BibleContent() {
+  const searchParams = useSearchParams();
+  const testament = searchParams.get('testament');
+  
+  // Set initial book based on testament parameter
+  const initialBook = testament === 'new' ? 'Matthew' : 'Genesis';
+  const [selectedBook, setSelectedBook] = useState<string>(initialBook);
   const [selectedChapter, setSelectedChapter] = useState<number>(1);
   const [bookData, setBookData] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,6 +33,13 @@ export default function BiblePage() {
     // Detect if device supports touch
     setIsTouch(isTouchDevice());
   }, []);
+
+  // Show TOC automatically when page loads with a testament parameter
+  useEffect(() => {
+    if (testament) {
+      setShowTOC(true);
+    }
+  }, [testament]);
 
   const loadBookData = async (book: string) => {
     setLoading(true);
@@ -421,5 +434,20 @@ export default function BiblePage() {
         />
       )}
     </div>
+  );
+}
+
+export default function BiblePage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+        </div>
+      </div>
+    }>
+      <BibleContent />
+    </Suspense>
   );
 }
