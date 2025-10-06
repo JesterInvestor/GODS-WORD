@@ -172,20 +172,36 @@ function BibleContent() {
           }
         };
 
-        const handleClick = () => {
+        const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+          e.preventDefault();
+          e.stopPropagation();
           // On touch devices, open full modal
           // On desktop, also open modal as a fallback/alternative to hover
+          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+        };
+
+        const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
+          // Explicit touch handler for mobile devices
+          e.stopPropagation();
+        };
+
+        const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
+          e.preventDefault();
+          e.stopPropagation();
           setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
         };
 
         return (
           <span
             key={index}
-            className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold transition-colors"
+            className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold transition-colors active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             title={isTouch ? "Tap to see Strong's Concordance" : "Hover to see Strong's Concordance"}
+            style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}
           >
             {part}
           </span>
@@ -237,12 +253,6 @@ function BibleContent() {
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
                 >
                   New Testament
-                </button>
-                <button
-                  onClick={() => setTocSection('all')}
-                  className="flex-1 bg-gray-100 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 px-3 py-2 rounded-lg text-xs font-semibold"
-                >
-                  Show Both
                 </button>
               </div>
               
