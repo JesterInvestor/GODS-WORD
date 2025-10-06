@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { StrongsEntry, lookupStrongs } from '@/lib/strongs';
 
 interface StrongsModalProps {
@@ -14,15 +14,32 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
   const [greekEntry, setGreekEntry] = useState<StrongsEntry | null>(null);
   const [activeTab, setActiveTab] = useState<'hebrew' | 'greek'>('hebrew');
   const [loading, setLoading] = useState(true);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    // Log modal opening
+    console.log('[StrongsModal] Modal opened for word:', word, 'ref:', strongsRef);
+    
+    // Store the previously focused element
+    previousFocusRef.current = document.activeElement as HTMLElement;
+    
+    // Prevent body scroll when modal is open (iOS Safari fix)
+    const originalOverflow = document.body.style.overflow;
+    const originalPosition = document.body.style.position;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    
     // Load Strong's data
     const loadData = async () => {
       setLoading(true);
+      console.log('[StrongsModal] Loading data for:', strongsRef);
       if (strongsRef) {
         const data = await lookupStrongs(strongsRef);
         setHebrewEntry(data.hebrew || null);
         setGreekEntry(data.greek || null);
+        console.log('[StrongsModal] Data loaded:', { hasHebrew: !!data.hebrew, hasGreek: !!data.greek });
         // Set active tab to whichever has data
         if (data.hebrew && !data.greek) {
           setActiveTab('hebrew');
@@ -33,12 +50,27 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
       setLoading(false);
     };
     loadData();
-  }, [strongsRef]);
+
+    // Cleanup function
+    return () => {
+      console.log('[StrongsModal] Modal closed');
+      // Restore body scroll
+      document.body.style.overflow = originalOverflow;
+      document.body.style.position = originalPosition;
+      document.body.style.width = '';
+      
+      // Restore focus to the previously focused element
+      if (previousFocusRef.current) {
+        previousFocusRef.current.focus();
+      }
+    };
+  }, [strongsRef, word]);
 
   useEffect(() => {
     // Handle ESC key
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        console.log('[StrongsModal] ESC key pressed, closing modal');
         onClose();
       }
     };
@@ -46,19 +78,51 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
     return () => document.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
+  useEffect(() => {
+    // Focus the modal when it opens for accessibility
+    if (modalRef.current) {
+      modalRef.current.focus();
+    }
+  }, []);
+
   const currentEntry = activeTab === 'hebrew' ? hebrewEntry : greekEntry;
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    console.log('[StrongsModal] Backdrop clicked');
+    onClose();
+  };
+
+  const handleBackdropTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    console.log('[StrongsModal] Backdrop touched');
+    e.preventDefault();
+    onClose();
+  };
+
+  const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
+  const handleModalTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
 
   return (
     <div 
       className="fixed inset-0 bg-black bg-opacity-80 z-[60] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm"
-      onClick={onClose}
+      onClick={handleBackdropClick}
+      onTouchEnd={handleBackdropTouchEnd}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
+      aria-live="polite"
     >
       <div 
+        ref={modalRef}
         className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200"
-        onClick={(e) => e.stopPropagation()}
+        onClick={handleModalClick}
+        onTouchEnd={handleModalTouchEnd}
+        tabIndex={-1}
+        style={{ touchAction: 'pan-y' }}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
@@ -66,9 +130,20 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
             {word}
           </h2>
           <button
-            onClick={onClose}
+            onClick={(e) => {
+              console.log('[StrongsModal] Close button clicked');
+              e.stopPropagation();
+              onClose();
+            }}
+            onTouchEnd={(e) => {
+              console.log('[StrongsModal] Close button touched');
+              e.preventDefault();
+              e.stopPropagation();
+              onClose();
+            }}
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-2xl font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 rounded transition-all"
             aria-label="Close modal"
+            style={{ touchAction: 'manipulation' }}
           >
             ×
           </button>
@@ -196,9 +271,20 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
             </p>
           </div>
           <button
-            onClick={onClose}
+            onClick={(e) => {
+              console.log('[StrongsModal] Close button (footer) clicked');
+              e.stopPropagation();
+              onClose();
+            }}
+            onTouchEnd={(e) => {
+              console.log('[StrongsModal] Close button (footer) touched');
+              e.preventDefault();
+              e.stopPropagation();
+              onClose();
+            }}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all"
             aria-label="Close modal"
+            style={{ touchAction: 'manipulation' }}
           >
             Close
           </button>

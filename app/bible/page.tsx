@@ -175,23 +175,28 @@ function BibleContent() {
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
           // On touch devices, the touch handler will handle opening the modal
           // This click handler is only for desktop mouse clicks
+          console.log('[BiblePage] Click on word:', part, 'isTouch:', isTouch);
           if (!isTouch) {
             e.preventDefault();
             e.stopPropagation();
             setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+            console.log('[BiblePage] Selected word state updated (desktop)');
           }
         };
 
         const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
           // Mark that a touch started (no action needed)
+          console.log('[BiblePage] Touch start on word:', part);
           e.stopPropagation();
         };
 
         const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
           // For mobile devices, handle the tap here
+          console.log('[BiblePage] Touch end on word:', part, 'ref:', wordToStrongsMap[part]);
           e.preventDefault();
           e.stopPropagation();
           setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+          console.log('[BiblePage] Selected word state updated');
         };
 
         return (
@@ -456,11 +461,17 @@ function BibleContent() {
 
       {/* Strong's Concordance Modal (Mobile/Touch) */}
       {selectedWord && (
-        <StrongsModal
-          word={selectedWord.word}
-          strongsRef={selectedWord.ref}
-          onClose={() => setSelectedWord(null)}
-        />
+        <>
+          {console.log('[BiblePage] Rendering StrongsModal for:', selectedWord)}
+          <StrongsModal
+            word={selectedWord.word}
+            strongsRef={selectedWord.ref}
+            onClose={() => {
+              console.log('[BiblePage] Modal onClose triggered');
+              setSelectedWord(null);
+            }}
+          />
+        </>
       )}
     </div>
   );
