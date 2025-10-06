@@ -46,7 +46,7 @@ export default function BiblePage() {
         return (
           <span
             key={index}
-            className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold"
+            className="text-blue-400 dark:text-blue-300 hover:underline cursor-pointer font-semibold"
             onClick={() => setSelectedWord({ word: part, ref })}
           >
             {part}
@@ -86,8 +86,30 @@ export default function BiblePage() {
                 Table of Contents
               </h2>
               
+              {/* Quick Navigation */}
+              <div className="mb-4 flex gap-2">
+                <button
+                  onClick={() => {
+                    const element = document.getElementById('old-testament-section');
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
+                >
+                  Old Testament
+                </button>
+                <button
+                  onClick={() => {
+                    const element = document.getElementById('new-testament-section');
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
+                >
+                  New Testament
+                </button>
+              </div>
+              
               {/* Old Testament */}
-              <div className="mb-6">
+              <div className="mb-6" id="old-testament-section">
                 <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Old Testament
                 </h3>
@@ -113,7 +135,7 @@ export default function BiblePage() {
               </div>
 
               {/* New Testament */}
-              <div>
+              <div id="new-testament-section">
                 <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   New Testament
                 </h3>
