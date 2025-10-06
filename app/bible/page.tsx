@@ -247,7 +247,7 @@ export default function BiblePage() {
                   onClick={() => setSelectedChapter(Number(ch.chapter))}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold ${
                     selectedChapter === Number(ch.chapter)
-                      ? 'bg-blue-600 text-white'
+                      ? 'text-blue-600 dark:text-blue-400'
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                   }`}
                 >
