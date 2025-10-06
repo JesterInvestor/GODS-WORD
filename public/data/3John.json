@@ -1,1 +1,66 @@
-{"book": "3 John","chapters": [{"chapter": "1", "verses": [{"verse": "1", "text": "The elder unto the wellbeloved Gaius, whom I love in the truth."}, {"verse": "2", "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth."}, {"verse": "3", "text": "For I rejoiced greatly, when the brethren came and testified of the truth that is in thee, even as thou walkest in the truth."}, {"verse": "4", "text": "I have no greater joy than to hear that my children walk in truth."}, {"verse": "5", "text": "Beloved, thou doest faithfully whatsoever thou doest to the brethren, and to strangers;"}, {"verse": "6", "text": "Which have borne witness of thy charity before the church: whom if thou bring forward on their journey after a godly sort, thou shalt do well:"}, {"verse": "7", "text": "Because that for his name\u2019s sake they went forth, taking nothing of the Gentiles."}, {"verse": "8", "text": "We therefore ought to receive such, that we might be fellowhelpers to the truth."}, {"verse": "9", "text": "I wrote unto the church: but Diotrephes, who loveth to have the preeminence among them, receiveth us not."}, {"verse": "10", "text": "Wherefore, if I come, I will remember his deeds which he doeth, prating against us with malicious words: and not content therewith, neither doth he himself receive the brethren, and forbiddeth them that would, and casteth them out of the church."}, {"verse": "11", "text": "Beloved, follow not that which is evil, but that which is good. He that doeth good is of God: but he that doeth evil hath not seen God."}, {"verse": "12", "text": "Demetrius hath good report of all men, and of the truth itself: yea, and we also bear record; and ye know that our record is true."}, {"verse": "13", "text": "I had many things to write, but I will not with ink and pen write unto thee:"}, {"verse": "14", "text": "But I trust I shall shortly see thee, and we shall speak face to face. Peace be to thee. Our friends salute thee. Greet the friends by name."}]}]}
+{
+  "book": "3John",
+  "chapters": [
+    {
+      "chapter": "1",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "The elder[G4245] unto the wellbeloved[G27] Gaius,[G1050] whom[G3739] I[G1473] love[G25] in[G1722] the truth.[G225]"
+        },
+        {
+          "verse": "2",
+          "text": "Beloved,[G27] I wish[G2172] above[G4012] all things[G3956] that thou[G4571] mayest prosper[G2137] and[G2532] be in health,[G5198] even as[G2531] thy[G4675] soul[G5590] prospereth.[G2137]"
+        },
+        {
+          "verse": "3",
+          "text": "For[G1063] I rejoiced[G5463] greatly,[G3029] when the brethren[G80] came[G2064] and[G2532] testified[G3140] of the truth[G225] that is in thee,[G4675] even as[G2531] thou[G4771] walkest[G4043] in[G1722] the truth.[G225]"
+        },
+        {
+          "verse": "4",
+          "text": "I have[G2192] no[G3756] greater[G3186][G5130] joy[G5479] than to[G2443] hear[G191] that my[G1699] children[G5043] walk[G4043] in[G1722] truth.[G225]"
+        },
+        {
+          "verse": "5",
+          "text": "Beloved,[G27] thou doest[G4160] faithfully[G4103] whatsoever[G3739][G1437] thou doest[G2038] to[G1519] the brethren,[G80] and[G2532] to[G1519] strangers;[G3581]"
+        },
+        {
+          "verse": "6",
+          "text": "Which[G3739] have borne witness[G3140] of thy[G4675] charity[G26] before[G1799] the church:[G1577] whom[G3739] if thou bring forward on their journey[G4311] after[G516] ➔ a godly[G2316] sort,[G516] thou shalt do[G4160] well:[G2573]"
+        },
+        {
+          "verse": "7",
+          "text": "Because that[G1063] for[G5228] ➔ his[G846] name's[G3686] sake[G5228] they went forth,[G1831] taking[G2983] nothing[G3367] of[G575] the Gentiles.[G1484]"
+        },
+        {
+          "verse": "8",
+          "text": "We[G2249] therefore[G3767] ought[G3784] to receive[G618] such,[G5108] that[G2443] we might be[G1096] fellowhelpers[G4904] to the truth.[G225]"
+        },
+        {
+          "verse": "9",
+          "text": "I wrote[G1125] unto the church:[G1577] but[G235] Diotrephes,[G1361] who[G3588] loveth to have the preeminence[G5383] among them,[G846] receiveth[G1926] us[G2248] not.[G3756]"
+        },
+        {
+          "verse": "10",
+          "text": "Wherefore,[G1223][G5124] if[G1437] I come,[G2064] I will remember[G5279] his[G846] deeds[G2041] which[G3739] he doeth,[G4160] prating against[G5396] us[G2248] with[G3056] malicious words:[G4190] and[G2532] not[G3361] content[G714] therewith,[G1909][G5125] neither[G3777] doth[G1926] ➔ he himself[G846] receive[G1926] the brethren,[G80] and[G2532] forbiddeth[G2967] them that would,[G1014] and[G2532] casteth[G1544] them out of[G1537] the church.[G1577]"
+        },
+        {
+          "verse": "11",
+          "text": "Beloved,[G27] follow[G3401] not[G3361] that which is evil,[G2556] but[G235] that which is good.[G18] He that doeth good[G15] is[G2076] of[G1537] God:[G2316] but[G1161] he that doeth evil[G2554] hath[G3708] ➔ not[G3756] seen[G3708] God.[G2316]"
+        },
+        {
+          "verse": "12",
+          "text": "Demetrius[G1216] hath good report[G3140] of[G5259] all[G3956] men, and[G2532] of[G5259] the truth[G225] itself:[G846] yea,[G1161] and[G2532] we[G2249] also bear record;[G3140] and[G2532] ye know[G1492] that[G3754] our[G2257] record[G3141] is[G2076] true.[G227]"
+        },
+        {
+          "verse": "13",
+          "text": "I had[G2192] many things[G4183] to write,[G1125] but[G235] I will[G2309] not[G3756] with[G1223] ink[G3188] and[G2532] pen[G2563] write[G1125] unto thee:[G4671]"
+        },
+        {
+          "verse": "14",
+          "text": "But[G1161] I trust[G1679] I shall[G1492] ➔ shortly[G2112] see[G1492] thee,[G4571] and[G2532] we shall speak[G2980] face[G4750] to[G4314] face.[G4750] Peace[G1515] be to thee.[G4671] Our friends[G5384] salute[G782] thee.[G4571] Greet[G782] the friends[G5384] by[G2596] name.[G3686]"
+        }
+      ]
+    }
+  ]
+}

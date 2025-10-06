@@ -1,1 +1,953 @@
-{"book": "Ecclesiastes","chapters": [{"chapter": "1", "verses": [{"verse": "1", "text": "The words of the Preacher, the son of David, king in Jerusalem."}, {"verse": "2", "text": "Vanity of vanities, saith the Preacher, vanity of vanities; all is vanity."}, {"verse": "3", "text": "What profit hath a man of all his labour which he taketh under the sun?"}, {"verse": "4", "text": "One generation passeth away, and another generation cometh: but the earth abideth for ever."}, {"verse": "5", "text": "The sun also ariseth, and the sun goeth down, and hasteth to his place where he arose."}, {"verse": "6", "text": "The wind goeth toward the south, and turneth about unto the north; it whirleth about continually, and the wind returneth again according to his circuits."}, {"verse": "7", "text": "All the rivers run into the sea; yet the sea is not full; unto the place from whence the rivers come, thither they return again."}, {"verse": "8", "text": "All things are full of labour; man cannot utter it: the eye is not satisfied with seeing, nor the ear filled with hearing."}, {"verse": "9", "text": "The thing that hath been, it is that which shall be; and that which is done is that which shall be done: and there is no new thing under the sun."}, {"verse": "10", "text": "Is there any thing whereof it may be said, See, this is new? it hath been already of old time, which was before us."}, {"verse": "11", "text": "There is no remembrance of former things; neither shall there be any remembrance of things that are to come with those that shall come after."}, {"verse": "12", "text": "I the Preacher was king over Israel in Jerusalem."}, {"verse": "13", "text": "And I gave my heart to seek and search out by wisdom concerning all things that are done under heaven: this sore travail hath God given to the sons of man to be exercised therewith."}, {"verse": "14", "text": "I have seen all the works that are done under the sun; and, behold, all is vanity and vexation of spirit."}, {"verse": "15", "text": "That which is crooked cannot be made straight: and that which is wanting cannot be numbered."}, {"verse": "16", "text": "I communed with mine own heart, saying, Lo, I am come to great estate, and have gotten more wisdom than all they that have been before me in Jerusalem: yea, my heart had great experience of wisdom and knowledge."}, {"verse": "17", "text": "And I gave my heart to know wisdom, and to know madness and folly: I perceived that this also is vexation of spirit."}, {"verse": "18", "text": "For in much wisdom is much grief: and he that increaseth knowledge increaseth sorrow."}]}, {"chapter": "2", "verses": [{"verse": "1", "text": "I said in mine heart, Go to now, I will prove thee with mirth, therefore enjoy pleasure: and, behold, this also is vanity."}, {"verse": "2", "text": "I said of laughter, It is mad: and of mirth, What doeth it?"}, {"verse": "3", "text": "I sought in mine heart to give myself unto wine, yet acquainting mine heart with wisdom; and to lay hold on folly, till I might see what was that good for the sons of men, which they should do under the heaven all the days of their life."}, {"verse": "4", "text": "I made me great works; I builded me houses; I planted me vineyards:"}, {"verse": "5", "text": "I made me gardens and orchards, and I planted trees in them of all kind of fruits:"}, {"verse": "6", "text": "I made me pools of water, to water therewith the wood that bringeth forth trees:"}, {"verse": "7", "text": "I got me servants and maidens, and had servants born in my house; also I had great possessions of great and small cattle above all that were in Jerusalem before me:"}, {"verse": "8", "text": "I gathered me also silver and gold, and the peculiar treasure of kings and of the provinces: I gat me men singers and women singers, and the delights of the sons of men, as musical instruments, and that of all sorts."}, {"verse": "9", "text": "So I was great, and increased more than all that were before me in Jerusalem: also my wisdom remained with me."}, {"verse": "10", "text": "And whatsoever mine eyes desired I kept not from them, I withheld not my heart from any joy; for my heart rejoiced in all my labour: and this was my portion of all my labour."}, {"verse": "11", "text": "Then I looked on all the works that my hands had wrought, and on the labour that I had laboured to do: and, behold, all was vanity and vexation of spirit, and there was no profit under the sun."}, {"verse": "12", "text": "And I turned myself to behold wisdom, and madness, and folly: for what can the man do that cometh after the king? even that which hath been already done."}, {"verse": "13", "text": "Then I saw that wisdom excelleth folly, as far as light excelleth darkness."}, {"verse": "14", "text": "The wise man\u2019s eyes are in his head; but the fool walketh in darkness: and I myself perceived also that one event happeneth to them all."}, {"verse": "15", "text": "Then said I in my heart, As it happeneth to the fool, so it happeneth even to me; and why was I then more wise? Then I said in my heart, that this also is vanity."}, {"verse": "16", "text": "For there is no remembrance of the wise more than of the fool for ever; seeing that which now is in the days to come shall all be forgotten. And how dieth the wise man? as the fool."}, {"verse": "17", "text": "Therefore I hated life; because the work that is wrought under the sun is grievous unto me: for all is vanity and vexation of spirit."}, {"verse": "18", "text": "Yea, I hated all my labour which I had taken under the sun: because I should leave it unto the man that shall be after me."}, {"verse": "19", "text": "And who knoweth whether he shall be a wise man or a fool? yet shall he have rule over all my labour wherein I have laboured, and wherein I have shewed myself wise under the sun. This is also vanity."}, {"verse": "20", "text": "Therefore I went about to cause my heart to despair of all the labour which I took under the sun."}, {"verse": "21", "text": "For there is a man whose labour is in wisdom, and in knowledge, and in equity; yet to a man that hath not laboured therein shall he leave it for his portion. This also is vanity and a great evil."}, {"verse": "22", "text": "For what hath man of all his labour, and of the vexation of his heart, wherein he hath laboured under the sun?"}, {"verse": "23", "text": "For all his days are sorrows, and his travail grief; yea, his heart taketh not rest in the night. This is also vanity."}, {"verse": "24", "text": "There is nothing better for a man, than that he should eat and drink, and that he should make his soul enjoy good in his labour. This also I saw, that it was from the hand of God."}, {"verse": "25", "text": "For who can eat, or who else can hasten hereunto, more than I?"}, {"verse": "26", "text": "For God giveth to a man that is good in his sight wisdom, and knowledge, and joy: but to the sinner he giveth travail, to gather and to heap up, that he may give to him that is good before God. This also is vanity and vexation of spirit."}]}, {"chapter": "3", "verses": [{"verse": "1", "text": "To every thing there is a season, and a time to every purpose under the heaven:"}, {"verse": "2", "text": "A time to be born, and a time to die; a time to plant, and a time to pluck up that which is planted;"}, {"verse": "3", "text": "A time to kill, and a time to heal; a time to break down, and a time to build up;"}, {"verse": "4", "text": "A time to weep, and a time to laugh; a time to mourn, and a time to dance;"}, {"verse": "5", "text": "A time to cast away stones, and a time to gather stones together; a time to embrace, and a time to refrain from embracing;"}, {"verse": "6", "text": "A time to get, and a time to lose; a time to keep, and a time to cast away;"}, {"verse": "7", "text": "A time to rend, and a time to sew; a time to keep silence, and a time to speak;"}, {"verse": "8", "text": "A time to love, and a time to hate; a time of war, and a time of peace."}, {"verse": "9", "text": "What profit hath he that worketh in that wherein he laboureth?"}, {"verse": "10", "text": "I have seen the travail, which God hath given to the sons of men to be exercised in it."}, {"verse": "11", "text": "He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end."}, {"verse": "12", "text": "I know that there is no good in them, but for a man to rejoice, and to do good in his life."}, {"verse": "13", "text": "And also that every man should eat and drink, and enjoy the good of all his labour, it is the gift of God."}, {"verse": "14", "text": "I know that, whatsoever God doeth, it shall be for ever: nothing can be put to it, nor any thing taken from it: and God doeth it, that men should fear before him."}, {"verse": "15", "text": "That which hath been is now; and that which is to be hath already been; and God requireth that which is past."}, {"verse": "16", "text": "And moreover I saw under the sun the place of judgment, that wickedness was there; and the place of righteousness, that iniquity was there."}, {"verse": "17", "text": "I said in mine heart, God shall judge the righteous and the wicked: for there is a time there for every purpose and for every work."}, {"verse": "18", "text": "I said in mine heart concerning the estate of the sons of men, that God might manifest them, and that they might see that they themselves are beasts."}, {"verse": "19", "text": "For that which befalleth the sons of men befalleth beasts; even one thing befalleth them: as the one dieth, so dieth the other; yea, they have all one breath; so that a man hath no preeminence above a beast: for all is vanity."}, {"verse": "20", "text": "All go unto one place; all are of the dust, and all turn to dust again."}, {"verse": "21", "text": "Who knoweth the spirit of man that goeth upward, and the spirit of the beast that goeth downward to the earth?"}, {"verse": "22", "text": "Wherefore I perceive that there is nothing better, than that a man should rejoice in his own works; for that is his portion: for who shall bring him to see what shall be after him?"}]}, {"chapter": "4", "verses": [{"verse": "1", "text": "So I returned, and considered all the oppressions that are done under the sun: and behold the tears of such as were oppressed, and they had no comforter; and on the side of their oppressors there was power; but they had no comforter."}, {"verse": "2", "text": "Wherefore I praised the dead which are already dead more than the living which are yet alive."}, {"verse": "3", "text": "Yea, better is he than both they, which hath not yet been, who hath not seen the evil work that is done under the sun."}, {"verse": "4", "text": "Again, I considered all travail, and every right work, that for this a man is envied of his neighbour. This is also vanity and vexation of spirit."}, {"verse": "5", "text": "The fool foldeth his hands together, and eateth his own flesh."}, {"verse": "6", "text": "Better is an handful with quietness, than both the hands full with travail and vexation of spirit."}, {"verse": "7", "text": "Then I returned, and I saw vanity under the sun."}, {"verse": "8", "text": "There is one alone, and there is not a second; yea, he hath neither child nor brother: yet is there no end of all his labour; neither is his eye satisfied with riches; neither saith he, For whom do I labour, and bereave my soul of good? This is also vanity, yea, it is a sore travail."}, {"verse": "9", "text": "Two are better than one; because they have a good reward for their labour."}, {"verse": "10", "text": "For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up."}, {"verse": "11", "text": "Again, if two lie together, then they have heat: but how can one be warm alone?"}, {"verse": "12", "text": "And if one prevail against him, two shall withstand him; and a threefold cord is not quickly broken."}, {"verse": "13", "text": "Better is a poor and a wise child than an old and foolish king, who will no more be admonished."}, {"verse": "14", "text": "For out of prison he cometh to reign; whereas also he that is born in his kingdom becometh poor."}, {"verse": "15", "text": "I considered all the living which walk under the sun, with the second child that shall stand up in his stead."}, {"verse": "16", "text": "There is no end of all the people, even of all that have been before them: they also that come after shall not rejoice in him. Surely this also is vanity and vexation of spirit."}]}, {"chapter": "5", "verses": [{"verse": "1", "text": "Keep thy foot when thou goest to the house of God, and be more ready to hear, than to give the sacrifice of fools: for they consider not that they do evil."}, {"verse": "2", "text": "Be not rash with thy mouth, and let not thine heart be hasty to utter any thing before God: for God is in heaven, and thou upon earth: therefore let thy words be few."}, {"verse": "3", "text": "For a dream cometh through the multitude of business; and a fool\u2019s voice is known by multitude of words."}, {"verse": "4", "text": "When thou vowest a vow unto God, defer not to pay it; for he hath no pleasure in fools: pay that which thou hast vowed."}, {"verse": "5", "text": "Better is it that thou shouldest not vow, than that thou shouldest vow and not pay."}, {"verse": "6", "text": "Suffer not thy mouth to cause thy flesh to sin; neither say thou before the angel, that it was an error: wherefore should God be angry at thy voice, and destroy the work of thine hands?"}, {"verse": "7", "text": "For in the multitude of dreams and many words there are also divers vanities: but fear thou God."}, {"verse": "8", "text": "If thou seest the oppression of the poor, and violent perverting of judgment and justice in a province, marvel not at the matter: for he that is higher than the highest regardeth; and there be higher than they."}, {"verse": "9", "text": "Moreover the profit of the earth is for all: the king himself is served by the field."}, {"verse": "10", "text": "He that loveth silver shall not be satisfied with silver; nor he that loveth abundance with increase: this is also vanity."}, {"verse": "11", "text": "When goods increase, they are increased that eat them: and what good is there to the owners thereof, saving the beholding of them with their eyes?"}, {"verse": "12", "text": "The sleep of a labouring man is sweet, whether he eat little or much: but the abundance of the rich will not suffer him to sleep."}, {"verse": "13", "text": "There is a sore evil which I have seen under the sun, namely, riches kept for the owners thereof to their hurt."}, {"verse": "14", "text": "But those riches perish by evil travail: and he begetteth a son, and there is nothing in his hand."}, {"verse": "15", "text": "As he came forth of his mother\u2019s womb, naked shall he return to go as he came, and shall take nothing of his labour, which he may carry away in his hand."}, {"verse": "16", "text": "And this also is a sore evil, that in all points as he came, so shall he go: and what profit hath he that hath laboured for the wind?"}, {"verse": "17", "text": "All his days also he eateth in darkness, and he hath much sorrow and wrath with his sickness."}, {"verse": "18", "text": "Behold that which I have seen: it is good and comely for one to eat and to drink, and to enjoy the good of all his labour that he taketh under the sun all the days of his life, which God giveth him: for it is his portion."}, {"verse": "19", "text": "Every man also to whom God hath given riches and wealth, and hath given him power to eat thereof, and to take his portion, and to rejoice in his labour; this is the gift of God."}, {"verse": "20", "text": "For he shall not much remember the days of his life; because God answereth him in the joy of his heart."}]}, {"chapter": "6", "verses": [{"verse": "1", "text": "There is an evil which I have seen under the sun, and it is common among men:"}, {"verse": "2", "text": "A man to whom God hath given riches, wealth, and honour, so that he wanteth nothing for his soul of all that he desireth, yet God giveth him not power to eat thereof, but a stranger eateth it: this is vanity, and it is an evil disease."}, {"verse": "3", "text": "If a man beget an hundred children, and live many years, so that the days of his years be many, and his soul be not filled with good, and also that he have no burial; I say, that an untimely birth is better than he."}, {"verse": "4", "text": "For he cometh in with vanity, and departeth in darkness, and his name shall be covered with darkness."}, {"verse": "5", "text": "Moreover he hath not seen the sun, nor known any thing: this hath more rest than the other."}, {"verse": "6", "text": "Yea, though he live a thousand years twice told, yet hath he seen no good: do not all go to one place?"}, {"verse": "7", "text": "All the labour of man is for his mouth, and yet the appetite is not filled."}, {"verse": "8", "text": "For what hath the wise more than the fool? what hath the poor, that knoweth to walk before the living?"}, {"verse": "9", "text": "Better is the sight of the eyes than the wandering of the desire: this is also vanity and vexation of spirit."}, {"verse": "10", "text": "That which hath been is named already, and it is known that it is man: neither may he contend with him that is mightier than he."}, {"verse": "11", "text": "Seeing there be many things that increase vanity, what is man the better?"}, {"verse": "12", "text": "For who knoweth what is good for man in this life, all the days of his vain life which he spendeth as a shadow? for who can tell a man what shall be after him under the sun?"}]}, {"chapter": "7", "verses": [{"verse": "1", "text": "A good name is better than precious ointment; and the day of death than the day of one\u2019s birth."}, {"verse": "2", "text": "It is better to go to the house of mourning, than to go to the house of feasting: for that is the end of all men; and the living will lay it to his heart."}, {"verse": "3", "text": "Sorrow is better than laughter: for by the sadness of the countenance the heart is made better."}, {"verse": "4", "text": "The heart of the wise is in the house of mourning; but the heart of fools is in the house of mirth."}, {"verse": "5", "text": "It is better to hear the rebuke of the wise, than for a man to hear the song of fools."}, {"verse": "6", "text": "For as the crackling of thorns under a pot, so is the laughter of the fool: this also is vanity."}, {"verse": "7", "text": "Surely oppression maketh a wise man mad; and a gift destroyeth the heart."}, {"verse": "8", "text": "Better is the end of a thing than the beginning thereof: and the patient in spirit is better than the proud in spirit."}, {"verse": "9", "text": "Be not hasty in thy spirit to be angry: for anger resteth in the bosom of fools."}, {"verse": "10", "text": "Say not thou, What is the cause that the former days were better than these? for thou dost not enquire wisely concerning this."}, {"verse": "11", "text": "Wisdom is good with an inheritance: and by it there is profit to them that see the sun."}, {"verse": "12", "text": "For wisdom is a defence, and money is a defence: but the excellency of knowledge is, that wisdom giveth life to them that have it."}, {"verse": "13", "text": "Consider the work of God: for who can make that straight, which he hath made crooked?"}, {"verse": "14", "text": "In the day of prosperity be joyful, but in the day of adversity consider: God also hath set the one over against the other, to the end that man should find nothing after him."}, {"verse": "15", "text": "All things have I seen in the days of my vanity: there is a just man that perisheth in his righteousness, and there is a wicked man that prolongeth his life in his wickedness."}, {"verse": "16", "text": "Be not righteous over much; neither make thyself over wise: why shouldest thou destroy thyself ?"}, {"verse": "17", "text": "Be not over much wicked, neither be thou foolish: why shouldest thou die before thy time?"}, {"verse": "18", "text": "It is good that thou shouldest take hold of this; yea, also from this withdraw not thine hand: for he that feareth God shall come forth of them all."}, {"verse": "19", "text": "Wisdom strengtheneth the wise more than ten mighty men which are in the city."}, {"verse": "20", "text": "For there is not a just man upon earth, that doeth good, and sinneth not."}, {"verse": "21", "text": "Also take no heed unto all words that are spoken; lest thou hear thy servant curse thee:"}, {"verse": "22", "text": "For oftentimes also thine own heart knoweth that thou thyself likewise hast cursed others."}, {"verse": "23", "text": "All this have I proved by wisdom: I said, I will be wise; but it was far from me."}, {"verse": "24", "text": "That which is far off, and exceeding deep, who can find it out?"}, {"verse": "25", "text": "I applied mine heart to know, and to search, and to seek out wisdom, and the reason of things, and to know the wickedness of folly, even of foolishness and madness:"}, {"verse": "26", "text": "And I find more bitter than death the woman, whose heart is snares and nets, and her hands as bands: whoso pleaseth God shall escape from her; but the sinner shall be taken by her."}, {"verse": "27", "text": "Behold, this have I found, saith the preacher, counting one by one, to find out the account:"}, {"verse": "28", "text": "Which yet my soul seeketh, but I find not: one man among a thousand have I found; but a woman among all those have I not found."}, {"verse": "29", "text": "Lo, this only have I found, that God hath made man upright; but they have sought out many inventions."}]}, {"chapter": "8", "verses": [{"verse": "1", "text": "Who is as the wise man? and who knoweth the interpretation of a thing? a man\u2019s wisdom maketh his face to shine, and the boldness of his face shall be changed."}, {"verse": "2", "text": "I counsel thee to keep the king\u2019s commandment, and that in regard of the oath of God."}, {"verse": "3", "text": "Be not hasty to go out of his sight: stand not in an evil thing; for he doeth whatsoever pleaseth him."}, {"verse": "4", "text": "Where the word of a king is, there is power: and who may say unto him, What doest thou?"}, {"verse": "5", "text": "Whoso keepeth the commandment shall feel no evil thing: and a wise man\u2019s heart discerneth both time and judgment."}, {"verse": "6", "text": "Because to every purpose there is time and judgment, therefore the misery of man is great upon him."}, {"verse": "7", "text": "For he knoweth not that which shall be: for who can tell him when it shall be?"}, {"verse": "8", "text": "There is no man that hath power over the spirit to retain the spirit; neither hath he power in the day of death: and there is no discharge in that war; neither shall wickedness deliver those that are given to it."}, {"verse": "9", "text": "All this have I seen, and applied my heart unto every work that is done under the sun: there is a time wherein one man ruleth over another to his own hurt."}, {"verse": "10", "text": "And so I saw the wicked buried, who had come and gone from the place of the holy, and they were forgotten in the city where they had so done: this is also vanity."}, {"verse": "11", "text": "Because sentence against an evil work is not executed speedily, therefore the heart of the sons of men is fully set in them to do evil."}, {"verse": "12", "text": "Though a sinner do evil an hundred times, and his days be prolonged, yet surely I know that it shall be well with them that fear God, which fear before him:"}, {"verse": "13", "text": "But it shall not be well with the wicked, neither shall he prolong his days, which are as a shadow; because he feareth not before God."}, {"verse": "14", "text": "There is a vanity which is done upon the earth; that there be just men, unto whom it happeneth according to the work of the wicked; again, there be wicked men, to whom it happeneth according to the work of the righteous: I said that this also is vanity."}, {"verse": "15", "text": "Then I commended mirth, because a man hath no better thing under the sun, than to eat, and to drink, and to be merry: for that shall abide with him of his labour the days of his life, which God giveth him under the sun."}, {"verse": "16", "text": "When I applied mine heart to know wisdom, and to see the business that is done upon the earth: (for also there is that neither day nor night seeth sleep with his eyes:)"}, {"verse": "17", "text": "Then I beheld all the work of God, that a man cannot find out the work that is done under the sun: because though a man labour to seek it out, yet he shall not find it; yea farther; though a wise man think to know it, yet shall he not be able to find it."}]}, {"chapter": "9", "verses": [{"verse": "1", "text": "For all this I considered in my heart even to declare all this, that the righteous, and the wise, and their works, are in the hand of God: no man knoweth either love or hatred by all that is before them."}, {"verse": "2", "text": "All things come alike to all: there is one event to the righteous, and to the wicked; to the good and to the clean, and to the unclean; to him that sacrificeth, and to him that sacrificeth not: as is the good, so is the sinner; and he that sweareth, as he that feareth an oath."}, {"verse": "3", "text": "This is an evil among all things that are done under the sun, that there is one event unto all: yea, also the heart of the sons of men is full of evil, and madness is in their heart while they live, and after that they go to the dead."}, {"verse": "4", "text": "For to him that is joined to all the living there is hope: for a living dog is better than a dead lion."}, {"verse": "5", "text": "For the living know that they shall die: but the dead know not any thing, neither have they any more a reward; for the memory of them is forgotten."}, {"verse": "6", "text": "Also their love, and their hatred, and their envy, is now perished; neither have they any more a portion for ever in any thing that is done under the sun."}, {"verse": "7", "text": "Go thy way, eat thy bread with joy, and drink thy wine with a merry heart; for God now accepteth thy works."}, {"verse": "8", "text": "Let thy garments be always white; and let thy head lack no ointment."}, {"verse": "9", "text": "Live joyfully with the wife whom thou lovest all the days of the life of thy vanity, which he hath given thee under the sun, all the days of thy vanity: for that is thy portion in this life, and in thy labour which thou takest under the sun."}, {"verse": "10", "text": "Whatsoever thy hand findeth to do, do it with thy might; for there is no work, nor device, nor knowledge, nor wisdom, in the grave, whither thou goest."}, {"verse": "11", "text": "I returned, and saw under the sun, that the race is not to the swift, nor the battle to the strong, neither yet bread to the wise, nor yet riches to men of understanding, nor yet favour to men of skill; but time and chance happeneth to them all."}, {"verse": "12", "text": "For man also knoweth not his time: as the fishes that are taken in an evil net, and as the birds that are caught in the snare; so are the sons of men snared in an evil time, when it falleth suddenly upon them."}, {"verse": "13", "text": "This wisdom have I seen also under the sun, and it seemed great unto me:"}, {"verse": "14", "text": "There was a little city, and few men within it; and there came a great king against it, and besieged it, and built great bulwarks against it:"}, {"verse": "15", "text": "Now there was found in it a poor wise man, and he by his wisdom delivered the city; yet no man remembered that same poor man."}, {"verse": "16", "text": "Then said I, Wisdom is better than strength: nevertheless the poor man\u2019s wisdom is despised, and his words are not heard."}, {"verse": "17", "text": "The words of wise men are heard in quiet more than the cry of him that ruleth among fools."}, {"verse": "18", "text": "Wisdom is better than weapons of war: but one sinner destroyeth much good."}]}, {"chapter": "10", "verses": [{"verse": "1", "text": "Dead flies cause the ointment of the apothecary to send forth a stinking savour: so doth a little folly him that is in reputation for wisdom and honour."}, {"verse": "2", "text": "A wise man\u2019s heart is at his right hand; but a fool\u2019s heart at his left."}, {"verse": "3", "text": "Yea also, when he that is a fool walketh by the way, his wisdom faileth him, and he saith to every one that he is a fool."}, {"verse": "4", "text": "If the spirit of the ruler rise up against thee, leave not thy place; for yielding pacifieth great offences."}, {"verse": "5", "text": "There is an evil which I have seen under the sun, as an error which proceedeth from the ruler:"}, {"verse": "6", "text": "Folly is set in great dignity, and the rich sit in low place."}, {"verse": "7", "text": "I have seen servants upon horses, and princes walking as servants upon the earth."}, {"verse": "8", "text": "He that diggeth a pit shall fall into it; and whoso breaketh an hedge, a serpent shall bite him."}, {"verse": "9", "text": "Whoso removeth stones shall be hurt therewith; and he that cleaveth wood shall be endangered thereby."}, {"verse": "10", "text": "If the iron be blunt, and he do not whet the edge, then must he put to more strength: but wisdom is profitable to direct."}, {"verse": "11", "text": "Surely the serpent will bite without enchantment; and a babbler is no better."}, {"verse": "12", "text": "The words of a wise man\u2019s mouth are gracious; but the lips of a fool will swallow up himself."}, {"verse": "13", "text": "The beginning of the words of his mouth is foolishness: and the end of his talk is mischievous madness."}, {"verse": "14", "text": "A fool also is full of words: a man cannot tell what shall be; and what shall be after him, who can tell him?"}, {"verse": "15", "text": "The labour of the foolish wearieth every one of them, because he knoweth not how to go to the city."}, {"verse": "16", "text": "Woe to thee, O land, when thy king is a child, and thy princes eat in the morning!"}, {"verse": "17", "text": "Blessed art thou, O land, when thy king is the son of nobles, and thy princes eat in due season, for strength, and not for drunkenness!"}, {"verse": "18", "text": "By much slothfulness the building decayeth; and through idleness of the hands the house droppeth through."}, {"verse": "19", "text": "A feast is made for laughter, and wine maketh merry: but money answereth all things."}, {"verse": "20", "text": "Curse not the king, no not in thy thought; and curse not the rich in thy bedchamber: for a bird of the air shall carry the voice, and that which hath wings shall tell the matter."}]}, {"chapter": "11", "verses": [{"verse": "1", "text": "Cast thy bread upon the waters: for thou shalt find it after many days."}, {"verse": "2", "text": "Give a portion to seven, and also to eight; for thou knowest not what evil shall be upon the earth."}, {"verse": "3", "text": "If the clouds be full of rain, they empty themselves upon the earth: and if the tree fall toward the south, or toward the north, in the place where the tree falleth, there it shall be."}, {"verse": "4", "text": "He that observeth the wind shall not sow; and he that regardeth the clouds shall not reap."}, {"verse": "5", "text": "As thou knowest not what is the way of the spirit, nor how the bones do grow in the womb of her that is with child: even so thou knowest not the works of God who maketh all."}, {"verse": "6", "text": "In the morning sow thy seed, and in the evening withhold not thine hand: for thou knowest not whether shall prosper, either this or that, or whether they both shall be alike good."}, {"verse": "7", "text": "Truly the light is sweet, and a pleasant thing it is for the eyes to behold the sun:"}, {"verse": "8", "text": "But if a man live many years, and rejoice in them all; yet let him remember the days of darkness; for they shall be many. All that cometh is vanity."}, {"verse": "9", "text": "Rejoice, O young man, in thy youth; and let thy heart cheer thee in the days of thy youth, and walk in the ways of thine heart, and in the sight of thine eyes: but know thou, that for all these things God will bring thee into judgment."}, {"verse": "10", "text": "Therefore remove sorrow from thy heart, and put away evil from thy flesh: for childhood and youth are vanity."}]}, {"chapter": "12", "verses": [{"verse": "1", "text": "Remember now thy Creator in the days of thy youth, while the evil days come not, nor the years draw nigh, when thou shalt say, I have no pleasure in them;"}, {"verse": "2", "text": "While the sun, or the light, or the moon, or the stars, be not darkened, nor the clouds return after the rain:"}, {"verse": "3", "text": "In the day when the keepers of the house shall tremble, and the strong men shall bow themselves, and the grinders cease because they are few, and those that look out of the windows be darkened,"}, {"verse": "4", "text": "And the doors shall be shut in the streets, when the sound of the grinding is low, and he shall rise up at the voice of the bird, and all the daughters of musick shall be brought low;"}, {"verse": "5", "text": "Also when they shall be afraid of that which is high, and fears shall be in the way, and the almond tree shall flourish, and the grasshopper shall be a burden, and desire shall fail: because man goeth to his long home, and the mourners go about the streets:"}, {"verse": "6", "text": "Or ever the silver cord be loosed, or the golden bowl be broken, or the pitcher be broken at the fountain, or the wheel broken at the cistern."}, {"verse": "7", "text": "Then shall the dust return to the earth as it was: and the spirit shall return unto God who gave it."}, {"verse": "8", "text": "Vanity of vanities, saith the preacher; all is vanity."}, {"verse": "9", "text": "And moreover, because the preacher was wise, he still taught the people knowledge; yea, he gave good heed, and sought out, and set in order many proverbs."}, {"verse": "10", "text": "The preacher sought to find out acceptable words: and that which was written was upright, even words of truth."}, {"verse": "11", "text": "The words of the wise are as goads, and as nails fastened by the masters of assemblies, which are given from one shepherd."}, {"verse": "12", "text": "And further, by these, my son, be admonished: of making many books there is no end; and much study is a weariness of the flesh."}, {"verse": "13", "text": "Let us hear the conclusion of the whole matter: Fear God, and keep his commandments: for this is the whole duty of man."}, {"verse": "14", "text": "For God shall bring every work into judgment, with every secret thing, whether it be good, or whether it be evil."}]}]}
+{
+  "book": "Ecclesiastes",
+  "chapters": [
+    {
+      "chapter": "1",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "The words[H1697] of the Preacher,[H6953] the son[H1121] of David,[H1732] king[H4428] in Jerusalem."
+        },
+        {
+          "verse": "2",
+          "text": "Vanity[H1892] of vanities,[H1892] saith[H559] the Preacher,[H6953] vanity[H1892] of vanities;[H1892] all is vanity."
+        },
+        {
+          "verse": "3",
+          "text": "What profit[H3504] hath a man[H120] of all his labour[H5999] which he taketh[H5998] under the sun?"
+        },
+        {
+          "verse": "4",
+          "text": "One generation[H1755] passeth away,[H1980] and another generation[H1755] cometh:[H935][H935] but the earth[H776] abideth[H5975] for ever."
+        },
+        {
+          "verse": "5",
+          "text": "The sun[H8121] also ariseth,[H2224] and the sun[H8121] goeth down,[H935] and hasteth[H7602] to his place[H4725] where he arose."
+        },
+        {
+          "verse": "6",
+          "text": "The wind[H7307] goeth[H1980] toward the south,[H1864] and turneth about[H5437] unto the north;[H6828] it whirleth about continually,[H1980] and the wind[H7307] returneth again[H7725] according to his circuits."
+        },
+        {
+          "verse": "7",
+          "text": "All the rivers[H5158] run[H1980] into the sea;[H3220] yet the sea[H3220] is not full;[H4392] unto the place[H4725] from whence the rivers[H5158] come,[H1980] thither they return[H7725] again."
+        },
+        {
+          "verse": "8",
+          "text": "All things[H1697] are full of labour;[H3023] man[H376] cannot[H3201] utter[H1696] it: the eye[H5869] is not satisfied[H7646] with seeing,[H7200] nor the ear[H241] filled[H4390] with hearing."
+        },
+        {
+          "verse": "9",
+          "text": "The thing that hath been, it is that which shall be; and that which is done[H6213] is that which shall be done:[H6213] and there is no new[H2319] thing under the sun."
+        },
+        {
+          "verse": "10",
+          "text": "Is there[H3426] any thing[H1697] whereof it may be said,[H559] See,[H7200] this is new?[H2319] it hath been already[H3528] of old time,[H5769] which was before"
+        },
+        {
+          "verse": "11",
+          "text": "There is no remembrance[H2146] of former[H7223] things; neither shall there be any remembrance[H2146] of things that are to come[H314] with those that shall come after."
+        },
+        {
+          "verse": "12",
+          "text": "I the Preacher[H6953] was king[H4428] over Israel[H3478] in Jerusalem."
+        },
+        {
+          "verse": "13",
+          "text": "And I gave[H5414] my heart[H3820] to seek[H1875] and search out[H8446] by wisdom[H2451] concerning all things that are done[H6213] under heaven:[H8064] this sore[H7451] travail[H6045] hath God[H430] given[H5414] to the sons[H1121] of man[H120] to be exercised"
+        },
+        {
+          "verse": "14",
+          "text": "I have seen[H7200] all the works[H4639] that are done[H6213] under the sun;[H8121] and, behold, all is vanity[H1892] and vexation[H7469] of spirit."
+        },
+        {
+          "verse": "15",
+          "text": "That which is crooked[H5791] cannot[H3201] be made straight:[H8626] and that which is wanting[H2642] cannot[H3201] be numbered."
+        },
+        {
+          "verse": "16",
+          "text": "I communed[H1696] with mine own heart,[H3820] saying,[H559] Lo, I am come to great estate,[H1431] and have gotten[H3254] more wisdom[H2451] than all they that have been before[H6440] me in Jerusalem:[H3389] yea, my heart[H3820] had great[H7235] experience[H7200] of wisdom[H2451] and knowledge."
+        },
+        {
+          "verse": "17",
+          "text": "And I gave[H5414] my heart[H3820] to know[H3045] wisdom,[H2451] and to know[H3045] madness[H1947] and folly:[H5531] I perceived[H3045] that this[H1571] also is vexation[H7475] of spirit."
+        },
+        {
+          "verse": "18",
+          "text": "For in much[H7230] wisdom[H2451] is much[H7230] grief:[H3708] and he that increaseth[H3254] knowledge[H1847] increaseth[H3254] sorrow."
+        }
+      ]
+    },
+    {
+      "chapter": "2",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "I said[H559] in mine heart,[H3820] Go to now,[H3212] I will prove[H5254] thee with mirth,[H8057] therefore enjoy[H7200] pleasure:[H2896] and, behold, this also is vanity."
+        },
+        {
+          "verse": "2",
+          "text": "I said[H559] of laughter,[H7814] It is mad:[H1984] and of mirth,[H8057] What[H2090] doeth"
+        },
+        {
+          "verse": "3",
+          "text": "I sought[H8446] in mine heart[H3820] to give[H4900] myself[H1320] unto wine,[H3196] yet acquainting[H5090] mine heart[H3820] with wisdom;[H2451] and to lay hold[H270] on folly,[H5531] till I might see[H7200] what was that good[H2896] for the sons[H1121] of men,[H120] which they should do[H6213] under the heaven[H8064] all[H4557] the days[H3117] of their life."
+        },
+        {
+          "verse": "4",
+          "text": "I made me great[H1431] works;[H4639] I builded[H1129] me houses;[H1004] I planted[H5193] me vineyards:"
+        },
+        {
+          "verse": "5",
+          "text": "I made[H6213] me gardens[H1593] and orchards,[H6508] and I planted[H5193] trees[H6086] in them of all kind of fruits:"
+        },
+        {
+          "verse": "6",
+          "text": "I made[H6213] me pools[H1295] of water,[H4325] to water[H8248] therewith the wood[H3293] that bringeth forth[H6779] trees:"
+        },
+        {
+          "verse": "7",
+          "text": "I got[H7069] me servants[H5650] and maidens,[H8198] and had servants born[H1121] in my house;[H1004] also I had great[H7235] possessions[H4735] of great[H1241] and small cattle[H6629] above all that were in Jerusalem[H3389] before"
+        },
+        {
+          "verse": "8",
+          "text": "I gathered[H3664] me also silver[H3701] and gold,[H2091] and the peculiar treasure[H5459] of kings[H4428] and of the provinces:[H4082] I gat[H6213] me men singers[H7891] and women singers,[H7891] and the delights[H8588] of the sons[H1121] of men,[H120] as musical instruments,[H7705]"
+        },
+        {
+          "verse": "9",
+          "text": "So I was great,[H1431] and increased[H3254] more than all that were before[H6440] me in Jerusalem:[H3389] also my wisdom[H2451] remained"
+        },
+        {
+          "verse": "10",
+          "text": "And whatsoever mine eyes[H5869] desired[H7592] I kept[H680] not from them, I withheld[H4513] not my heart[H3820] from any joy;[H8057] for my heart[H3820] rejoiced[H8056] in all my labour:[H5999] and this was my portion[H2506] of all my labour."
+        },
+        {
+          "verse": "11",
+          "text": "Then I looked[H6437] on all the works[H4639] that my hands[H3027] had wrought,[H6213] and on the labour[H5999] that I had laboured[H5998] to do:[H6213] and, behold, all was vanity[H1892] and vexation[H7469] of spirit,[H7307] and there was no profit[H3504] under the sun."
+        },
+        {
+          "verse": "12",
+          "text": "And I turned[H6437] myself to behold[H7200] wisdom,[H2451] and madness,[H1947] and folly:[H5531] for what can the man[H120] do that cometh[H935] after[H310] the king?[H4428] even that which hath been already[H3528] done."
+        },
+        {
+          "verse": "13",
+          "text": "Then I saw[H7200] that[H3426] wisdom[H2451] excelleth[H3504] folly,[H5531] as far as light[H216] excelleth[H3504] darkness."
+        },
+        {
+          "verse": "14",
+          "text": "The wise man's[H2450] eyes[H5869] are in his head;[H7218] but the fool[H3684] walketh[H1980] in darkness:[H2822] and I myself perceived[H3045] also that one[H259] event[H4745] happeneth"
+        },
+        {
+          "verse": "15",
+          "text": "Then[H227] said[H559] I in my heart,[H3820] As it happeneth[H4745] to the fool,[H3684] so it happeneth[H7136] even to me;[H1571] and why was I then more[H3148] wise?[H2449] Then I said[H1696] in my heart,[H3820] that this also is vanity."
+        },
+        {
+          "verse": "16",
+          "text": "For there is no remembrance[H2146] of the wise[H2450] more than[H5973] of the fool[H3684] for ever;[H5769] seeing that which now[H3528] is in the days[H3117] to come[H935] shall all be forgotten.[H7911] And how dieth[H4191] the wise[H2450] man? as the fool."
+        },
+        {
+          "verse": "17",
+          "text": "Therefore I hated[H8130] life;[H2416] because the work[H4639] that is wrought[H6213] under the sun[H8121] is grievous[H7451] unto me: for all is vanity[H1892] and vexation[H7469] of spirit."
+        },
+        {
+          "verse": "18",
+          "text": "Yea, I hated[H8130] all my labour[H5999] which I had taken[H6001] under the sun:[H8121] because I should leave[H3240] it unto the man[H120] that shall be after"
+        },
+        {
+          "verse": "19",
+          "text": "And who knoweth[H3045] whether he shall be a wise[H2450] man or a fool?[H5530] yet shall he have rule[H7980] over all my labour[H5999] wherein I have laboured,[H5998] and wherein I have shewed myself wise[H2449] under the sun.[H8121] This is also vanity."
+        },
+        {
+          "verse": "20",
+          "text": "Therefore I went about[H5437] to cause[H2976] my heart[H3820] to despair[H2976] of all the labour[H5999] which I took[H5998] under the sun."
+        },
+        {
+          "verse": "21",
+          "text": "For there is[H3426] a man[H120] whose labour[H5999] is in wisdom,[H2451] and in knowledge,[H1847] and in equity;[H3788] yet to a man[H120] that hath not laboured[H5998] therein shall he leave[H5414] it for his portion.[H2506] This also is vanity[H1892] and a great[H7227] evil."
+        },
+        {
+          "verse": "22",
+          "text": "For what hath[H1933] man[H120] of all his labour,[H5999] and of the vexation[H7475] of his heart,[H3820] wherein[H1931] he hath laboured[H6001] under the sun?"
+        },
+        {
+          "verse": "23",
+          "text": "For all his days[H3117] are sorrows,[H4341] and his travail[H6045] grief;[H3708] yea, his heart[H3820] taketh not rest[H7901] in the night.[H3915] This is also vanity."
+        },
+        {
+          "verse": "24",
+          "text": "There is nothing better[H2896] for a man,[H120] than that he should eat[H398] and drink,[H8354] and that he should make his soul[H5315] enjoy[H7200] good[H2896] in his labour.[H5999] This[H2090] also I saw,[H7200] that it was from the hand[H3027] of God."
+        },
+        {
+          "verse": "25",
+          "text": "For who can eat,[H398] or who else can hasten[H2363] hereunto, more"
+        },
+        {
+          "verse": "26",
+          "text": "For God giveth[H5414] to a man[H120] that is good[H2896] in his sight[H6440] wisdom,[H2451] and knowledge,[H1847] and joy:[H8057] but to the sinner[H2398] he giveth[H5414] travail,[H6045] to gather[H622] and to heap up,[H3664] that he may give[H5414] to him that is good[H2896] before[H6440] God.[H430] This also is vanity[H1892] and vexation[H7469] of spirit."
+        }
+      ]
+    },
+    {
+      "chapter": "3",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "To every thing there is a season,[H2165] and a time[H6256] to every purpose[H2656] under the heaven:"
+        },
+        {
+          "verse": "2",
+          "text": "A time[H6256] to be born,[H3205] and a time[H6256] to die;[H4191] a time[H6256] to plant,[H5193] and a time[H6256] to pluck up[H6131] that which is planted;"
+        },
+        {
+          "verse": "3",
+          "text": "A time[H6256] to kill,[H2026] and a time[H6256] to heal;[H7495] a time[H6256] to break down,[H6555] and a time[H6256] to build up;"
+        },
+        {
+          "verse": "4",
+          "text": "A time[H6256] to weep,[H1058] and a time[H6256] to laugh;[H7832] a time[H6256] to mourn,[H5594] and a time[H6256] to dance;"
+        },
+        {
+          "verse": "5",
+          "text": "A time[H6256] to cast away[H7993] stones,[H68] and a time[H6256] to gather[H3664] stones[H68] together;[H3664] a time[H6256] to embrace,[H2263] and a time[H6256] to refrain[H7368] from embracing;"
+        },
+        {
+          "verse": "6",
+          "text": "A time[H6256] to get,[H1245] and a time[H6256] to lose;[H6] a time[H6256] to keep,[H8104] and a time[H6256] to cast away;"
+        },
+        {
+          "verse": "7",
+          "text": "A time[H6256] to rend,[H7167] and a time[H6256] to sew;[H8609] a time[H6256] to keep silence,[H2814] and a time[H6256] to speak;"
+        },
+        {
+          "verse": "8",
+          "text": "A time[H6256] to love,[H157] and a time[H6256] to hate;[H8130] a time[H6256] of war,[H4421] and a time[H6256] of peace."
+        },
+        {
+          "verse": "9",
+          "text": "What profit[H3504] hath he that worketh[H6213] in that wherein[H834] he laboureth?"
+        },
+        {
+          "verse": "10",
+          "text": "I have seen[H7200] the travail,[H6045] which God[H430] hath given[H5414] to the sons[H1121] of men[H120] to be exercised"
+        },
+        {
+          "verse": "11",
+          "text": "He hath made[H6213] every thing beautiful[H3303] in his time:[H6256] also he hath set[H5414] the world[H5769] in their heart,[H3820] so that[H1097] no man[H120] can find out[H4672] the work[H4639] that God[H430] maketh[H6213] from the beginning[H7218] to the end."
+        },
+        {
+          "verse": "12",
+          "text": "I know[H3045] that there is no good[H2896] in them, but for a man to rejoice,[H8055] and to do[H6213] good[H2896] in his life."
+        },
+        {
+          "verse": "13",
+          "text": "And also that every man[H120] should eat[H398] and drink,[H8354] and enjoy[H7200] the good[H2896] of all his labour,[H5999] it is the gift[H4991] of God."
+        },
+        {
+          "verse": "14",
+          "text": "I know[H3045] that, whatsoever God[H430] doeth,[H6213] it shall be for ever:[H5769] nothing[H369] can be put[H3254] to it, nor any thing taken[H1639] from it: and God[H430] doeth[H6213] it, that men should fear[H3372] before"
+        },
+        {
+          "verse": "15",
+          "text": "That which hath been is now;[H3528] and that which is to be hath already[H3528] been; and God[H430] requireth[H1245] that which is past."
+        },
+        {
+          "verse": "16",
+          "text": "And moreover I saw[H7200] under the sun[H8121] the place[H4725] of judgment,[H4941] that wickedness[H7562] was there; and the place[H4725] of righteousness,[H6664] that iniquity"
+        },
+        {
+          "verse": "17",
+          "text": "I said[H559] in mine heart,[H3820] God[H430] shall judge[H8199] the righteous[H6662] and the wicked:[H7563] for there is a time[H6256] there for every purpose[H2656] and for every work."
+        },
+        {
+          "verse": "18",
+          "text": "I said[H559] in mine heart[H3820] concerning the estate[H1700] of the sons[H1121] of men,[H120] that God[H430] might manifest[H1305] them, and that they might see[H7200] that they[H1992] themselves are beasts."
+        },
+        {
+          "verse": "19",
+          "text": "For that which befalleth[H4745] the sons[H1121] of men[H120] befalleth[H4745] beasts;[H929] even one thing[H259] befalleth[H4745] them: as the one dieth,[H4194] so dieth[H4194] the other;[H2088] yea, they have all one[H259] breath;[H7307] so that a man[H120] hath no preeminence[H4195] above a beast:[H929] for all is vanity."
+        },
+        {
+          "verse": "20",
+          "text": "All go[H1980] unto one[H259] place;[H4725] all are of the dust,[H6083] and all turn[H7725] to dust[H6083] again."
+        },
+        {
+          "verse": "21",
+          "text": "Who knoweth[H3045] the spirit[H7307] of man[H1121][H120] that goeth[H5927] upward,[H4605] and the spirit[H7307] of the beast[H929] that goeth[H3381] downward[H4295] to the earth?"
+        },
+        {
+          "verse": "22",
+          "text": "Wherefore I perceive[H7200] that there is nothing better,[H2896] than that a man[H120] should rejoice[H8055] in his own works;[H4639] for that is his portion:[H2506] for who shall bring[H935] him to see[H7200] what shall be after"
+        }
+      ]
+    },
+    {
+      "chapter": "4",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "So I returned,[H7725] and considered[H7200] all the oppressions[H6217] that are done[H6213] under the sun:[H8121] and behold the tears[H1832] of such as were oppressed,[H6231] and they had no comforter;[H5162] and on the side[H3027] of their oppressors[H6231] there was power;[H3581] but they had no comforter."
+        },
+        {
+          "verse": "2",
+          "text": "Wherefore I praised[H7623] the dead[H4191] which are already[H3528] dead[H4191] more than the living[H2416] which are yet[H5728] alive."
+        },
+        {
+          "verse": "3",
+          "text": "Yea, better[H2896] is he than both[H8147] they, which hath not yet[H5728] been, who hath not seen[H7200] the evil[H7451] work[H4639] that is done[H6213] under the sun."
+        },
+        {
+          "verse": "4",
+          "text": "Again, I considered[H7200] all travail,[H5999] and every right[H3788] work,[H4639] that for this a man[H376] is envied[H7068] of his neighbour.[H7453] This is also vanity[H1892] and vexation[H7469] of spirit."
+        },
+        {
+          "verse": "5",
+          "text": "The fool[H3684] foldeth[H2263] his hands[H3027] together,[H2263] and eateth[H398] his own flesh."
+        },
+        {
+          "verse": "6",
+          "text": "Better[H2896] is an handful[H3709] with quietness,[H5183] than both the hands[H2651] full[H4393] with travail[H5999] and vexation[H7469] of spirit."
+        },
+        {
+          "verse": "7",
+          "text": "Then I returned,[H7725] and I saw[H7200] vanity[H1892] under the sun."
+        },
+        {
+          "verse": "8",
+          "text": "There is[H3426] one[H259] alone, and there is not a second;[H8145] yea, he hath neither child[H1121] nor brother:[H251] yet is there no end[H7093] of all his labour;[H5999] neither is his eye[H5869] satisfied[H7646] with riches;[H6239] neither saith he, For whom do I labour,[H6001] and bereave[H2637] my soul[H5315] of good?[H2896] This is also vanity,[H1892] yea, it is a sore[H7451] travail."
+        },
+        {
+          "verse": "9",
+          "text": "Two[H8147] are better[H2896] than one;[H259] because they have[H3426] a good[H2896] reward[H7939] for their labour."
+        },
+        {
+          "verse": "10",
+          "text": "For if they fall,[H5307] the one[H259] will lift up[H6965] his fellow:[H2270] but woe[H337] to him that is alone[H259] when he falleth;[H5307] for he hath not another[H8145] to help him up."
+        },
+        {
+          "verse": "11",
+          "text": "Again,[H1571] if two[H8147] lie together,[H7901] then they have heat:[H2552] but how can one[H259] be warm"
+        },
+        {
+          "verse": "12",
+          "text": "And if one[H259] prevail[H8630] against him, two[H8147] shall withstand[H5975] him; and a threefold[H8027] cord[H2339] is not quickly[H4120] broken."
+        },
+        {
+          "verse": "13",
+          "text": "Better[H2896] is a poor[H4542] and a wise[H2450] child[H3206] than an old[H2205] and foolish[H3684] king,[H4428] who will[H3045] no more be admonished."
+        },
+        {
+          "verse": "14",
+          "text": "For out of prison[H631][H1004] he cometh[H3318] to reign;[H4427] whereas also he that is born[H3205] in his kingdom[H4438] becometh poor."
+        },
+        {
+          "verse": "15",
+          "text": "I considered[H7200] all the living[H2416] which walk[H1980] under the sun,[H8121] with the second[H8145] child[H3206] that shall stand up"
+        },
+        {
+          "verse": "16",
+          "text": "There is no end[H7093] of all the people,[H5971] even of all that have been before[H6440] them: they also that come after[H314] shall not rejoice[H8055] in him. Surely this also is vanity[H1892] and vexation[H7475] of spirit."
+        }
+      ]
+    },
+    {
+      "chapter": "5",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Keep[H8104] thy foot[H7272] when thou goest[H3212] to the house[H1004] of God,[H430] and be more ready[H7138] to hear,[H8085] than to give[H5414] the sacrifice[H2077] of fools:[H3684] for they consider[H3045] not that they do[H6213] evil."
+        },
+        {
+          "verse": "2",
+          "text": "Be not rash[H926] with thy mouth,[H6310] and let not thine heart[H3820] be hasty[H4116] to utter[H3318] any thing[H1697] before[H6440] God:[H430] for God[H430] is in heaven,[H8064] and thou upon earth:[H776] therefore let thy words[H1697] be few."
+        },
+        {
+          "verse": "3",
+          "text": "For a dream[H2472] cometh[H935] through the multitude[H7230] of business;[H6045] and a fool's[H3684] voice[H6963] is known by multitude[H7230] of words."
+        },
+        {
+          "verse": "4",
+          "text": "When thou vowest[H5087] a vow[H5088] unto God,[H430] defer[H309] not to pay[H7999] it; for he hath no pleasure[H2656] in fools:[H3684] pay[H7999] that which thou hast vowed."
+        },
+        {
+          "verse": "5",
+          "text": "Better[H2896] is it that thou shouldest not vow,[H5087] than that thou shouldest vow[H5087] and not pay."
+        },
+        {
+          "verse": "6",
+          "text": "Suffer[H5414] not thy mouth[H6310] to cause thy flesh[H1320] to sin;[H2398] neither say[H559] thou before[H6440] the angel,[H4397] that it was an error:[H7684] wherefore should God[H430] be angry[H7107] at thy voice,[H6963] and destroy[H2254] the work[H4639] of thine hands?"
+        },
+        {
+          "verse": "7",
+          "text": "For in the multitude[H7230] of dreams[H2472] and many[H7235] words[H1697] there are also divers vanities:[H1892] but fear[H3372] thou God."
+        },
+        {
+          "verse": "8",
+          "text": "If thou seest[H7200] the oppression[H6233] of the poor,[H7326] and violent[H1499] perverting of judgment[H4941] and justice[H6664] in a province,[H4082] marvel[H8539] not at the matter:[H2656] for he that is higher[H1364] than the highest[H1364] regardeth;[H8104] and there be higher[H1364] than they."
+        },
+        {
+          "verse": "9",
+          "text": "Moreover the profit[H3504] of the earth[H776] is for all: the king[H4428] himself is served[H5647] by the field."
+        },
+        {
+          "verse": "10",
+          "text": "He that loveth[H157] silver[H3701] shall not be satisfied[H7646] with silver;[H3701] nor he that loveth[H157] abundance[H1995] with increase:[H8393] this is also vanity."
+        },
+        {
+          "verse": "11",
+          "text": "When goods[H2896] increase,[H7235] they are increased[H7231] that eat[H398] them: and what good[H3788] is there to the owners[H1167] thereof, saving[H518] the beholding[H7207][H7212] of them with their eyes?"
+        },
+        {
+          "verse": "12",
+          "text": "The sleep[H8142] of a labouring man[H5647] is sweet,[H4966] whether he eat[H398] little[H4592] or much:[H7235] but the abundance[H7647] of the rich[H6223] will not suffer[H3240] him to sleep."
+        },
+        {
+          "verse": "13",
+          "text": "There is[H3426] a sore[H2470] evil[H7451] which I have seen[H7200] under the sun,[H8121] namely, riches[H6239] kept[H8104] for the owners[H1167] thereof to their hurt."
+        },
+        {
+          "verse": "14",
+          "text": "But those riches[H6239] perish[H6] by evil[H7451] travail:[H6045] and he begetteth[H3205] a son,[H1121] and there is nothing[H3972] in his hand."
+        },
+        {
+          "verse": "15",
+          "text": "As he came forth[H3318] of his mother's[H517] womb,[H990] naked[H6174] shall he return[H7725] to go[H3212] as he came,[H935] and shall take[H5375] nothing[H3972] of his labour,[H5999] which he may carry away[H3212] in his hand."
+        },
+        {
+          "verse": "16",
+          "text": "And this[H2090] also is a sore[H2470] evil,[H7451] that in all points[H5980] as he came,[H935] so shall he go:[H3212] and what profit[H3504] hath he that hath laboured[H5998] for the wind?"
+        },
+        {
+          "verse": "17",
+          "text": "All his days[H3117] also he eateth[H398] in darkness,[H2822] and he hath much[H7235] sorrow[H3707] and wrath[H7110] with his sickness."
+        },
+        {
+          "verse": "18",
+          "text": "Behold that which I have seen:[H7200] it is good[H2896] and comely[H3303] for one to eat[H398] and to drink,[H8354] and to enjoy[H7200] the good[H2896] of all his labour[H5999] that he taketh[H5998] under the sun[H8121] all[H4557] the days[H3117] of his life,[H2416] which God[H430] giveth[H5414] him: for it is his portion."
+        },
+        {
+          "verse": "19",
+          "text": "Every man[H120] also to whom God[H430] hath given[H5414] riches[H6239] and wealth,[H5233] and hath given him power[H7980] to eat[H398] thereof, and to take[H5375] his portion,[H2506] and to rejoice[H8055] in his labour;[H5999] this[H2090] is the gift[H4991] of God."
+        },
+        {
+          "verse": "20",
+          "text": "For he shall not much[H7235] remember[H2142] the days[H3117] of his life;[H2416] because God[H430] answereth[H6031] him in the joy[H8057] of his heart."
+        }
+      ]
+    },
+    {
+      "chapter": "6",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "There is[H3426] an evil[H7451] which I have seen[H7200] under the sun,[H8121] and it is common[H7227] among men:"
+        },
+        {
+          "verse": "2",
+          "text": "A man[H376] to whom God[H430] hath given[H5414] riches,[H6239] wealth,[H5233] and honour,[H3519] so that he wanteth[H2638] nothing for his soul[H5315] of all that he desireth,[H183] yet God[H430] giveth him not power[H7980] to eat[H398] thereof, but a stranger[H376][H5237] eateth[H398] it: this is vanity,[H1892] and it is an evil[H7451] disease."
+        },
+        {
+          "verse": "3",
+          "text": "If a man[H376] beget[H3205] an hundred[H3967] children, and live[H2421] many[H7227] years,[H8141] so that the days[H3117] of his years[H8141] be many,[H7227] and his soul[H5315] be not filled[H7646] with good,[H2896] and also that he have no burial;[H6900] I say,[H559] that an untimely birth[H5309] is better"
+        },
+        {
+          "verse": "4",
+          "text": "For he cometh[H935] in with vanity,[H1892] and departeth[H3212] in darkness,[H2822] and his name[H8034] shall be covered[H3680] with darkness."
+        },
+        {
+          "verse": "5",
+          "text": "Moreover he hath not seen[H7200] the sun,[H8121] nor known[H3045] any thing: this[H2088] hath more rest[H5183] than"
+        },
+        {
+          "verse": "6",
+          "text": "Yea, though[H432] he live[H2421] a thousand[H505] years[H8141] twice[H6471] told, yet hath he seen[H7200] no good:[H2896] do not all go[H1980] to one[H259] place?"
+        },
+        {
+          "verse": "7",
+          "text": "All the labour[H5999] of man[H120] is for his mouth,[H6310] and yet the appetite[H5315] is not filled."
+        },
+        {
+          "verse": "8",
+          "text": "For what hath the wise[H2450] more[H3148] than the fool?[H3684] what hath the poor,[H6041] that knoweth[H3045] to walk[H1980] before the living?"
+        },
+        {
+          "verse": "9",
+          "text": "Better[H2896] is the sight[H4758] of the eyes[H5869] than the wandering[H1980] of the desire:[H5315] this is also vanity[H1892] and vexation[H7469] of spirit."
+        },
+        {
+          "verse": "10",
+          "text": "That which hath been is named[H7121][H8034] already,[H3528] and it is known[H3045] that it is man:[H120] neither may[H3201] he contend[H1777] with him that is mightier"
+        },
+        {
+          "verse": "11",
+          "text": "Seeing there be[H3426] many[H7235] things[H1697] that increase[H7235] vanity,[H1892] what is man[H120] the better?"
+        },
+        {
+          "verse": "12",
+          "text": "For who knoweth[H3045] what is good[H2896] for man[H120] in this life,[H2416] all[H4557] the days[H3117] of his vain[H1892] life[H2416] which he spendeth[H6213] as a shadow?[H6738] for who can tell[H5046] a man[H120] what shall be after[H310] him under the sun?"
+        }
+      ]
+    },
+    {
+      "chapter": "7",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "A good name[H8034] is better[H2896] than precious[H2896] ointment;[H8081] and the day[H3117] of death[H4194] than the day[H3117] of one's birth."
+        },
+        {
+          "verse": "2",
+          "text": "It is better[H2896] to go[H3212] to the house[H1004] of mourning,[H60] than to go[H3212] to the house[H1004] of feasting:[H4960] for[H834] that is the end[H5490] of all men;[H120] and the living[H2416] will lay[H5414] it to his heart."
+        },
+        {
+          "verse": "3",
+          "text": "Sorrow[H3708] is better[H2896] than laughter:[H7814] for by the sadness[H7455] of the countenance[H6440] the heart[H3820] is made better."
+        },
+        {
+          "verse": "4",
+          "text": "The heart[H3820] of the wise[H2450] is in the house[H1004] of mourning;[H60] but the heart[H3820] of fools[H3684] is in the house[H1004] of mirth."
+        },
+        {
+          "verse": "5",
+          "text": "It is better[H2896] to hear[H8085] the rebuke[H1606] of the wise,[H2450] than for a man[H376] to hear[H8085] the song[H7892] of fools."
+        },
+        {
+          "verse": "6",
+          "text": "For as the crackling[H6963] of thorns[H5518] under a pot,[H5518] so is the laughter[H7814] of the fool:[H3684] this also is vanity."
+        },
+        {
+          "verse": "7",
+          "text": "Surely oppression[H6233] maketh a wise man[H2450] mad;[H1984] and a gift[H4979] destroyeth[H6] the heart."
+        },
+        {
+          "verse": "8",
+          "text": "Better[H2896] is the end[H319] of a thing[H1697] than the beginning[H7225] thereof: and the patient[H750] in spirit[H7307] is better[H2896] than the proud[H1362] in spirit."
+        },
+        {
+          "verse": "9",
+          "text": "Be not hasty[H926] in thy spirit[H7307] to be angry:[H3707] for anger[H3708] resteth[H5117] in the bosom[H2436] of fools."
+        },
+        {
+          "verse": "10",
+          "text": "Say[H559] not thou, What is the cause that the former[H7223] days[H3117] were better[H2896] than these? for thou dost not enquire[H7592] wisely"
+        },
+        {
+          "verse": "11",
+          "text": "Wisdom[H2451] is good[H2896] with an inheritance:[H5159] and by it there is profit[H3148] to them that see[H7200] the sun."
+        },
+        {
+          "verse": "12",
+          "text": "For wisdom[H2451] is a defence,[H6738] and money[H3701] is a defence:[H6738] but the excellency[H3504] of knowledge[H1847] is, that wisdom[H2451] giveth life[H2421] to them that have"
+        },
+        {
+          "verse": "13",
+          "text": "Consider[H7200] the work[H4639] of God:[H430] for who can[H3201] make that straight,[H8626] which he hath made crooked?"
+        },
+        {
+          "verse": "14",
+          "text": "In the day[H3117] of prosperity[H2896] be joyful,[H2896] but in the day[H3117] of adversity[H7451] consider:[H7200] God[H430] also hath set[H6213] the one over against[H5980] the other, to the end[H1700] that man[H120] should find[H4672] nothing[H3972] after"
+        },
+        {
+          "verse": "15",
+          "text": "All things have I seen[H7200] in the days[H3117] of my vanity:[H1892] there is[H3426] a just[H6662] man that perisheth[H6] in his righteousness,[H6664] and there is a wicked[H7563] man that prolongeth[H748] his life in his wickedness."
+        },
+        {
+          "verse": "16",
+          "text": "Be not righteous[H6662] over much;[H7235] neither make thyself over[H3148] wise:[H2449] why shouldest thou destroy"
+        },
+        {
+          "verse": "17",
+          "text": "Be not over much[H7235] wicked,[H7561] neither be thou foolish:[H5530] why shouldest thou die[H4191] before thy time?"
+        },
+        {
+          "verse": "18",
+          "text": "It is good[H2896] that thou shouldest take hold[H270] of this; yea, also from this[H2088] withdraw[H3240] not thine hand:[H3027] for he that feareth[H3373] God[H430] shall come forth"
+        },
+        {
+          "verse": "19",
+          "text": "Wisdom[H2451] strengtheneth[H5810] the wise[H2450] more than ten[H6235] mighty[H7989] men which are in the city."
+        },
+        {
+          "verse": "20",
+          "text": "For there is not a just[H6662] man[H120] upon earth,[H776] that doeth[H6213] good,[H2896] and sinneth"
+        },
+        {
+          "verse": "21",
+          "text": "Also take[H5414] no heed[H3820] unto all words[H1697] that are spoken;[H1696] lest thou hear[H8085] thy servant[H5650] curse"
+        },
+        {
+          "verse": "22",
+          "text": "For oftentimes[H6471][H7227] also thine own heart[H3820] knoweth[H3045] that thou thyself likewise hast cursed[H7043] others."
+        },
+        {
+          "verse": "23",
+          "text": "All this[H2090] have I proved[H5254] by wisdom:[H2451] I said,[H559] I will be wise;[H2449] but it was far"
+        },
+        {
+          "verse": "24",
+          "text": "That which is far off,[H7350] and exceeding deep,[H6013] who can find it out?"
+        },
+        {
+          "verse": "25",
+          "text": "I applied[H5437] mine heart[H3820] to know,[H3045] and to search,[H8446] and to seek out[H1245] wisdom,[H2451] and the reason[H2808] of things, and to know[H3045] the wickedness[H7562] of folly,[H3689] even of foolishness[H5531] and madness:"
+        },
+        {
+          "verse": "26",
+          "text": "And I find[H4672] more bitter[H4751] than death[H4194] the woman,[H802] whose heart[H3820] is snares[H4685] and nets,[H2764] and her hands[H3027] as bands:[H612] whoso pleaseth[H2896][H6440] God[H430] shall escape[H4422] from her; but the sinner[H2398] shall be taken"
+        },
+        {
+          "verse": "27",
+          "text": "Behold,[H7200] this have I found,[H4672] saith[H559] the preacher,[H6953] counting one[H259] by one,[H259] to find out[H4672] the account:"
+        },
+        {
+          "verse": "28",
+          "text": "Which yet my soul[H5315] seeketh,[H1245] but I find[H4672] not: one[H259] man[H120] among a thousand[H505] have I found;[H4672] but a woman[H802] among all those have I not found."
+        },
+        {
+          "verse": "29",
+          "text": "Lo,[H7200] this only[H905] have I found,[H4672] that God[H430] hath made[H6213] man[H120] upright;[H3477] but they have sought out[H1245] many[H7227] inventions."
+        }
+      ]
+    },
+    {
+      "chapter": "8",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Who is as the wise[H2450] man? and who knoweth[H3045] the interpretation[H6592] of a thing?[H1697] a man's[H120] wisdom[H2451] maketh his face[H6440] to shine,[H215] and the boldness[H5797] of his face[H6440] shall be changed."
+        },
+        {
+          "verse": "2",
+          "text": "I counsel thee to keep[H8104] the king's[H4428] commandment,[H6310] and that in regard[H1700] of the oath[H7621] of God."
+        },
+        {
+          "verse": "3",
+          "text": "Be not hasty[H926] to go out[H3212] of his sight:[H6440] stand[H5975] not in an evil[H7451] thing;[H1697] for he doeth[H6213] whatsoever pleaseth"
+        },
+        {
+          "verse": "4",
+          "text": "Where the word[H1697] of a king[H4428] is, there is power:[H7983] and who may say[H559] unto him, What doest"
+        },
+        {
+          "verse": "5",
+          "text": "Whoso keepeth[H8104] the commandment[H4687] shall feel[H3045] no evil[H7451] thing:[H1697] and a wise man's[H2450] heart[H3820] discerneth[H3045] both time[H6256] and judgment."
+        },
+        {
+          "verse": "6",
+          "text": "Because to every purpose[H2656] there is[H3426] time[H6256] and judgment,[H4941] therefore the misery[H7451] of man[H120] is great"
+        },
+        {
+          "verse": "7",
+          "text": "For he knoweth[H3045] not that which shall be: for who can tell"
+        },
+        {
+          "verse": "8",
+          "text": "There is no man[H120] that hath power[H7989] over the spirit[H7307] to retain[H3607] the spirit;[H7307] neither hath he power[H7983] in the day[H3117] of death:[H4194] and there is no discharge[H4917] in that war;[H4421] neither shall wickedness[H7562] deliver[H4422] those that are given"
+        },
+        {
+          "verse": "9",
+          "text": "All this have I seen,[H7200] and applied[H5414] my heart[H3820] unto every work[H4639] that is done[H6213] under the sun:[H8121] there is a time[H6256] wherein one man[H120] ruleth[H7980] over another to his own hurt."
+        },
+        {
+          "verse": "10",
+          "text": "And so[H3651] I saw[H7200] the wicked[H7563] buried,[H6912] who had come[H935] and gone[H1980] from the place[H4725] of the holy,[H6918] and they were forgotten[H7911] in the city[H5892] where they had so done:[H6213] this is also vanity."
+        },
+        {
+          "verse": "11",
+          "text": "Because sentence[H6599] against an evil[H7451] work[H4639] is not executed[H6213] speedily,[H4120] therefore the heart[H3820] of the sons[H1121] of men[H120] is fully set[H4390] in them to do[H6213] evil."
+        },
+        {
+          "verse": "12",
+          "text": "Though a sinner[H2398] do[H6213] evil[H7451] an hundred times,[H3967] and his days be prolonged,[H748] yet surely I know[H3045] that it shall be well[H2896] with them that fear[H3373] God,[H430] which fear[H3372] before"
+        },
+        {
+          "verse": "13",
+          "text": "But it shall not be well[H2896] with the wicked,[H7563] neither shall he prolong[H748] his days,[H3117] which are as a shadow;[H6738] because he feareth[H3373] not before[H6440] God."
+        },
+        {
+          "verse": "14",
+          "text": "There is[H3426] a vanity[H1892] which is done[H6213] upon the earth;[H776] that there be just[H6662] men, unto whom it happeneth[H5060] according to the work[H4639] of the wicked;[H7563] again, there be[H3426] wicked[H7563] men, to whom it happeneth[H5060] according to the work[H4639] of the righteous:[H6662] I said[H559] that this also[H1571] is vanity."
+        },
+        {
+          "verse": "15",
+          "text": "Then I commended[H7623] mirth,[H8057] because a man[H120] hath no better thing[H2896] under the sun,[H8121] than to eat,[H398] and to drink,[H8354] and to be merry:[H8055] for that shall abide[H3867] with him of his labour[H5999] the days[H3117] of his life,[H2416] which God[H430] giveth[H5414] him under the sun."
+        },
+        {
+          "verse": "16",
+          "text": "When I applied[H5414] mine heart[H3820] to know[H3045] wisdom,[H2451] and to see[H7200] the business[H6045] that is done[H6213] upon the earth:[H776] (for also there is that neither day[H3117] nor night[H3915] seeth[H7200] sleep[H8142] with his eyes:)"
+        },
+        {
+          "verse": "17",
+          "text": "Then I beheld[H7200] all the work[H4639] of God,[H430] that a man[H120] cannot[H3201] find out[H4672] the work[H4639] that is done[H6213] under the sun:[H8121] because[H834] though[H7945] a man[H120] labour[H5998] to seek it out,[H1245] yet he shall not find[H4672] it; yea further; though a wise[H2450] man think[H559] to know[H3045] it, yet shall he not be able[H3201] to find"
+        }
+      ]
+    },
+    {
+      "chapter": "9",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "For all this I considered[H5414] in my heart[H3820] even to declare[H952] all this, that the righteous,[H6662] and the wise,[H2450] and their works,[H5652] are in the hand[H3027] of God:[H430] no man[H120] knoweth[H3045] either[H1571] love[H160] or hatred[H8135] by all that is before"
+        },
+        {
+          "verse": "2",
+          "text": "All things come alike to all: there is one[H259] event[H4745] to the righteous,[H6662] and to the wicked;[H7563] to the good[H2896] and to the clean,[H2889] and to the unclean;[H2931] to him that sacrificeth,[H2076] and to him that[H834] sacrificeth[H2076] not: as is the good,[H2896] so is the sinner;[H2398] and he that sweareth,[H7650] as he that feareth[H3373] an oath."
+        },
+        {
+          "verse": "3",
+          "text": "This is an evil[H7451] among all things that are done[H6213] under the sun,[H8121] that there is one[H259] event[H4745] unto all: yea, also the heart[H3820] of the sons[H1121] of men[H120] is full[H4390] of evil,[H7451] and madness[H1947] is in their heart[H3824] while they live,[H2416] and after[H310] that they go to the dead."
+        },
+        {
+          "verse": "4",
+          "text": "For[H4310] to him that is[H3426] joined[H2266][H977] to all the living[H2416] there is hope:[H986] for a living[H2416] dog[H3611] is better[H2896] than a dead[H4191] lion."
+        },
+        {
+          "verse": "5",
+          "text": "For the living[H2416] know[H3045] that they shall die:[H4191] but the dead[H4191] know[H3045] not any thing,[H3972] neither have they any more a reward;[H7939] for the memory[H2143] of them is forgotten."
+        },
+        {
+          "verse": "6",
+          "text": "Also their love,[H160] and their hatred,[H8135] and their envy,[H7068] is now[H3528] perished;[H6] neither have they any more a portion[H2506] for ever[H5769] in any thing that is done[H6213] under the sun."
+        },
+        {
+          "verse": "7",
+          "text": "Go thy way,[H3212] eat[H398] thy bread[H3899] with joy,[H8057] and drink[H8354] thy wine[H3196] with a merry[H2896] heart;[H3820] for God[H430] now[H3528] accepteth[H7521] thy works."
+        },
+        {
+          "verse": "8",
+          "text": "Let thy garments[H899] be always[H6256] white;[H3836] and let thy head[H7218] lack[H2637] no ointment."
+        },
+        {
+          "verse": "9",
+          "text": "Live[H2416] joyfully[H7200] with the wife[H802] whom thou lovest[H157] all the days[H3117] of the life[H2416] of thy vanity,[H1892] which he hath given[H5414] thee under the sun,[H8121] all the days[H3117] of thy vanity:[H1892] for that is thy portion[H2506] in this life,[H2416] and in thy labour[H5999] which thou takest[H6001] under the sun."
+        },
+        {
+          "verse": "10",
+          "text": "Whatsoever thy hand[H3027] findeth[H4672] to do,[H6213] do[H6213] it with thy might;[H3581] for there is no work,[H4639] nor device,[H2808] nor knowledge,[H1847] nor wisdom,[H2451] in the grave,[H7585] whither thou goest."
+        },
+        {
+          "verse": "11",
+          "text": "I returned,[H7725] and saw[H7200] under the sun,[H8121] that the race[H4793] is not to the swift,[H7031] nor the battle[H4421] to the strong,[H1368] neither yet bread[H3899] to the wise,[H2450] nor yet riches[H6239] to men of understanding,[H995] nor yet favour[H2580] to men of skill;[H3045] but time[H6256] and chance[H6294] happeneth"
+        },
+        {
+          "verse": "12",
+          "text": "For man[H120] also knoweth[H3045] not his time:[H6256] as the fishes[H1709] that are taken[H270] in an evil[H7451] net,[H4685] and as the birds[H6833] that are caught[H270] in the snare;[H6341] so[H1992] are the sons[H1121] of men[H120] snared[H3369] in an evil[H7451] time,[H6256] when it falleth[H5307] suddenly"
+        },
+        {
+          "verse": "13",
+          "text": "This[H2090] wisdom[H2451] have I seen[H7200] also under the sun,[H8121] and it seemed great"
+        },
+        {
+          "verse": "14",
+          "text": "There was a little[H6996] city,[H5892] and few[H4592] men[H582] within it; and there came[H935] a great[H1419] king[H4428] against it, and besieged[H5437] it, and built[H1129] great[H1419] bulwarks"
+        },
+        {
+          "verse": "15",
+          "text": "Now there was found[H4672] in it a poor[H4542] wise[H2450] man,[H376] and he by his wisdom[H2451] delivered[H4422] the city;[H5892] yet no man[H120] remembered[H2142] that same poor[H4542] man."
+        },
+        {
+          "verse": "16",
+          "text": "Then said[H559] I, Wisdom[H2451] is better[H2896] than strength:[H1369] nevertheless the poor man's[H4542] wisdom[H2451] is despised,[H959] and his words[H1697] are not heard."
+        },
+        {
+          "verse": "17",
+          "text": "The words[H1697] of wise[H2450] men are heard[H8085] in quiet[H5183] more than the cry[H2201] of him that ruleth[H4910] among fools."
+        },
+        {
+          "verse": "18",
+          "text": "Wisdom[H2451] is better[H2896] than weapons[H3627] of war:[H7128] but one[H259] sinner[H2398] destroyeth[H6] much[H7235] good."
+        }
+      ]
+    },
+    {
+      "chapter": "10",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Dead[H4194] flies[H2070] cause the ointment[H8081] of the apothecary[H7543] to send forth[H5042] a stinking savour:[H887] so doth a little[H4592] folly[H5531] him that is in reputation[H3368] for wisdom[H2451] and honour."
+        },
+        {
+          "verse": "2",
+          "text": "A wise man's[H2450] heart[H3820] is at his right hand;[H3225] but a fool's[H3684] heart[H3820] at his left."
+        },
+        {
+          "verse": "3",
+          "text": "Yea also, when he that is a fool[H5530] walketh[H1980] by the way,[H1870] his wisdom[H3820] faileth[H2638] him, and he saith[H559] to every one that he is a fool."
+        },
+        {
+          "verse": "4",
+          "text": "If the spirit[H7307] of the ruler[H4910] rise up[H5927] against thee, leave[H3240] not thy place;[H4725] for yielding[H4832] pacifieth[H3240] great[H1419] offences."
+        },
+        {
+          "verse": "5",
+          "text": "There is[H3426] an evil[H7451] which I have seen[H7200] under the sun,[H8121] as an error[H7684] which proceedeth[H3318] from[H6440] the ruler:"
+        },
+        {
+          "verse": "6",
+          "text": "Folly[H5529] is set[H5414] in great[H7227] dignity,[H4791] and the rich[H6223] sit[H3427] in low place."
+        },
+        {
+          "verse": "7",
+          "text": "I have seen[H7200] servants[H5650] upon horses,[H5483] and princes[H8269] walking[H1980] as servants[H5650] upon the earth."
+        },
+        {
+          "verse": "8",
+          "text": "He that diggeth[H2658] a pit[H1475] shall fall[H5307] into it; and whoso breaketh[H6555] an hedge,[H1447] a serpent[H5175] shall bite"
+        },
+        {
+          "verse": "9",
+          "text": "Whoso removeth[H5265] stones[H68] shall be hurt[H6087] therewith; and he that cleaveth[H1234] wood[H6086] shall be endangered"
+        },
+        {
+          "verse": "10",
+          "text": "If the iron[H1270] be blunt,[H6949] and he do not whet[H7043] the edge,[H6440] then must he put[H1396] to more strength:[H2428] but wisdom[H2451] is profitable[H3504] to direct."
+        },
+        {
+          "verse": "11",
+          "text": "Surely the serpent[H5175] will bite[H5391] without enchantment;[H3908] and a babbler[H3956][H1167] is no better."
+        },
+        {
+          "verse": "12",
+          "text": "The words[H1697] of a wise man's[H2450] mouth[H6310] are gracious;[H2580] but the lips[H8193] of a fool[H3684] will swallow up"
+        },
+        {
+          "verse": "13",
+          "text": "The beginning[H8462] of the words[H1697] of his mouth[H6310] is foolishness:[H5531] and the end[H319] of his talk[H6310] is mischievous[H7451] madness."
+        },
+        {
+          "verse": "14",
+          "text": "A fool[H5530] also is full[H7235] of words:[H1697] a man[H120] cannot tell[H3045] what shall be; and what shall be after[H310] him, who can tell"
+        },
+        {
+          "verse": "15",
+          "text": "The labour[H5999] of the foolish[H3684] wearieth[H3021] every one of them, because he knoweth[H3045] not how to go[H3212] to the city."
+        },
+        {
+          "verse": "16",
+          "text": "Woe[H337] to thee, O land,[H776] when thy king[H4428] is a child,[H5288] and thy princes[H8269] eat[H398] in the morning!"
+        },
+        {
+          "verse": "17",
+          "text": "Blessed[H835] art thou, O land,[H776] when thy king[H4428] is the son[H1121] of nobles,[H2715] and thy princes[H8269] eat[H398] in due season,[H6256] for strength,[H1369] and not for drunkenness!"
+        },
+        {
+          "verse": "18",
+          "text": "By much slothfulness[H6103] the building[H4746] decayeth;[H4355] and through idleness[H8220] of the hands[H3027] the house[H1004] droppeth through."
+        },
+        {
+          "verse": "19",
+          "text": "A feast[H3899] is made[H6213] for laughter,[H7814] and wine[H3196] maketh merry:[H8055][H2416] but money[H3701] answereth"
+        },
+        {
+          "verse": "20",
+          "text": "Curse[H7043] not the king,[H4428] no not in thy thought;[H4093] and curse[H7043] not the rich[H6223] in thy bedchamber:[H2315][H4904] for a bird[H5775] of the air[H8064] shall carry[H3212] the voice,[H6963] and that which hath[H1167] wings[H3671] shall tell[H5046] the matter."
+        }
+      ]
+    },
+    {
+      "chapter": "11",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Cast[H7971] thy bread[H3899] upon[H6440] the waters:[H4325] for thou shalt find[H4672] it after many[H7230] days."
+        },
+        {
+          "verse": "2",
+          "text": "Give[H5414] a portion[H2506] to seven,[H7651] and also to eight;[H8083] for thou knowest[H3045] not what evil[H7451] shall be upon the earth."
+        },
+        {
+          "verse": "3",
+          "text": "If the clouds[H5645] be full[H4390] of rain,[H1653] they empty[H7324] themselves upon the earth:[H776] and if the tree[H6086] fall[H5307] toward the south,[H1864] or toward the north,[H6828] in the place[H4725] where the tree[H6086] falleth,[H5307] there it shall be."
+        },
+        {
+          "verse": "4",
+          "text": "He that observeth[H8104] the wind[H7307] shall not sow;[H2232] and he that regardeth[H7200] the clouds[H5645] shall not reap."
+        },
+        {
+          "verse": "5",
+          "text": "As thou knowest[H3045] not what is the way[H1870] of the spirit,[H7307] nor how the bones[H6106] do grow in the womb[H990] of her that is with child:[H4392] even so thou knowest[H3045] not the works[H4639] of God[H430] who maketh"
+        },
+        {
+          "verse": "6",
+          "text": "In the morning[H1242] sow[H2232] thy seed,[H2233] and in the evening[H6153] withhold[H3240] not thine hand:[H3027] for thou knowest[H3045] not whether[H335] shall prosper,[H3787] either this or that, or whether they both[H8147] shall be alike[H259] good."
+        },
+        {
+          "verse": "7",
+          "text": "Truly the light[H216] is sweet,[H4966] and a pleasant[H2896] thing it is for the eyes[H5869] to behold[H7200] the sun:"
+        },
+        {
+          "verse": "8",
+          "text": "But if a man[H120] live[H2421] many[H7235] years,[H8141] and rejoice[H8055] in them all; yet let him remember[H2142] the days[H3117] of darkness;[H2822] for they shall be many.[H7235] All that cometh[H935] is vanity."
+        },
+        {
+          "verse": "9",
+          "text": "Rejoice,[H8055] O young man,[H970] in thy youth;[H3208] and let thy heart[H3820] cheer[H2895] thee in the days[H3117] of thy youth,[H979] and walk[H1980] in the ways[H1870] of thine heart,[H3820] and in the sight[H4758] of thine eyes:[H5869] but know[H3045] thou, that for all these things God[H430] will bring[H935] thee into judgment."
+        },
+        {
+          "verse": "10",
+          "text": "Therefore remove[H5493] sorrow[H3708] from thy heart,[H3820] and put away[H5674] evil[H7451] from thy flesh:[H1320] for childhood[H3208] and youth[H7839] are vanity."
+        }
+      ]
+    },
+    {
+      "chapter": "12",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Remember[H2142] now thy Creator[H1254] in the days[H3117] of thy youth,[H979] while the evil[H7451] days[H3117] come[H935] not, nor the years[H8141] draw nigh,[H5060] when thou shalt say,[H559] I have no pleasure"
+        },
+        {
+          "verse": "2",
+          "text": "While the sun,[H8121] or the light,[H216] or the moon,[H3394] or the stars,[H3556] be not darkened,[H2821] nor the clouds[H5645] return[H7725] after[H310] the rain:"
+        },
+        {
+          "verse": "3",
+          "text": "In the day[H3117] when the keepers[H8104] of the house[H1004] shall tremble,[H2111] and the strong[H2428] men[H582] shall bow[H5791] themselves, and the grinders[H2912] cease[H988] because they are few,[H4591] and those that look out[H7200] of the windows[H699] be darkened,"
+        },
+        {
+          "verse": "4",
+          "text": "And the doors[H1817] shall be shut[H5462] in the streets,[H7784] when the sound[H6963] of the grinding[H2913] is low,[H8217] and he shall rise up[H6965] at the voice[H6963] of the bird,[H6833] and all the daughters[H1323] of musick[H7892] shall be brought low;"
+        },
+        {
+          "verse": "5",
+          "text": "Also when they shall be afraid[H3372] of that which is high,[H1364] and fears[H2849] shall be in the way,[H1870] and the almond tree[H8247] shall flourish,[H5006] and the grasshopper[H2284] shall be a burden,[H5445] and desire[H35] shall fail:[H6565] because man[H120] goeth[H1980] to his long[H5769] home,[H1004] and the mourners[H5594] go about[H5437] the streets:"
+        },
+        {
+          "verse": "6",
+          "text": "Or ever[H3808] the silver[H3701] cord[H2256] be loosed,[H7576][H7368] or the golden[H2091] bowl[H1543] be broken,[H7533] or the pitcher[H3537] be broken[H7665] at the fountain,[H4002] or the wheel[H1534] broken[H7533] at the cistern."
+        },
+        {
+          "verse": "7",
+          "text": "Then shall the dust[H6083] return[H7725] to the earth[H776] as it was: and the spirit[H7307] shall return[H7725] unto God[H430] who gave"
+        },
+        {
+          "verse": "8",
+          "text": "Vanity[H1892] of vanities,[H1892] saith[H559] the preacher;[H6953] all is vanity."
+        },
+        {
+          "verse": "9",
+          "text": "And moreover,[H3148] because the preacher[H6953] was wise,[H2450] he still taught[H3925] the people[H5971] knowledge;[H1847] yea, he gave good heed,[H239] and sought out,[H2713] and set in order[H8626] many[H7235] proverbs."
+        },
+        {
+          "verse": "10",
+          "text": "The preacher[H6953] sought[H1245] to find out[H4672] acceptable[H2656] words:[H1697] and that which was written[H3789] was upright,[H3476] even words[H1697] of truth."
+        },
+        {
+          "verse": "11",
+          "text": "The words[H1697] of the wise[H2450] are as goads,[H1861] and as nails[H4930] fastened[H5193] by the masters[H1167] of assemblies,[H627] which are given[H5414] from one[H259] shepherd."
+        },
+        {
+          "verse": "12",
+          "text": "And further,[H3148] by these,[H1992] my son,[H1121] be admonished:[H2094] of making[H6213] many[H7235] books[H5612] there is no end;[H7093] and much[H7235] study[H3854] is a weariness[H3024] of the flesh."
+        },
+        {
+          "verse": "13",
+          "text": "Let us hear[H8085] the conclusion[H5490] of the whole matter:[H1697] Fear[H3372] God,[H430] and keep[H8104] his commandments:[H4687] for this is the whole duty of man."
+        },
+        {
+          "verse": "14",
+          "text": "For God[H430] shall bring[H935] every work[H4639] into judgment,[H4941] with every secret thing,[H5956] whether it be good,[H2896] or whether it be evil."
+        }
+      ]
+    }
+  ]
+}

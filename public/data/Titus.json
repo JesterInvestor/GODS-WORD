@@ -1,1 +1,204 @@
-{"book": "Titus","chapters": [{"chapter": "1", "verses": [{"verse": "1", "text": "Paul, a servant of God, and an apostle of Jesus Christ, according to the faith of God\u2019s elect, and the acknowledging of the truth which is after godliness;"}, {"verse": "2", "text": "In hope of eternal life, which God, that cannot lie, promised before the world began;"}, {"verse": "3", "text": "But hath in due times manifested his word through preaching, which is committed unto me according to the commandment of God our Saviour;"}, {"verse": "4", "text": "To Titus, mine own son after the common faith: Grace, mercy, and peace, from God the Father and the Lord Jesus Christ our Saviour."}, {"verse": "5", "text": "For this cause left I thee in Crete, that thou shouldest set in order the things that are wanting, and ordain elders in every city, as I had appointed thee:"}, {"verse": "6", "text": "If any be blameless, the husband of one wife, having faithful children not accused of riot or unruly."}, {"verse": "7", "text": "For a bishop must be blameless, as the steward of God; not selfwilled, not soon angry, not given to wine, no striker, not given to filthy lucre;"}, {"verse": "8", "text": "But a lover of hospitality, a lover of good men, sober, just, holy, temperate;"}, {"verse": "9", "text": "Holding fast the faithful word as he hath been taught, that he may be able by sound doctrine both to exhort and to convince the gainsayers."}, {"verse": "10", "text": "For there are many unruly and vain talkers and deceivers, specially they of the circumcision:"}, {"verse": "11", "text": "Whose mouths must be stopped, who subvert whole houses, teaching things which they ought not, for filthy lucre\u2019s sake."}, {"verse": "12", "text": "One of themselves, even a prophet of their own, said, The Cretians are alway liars, evil beasts, slow bellies."}, {"verse": "13", "text": "This witness is true. Wherefore rebuke them sharply, that they may be sound in the faith;"}, {"verse": "14", "text": "Not giving heed to Jewish fables, and commandments of men, that turn from the truth."}, {"verse": "15", "text": "Unto the pure all things are pure: but unto them that are defiled and unbelieving is nothing pure; but even their mind and conscience is defiled."}, {"verse": "16", "text": "They profess that they know God; but in works they deny him, being abominable, and disobedient, and unto every good work reprobate."}]}, {"chapter": "2", "verses": [{"verse": "1", "text": "But speak thou the things which become sound doctrine:"}, {"verse": "2", "text": "That the aged men be sober, grave, temperate, sound in faith, in charity, in patience."}, {"verse": "3", "text": "The aged women likewise, that they be in behaviour as becometh holiness, not false accusers, not given to much wine, teachers of good things;"}, {"verse": "4", "text": "That they may teach the young women to be sober, to love their husbands, to love their children,"}, {"verse": "5", "text": "To be discreet, chaste, keepers at home, good, obedient to their own husbands, that the word of God be not blasphemed."}, {"verse": "6", "text": "Young men likewise exhort to be sober minded."}, {"verse": "7", "text": "In all things shewing thyself a pattern of good works: in doctrine shewing uncorruptness, gravity, sincerity,"}, {"verse": "8", "text": "Sound speech, that cannot be condemned; that he that is of the contrary part may be ashamed, having no evil thing to say of you."}, {"verse": "9", "text": "Exhort servants to be obedient unto their own masters, and to please them well in all things; not answering again;"}, {"verse": "10", "text": "Not purloining, but shewing all good fidelity; that they may adorn the doctrine of God our Saviour in all things."}, {"verse": "11", "text": "For the grace of God that bringeth salvation hath appeared to all men,"}, {"verse": "12", "text": "Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world;"}, {"verse": "13", "text": "Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ;"}, {"verse": "14", "text": "Who gave himself for us, that he might redeem us from all iniquity, and purify unto himself a peculiar people, zealous of good works."}, {"verse": "15", "text": "These things speak, and exhort, and rebuke with all authority. Let no man despise thee."}]}, {"chapter": "3", "verses": [{"verse": "1", "text": "Put them in mind to be subject to principalities and powers, to obey magistrates, to be ready to every good work,"}, {"verse": "2", "text": "To speak evil of no man, to be no brawlers, but gentle, shewing all meekness unto all men."}, {"verse": "3", "text": "For we ourselves also were sometimes foolish, disobedient, deceived, serving divers lusts and pleasures, living in malice and envy, hateful, and hating one another."}, {"verse": "4", "text": "But after that the kindness and love of God our Saviour toward man appeared,"}, {"verse": "5", "text": "Not by works of righteousness which we have done, but according to his mercy he saved us, by the washing of regeneration, and renewing of the Holy Ghost;"}, {"verse": "6", "text": "Which he shed on us abundantly through Jesus Christ our Saviour;"}, {"verse": "7", "text": "That being justified by his grace, we should be made heirs according to the hope of eternal life."}, {"verse": "8", "text": "This is a faithful saying, and these things I will that thou affirm constantly, that they which have believed in God might be careful to maintain good works. These things are good and profitable unto men."}, {"verse": "9", "text": "But avoid foolish questions, and genealogies, and contentions, and strivings about the law; for they are unprofitable and vain."}, {"verse": "10", "text": "A man that is an heretick after the first and second admonition reject;"}, {"verse": "11", "text": "Knowing that he that is such is subverted, and sinneth, being condemned of himself."}, {"verse": "12", "text": "When I shall send Artemas unto thee, or Tychicus, be diligent to come unto me to Nicopolis: for I have determined there to winter."}, {"verse": "13", "text": "Bring Zenas the lawyer and Apollos on their journey diligently, that nothing be wanting unto them."}, {"verse": "14", "text": "And let ours also learn to maintain good works for necessary uses, that they be not unfruitful."}, {"verse": "15", "text": "All that are with me salute thee. Greet them that love us in the faith. Grace be with you all. Amen."}]}]}
+{
+  "book": "Titus",
+  "chapters": [
+    {
+      "chapter": "1",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Paul,[G3972] a servant[G1401] of God,[G2316] and[G1161] an apostle[G652] of Jesus[G2424] Christ,[G5547] according to[G2596] the faith[G4102] of God's[G2316] elect,[G1588] and[G2532] the acknowledging[G1922] of the truth[G225] which[G3588] is after[G2596] godliness;"
+        },
+        {
+          "verse": "2",
+          "text": "In[G1909] hope[G1680] of eternal[G166] life,[G2222] which[G3739] God,[G2316] that cannot lie,[G893] promised[G1861] before[G4253] the world[G166] began;"
+        },
+        {
+          "verse": "3",
+          "text": "But[G1161] hath[G5319] in due[G2398] times[G2540] manifested[G5319] his[G846] word[G3056] through[G1722] preaching,[G2782] which[G3739] is committed[G4100] unto me[G1473] according to[G2596] the commandment[G2003] of God[G2316] our[G2257] Saviour;"
+        },
+        {
+          "verse": "4",
+          "text": "To Titus,[G5103] mine own[G1103] son[G5043] after[G2596] the common[G2839] faith:[G4102] Grace,[G5485] mercy,[G1656] and peace,[G1515] from[G575] God[G2316] the Father[G3962] and[G2532] the Lord[G2962] Jesus[G2424] Christ[G5547] our[G2257] Saviour."
+        },
+        {
+          "verse": "5",
+          "text": "For this[G5127] cause[G5484] left I[G2641] thee[G4571] in[G1722] Crete,[G2914] that[G2443] thou shouldest set in order[G1930] the things that are wanting,[G3007] and[G2532] ordain[G2525] elders[G4245] in every[G2596] city,[G4172] as[G5613] I[G1473] had appointed[G1299] thee:"
+        },
+        {
+          "verse": "6",
+          "text": "If any[G1536] be[G2076] blameless,[G410] the husband[G435] of one[G3391] wife,[G1135] having[G2192] faithful[G4103] children[G5043] not[G3361] accused[G1722][G2724] of riot[G810] or[G2228] unruly."
+        },
+        {
+          "verse": "7",
+          "text": "For[G1063] a bishop[G1985] must[G1163] be[G1511] blameless,[G410] as[G5613] the steward[G3623] of God;[G2316] not[G3361] selfwilled,[G829] not[G3361] soon angry,[G3711] not[G3361] given to wine,[G3943] no[G3361] striker,[G4131] not[G3361] given to filthy lucre;"
+        },
+        {
+          "verse": "8",
+          "text": "But[G235] a lover of hospitality,[G5382] a lover of good men,[G5358] sober,[G4998] just,[G1342] holy,[G3741] temperate;"
+        },
+        {
+          "verse": "9",
+          "text": "Holding fast[G472] the faithful[G4103] word[G3056] as[G2596] he hath been taught,[G1322] that[G2443] he may be[G5600] able[G1415] by[G1722] sound[G5198] doctrine[G1319] both[G2532] to exhort[G3870] and[G2532] to convince[G1651] the gainsayers."
+        },
+        {
+          "verse": "10",
+          "text": "For[G1063] there are[G1526] many[G4183] unruly[G506] and[G2532] vain talkers[G3151] and[G2532] deceivers,[G5423] specially[G3122] they of[G1537] the circumcision:"
+        },
+        {
+          "verse": "11",
+          "text": "Whose[G3739] mouths[G1993] must[G1163] be stopped,[G1993] who[G3748] subvert[G396] whole[G3650] houses,[G3624] teaching[G1321] things which[G3739] they ought[G1163] not,[G3361] for[G5484] filthy[G150] lucre's[G2771] sake."
+        },
+        {
+          "verse": "12",
+          "text": "One[G5100] of[G1537] themselves,[G846] even a prophet[G4396] of their[G846] own,[G2398] said,[G2036] The Cretians[G2912] are alway[G104] liars,[G5583] evil[G2556] beasts,[G2342] slow[G692] bellies."
+        },
+        {
+          "verse": "13",
+          "text": "This[G3778] witness[G3141] is[G2076] true.[G227] Wherefore[G1223][G3739][G156] rebuke[G1651] them[G846] sharply,[G664] that[G2443] they may be sound[G5198] in[G1722] the faith;"
+        },
+        {
+          "verse": "14",
+          "text": "Not[G3361] giving heed[G4337] to Jewish[G2451] fables,[G3454] and[G2532] commandments[G1785] of men,[G444] that turn from[G654] the truth."
+        },
+        {
+          "verse": "15",
+          "text": "Unto the pure[G2513] all things[G3956] are pure:[G3303][G2513] but[G1161] unto them that are defiled[G3392] and[G2532] unbelieving[G571] is nothing[G3762] pure;[G2513] but[G235] even[G2532] their[G846] mind[G3563] and[G2532] conscience[G4893] is defiled."
+        },
+        {
+          "verse": "16",
+          "text": "They profess[G3670] that they know[G1492] God;[G2316] but[G1161] in works[G2041] they deny[G720] him, being[G5607] abominable,[G947] and[G2532] disobedient,[G545] and[G2532] unto[G4314] every[G3956] good[G18] work[G2041] reprobate."
+        }
+      ]
+    },
+    {
+      "chapter": "2",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "But[G1161] speak[G2980] thou[G4771] the things which[G3739] become[G4241] sound[G5198] doctrine:"
+        },
+        {
+          "verse": "2",
+          "text": "That the aged men[G4246] be[G1511] sober,[G3524] grave,[G4586] temperate,[G4998] sound[G5198] in faith,[G4102] in charity,[G26] in patience."
+        },
+        {
+          "verse": "3",
+          "text": "The aged women[G4247] likewise,[G5615] that they be in[G1722] behaviour[G2688] as becometh holiness,[G2412] not[G3361] false accusers,[G1228] not[G3361] given[G1402] to much[G4183] wine,[G3631] teachers of good things;"
+        },
+        {
+          "verse": "4",
+          "text": "That[G2443] they may teach[G4994] the young women[G3501] to be[G1511] sober,[G4994] to love their husbands,[G5362] to love their children,"
+        },
+        {
+          "verse": "5",
+          "text": "To be discreet,[G4998] chaste,[G53] keepers at home,[G3626] good,[G18] obedient[G5293] to their own[G2398] husbands,[G435] that[G3363] the word[G3056] of God[G2316] be[G987] not[G3363] blasphemed."
+        },
+        {
+          "verse": "6",
+          "text": "Young men[G3501] likewise[G5615] exhort[G3870] to be sober minded."
+        },
+        {
+          "verse": "7",
+          "text": "In[G4012] all things[G3956] shewing[G3930] thyself[G4572] a pattern[G5179] of good[G2570] works:[G2041] in[G1722] doctrine[G1319] shewing uncorruptness,[G90] gravity,[G4587] sincerity,"
+        },
+        {
+          "verse": "8",
+          "text": "Sound[G5199] speech,[G3056] that cannot be condemned;[G176] that[G2443] he that is of[G1537] the contrary part[G1727] may be ashamed,[G1788] having[G2192] no[G3367] evil[G5337] thing[G3367] to say[G3004] of[G4012] you."
+        },
+        {
+          "verse": "9",
+          "text": "Exhort servants[G1401] to be obedient[G5293] unto their own[G2398] masters,[G1203] and to[G1511] please them well[G2101] in[G1722] all[G3956] things; not[G3361] answering again;"
+        },
+        {
+          "verse": "10",
+          "text": "Not[G3361] purloining,[G3557] but[G235] shewing[G1731] all[G3956] good[G18] fidelity;[G4102] that[G2443] they may adorn[G2885] the doctrine[G1319] of God[G2316] our[G2257] Saviour[G4990] in[G1722] all things."
+        },
+        {
+          "verse": "11",
+          "text": "For[G1063] the grace[G5485] of God[G2316] that bringeth salvation[G4992] hath appeared[G2014] to all[G3956] men,"
+        },
+        {
+          "verse": "12",
+          "text": "Teaching[G3811] us[G2248] that,[G2443] denying[G720] ungodliness[G763] and[G2532] worldly[G2886] lusts,[G1939] we should live[G2198] soberly,[G4996][G2532] righteously,[G1346] and[G2532] godly,[G2153] in[G1722] this present[G3568] world;"
+        },
+        {
+          "verse": "13",
+          "text": "Looking for[G4327] that blessed[G3107] hope,[G1680] and[G2532] the glorious[G1391] appearing[G2015] of the great[G3173] God[G2316] and[G2532] our[G2257] Saviour[G4990] Jesus[G2424] Christ;"
+        },
+        {
+          "verse": "14",
+          "text": "Who[G3739] gave[G1325] himself[G1438] for[G5228] us,[G2257] that[G2443] he might redeem[G3084] us[G2248] from[G575] all[G3956] iniquity,[G458] and[G2532] purify[G2511] unto himself[G1438] a peculiar[G4041] people,[G2992] zealous[G2207] of good[G2570] works."
+        },
+        {
+          "verse": "15",
+          "text": "These things[G5023] speak,[G2980] and[G2532] exhort,[G3870] and[G2532] rebuke[G1651] with[G3326] all[G3956] authority.[G2003] Let[G4065] no man[G3367] despise[G4065] thee."
+        }
+      ]
+    },
+    {
+      "chapter": "3",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "Put[G5279] them[G846] in mind[G5279] to be subject[G5293] to principalities[G746] and[G2532] powers,[G1849] to obey magistrates,[G3980] to be[G1511] ready[G2092] to[G4314] every[G3956] good[G18] work,"
+        },
+        {
+          "verse": "2",
+          "text": "To speak evil of[G987] no man,[G3367] to be[G1511] no brawlers,[G269] but gentle,[G1933] shewing[G1731] all[G3956] meekness[G4236] unto[G4314] all[G3956] men."
+        },
+        {
+          "verse": "3",
+          "text": "For[G1063] we ourselves[G2249] also[G2532] were[G2258] sometimes[G4218] foolish,[G453] disobedient,[G545] deceived,[G4105] serving[G1398] divers[G4164] lusts[G1939] and[G2532] pleasures,[G2237] living[G1236] in[G1722] malice[G2549] and[G2532] envy,[G5355] hateful,[G4767] and hating[G3404] one another."
+        },
+        {
+          "verse": "4",
+          "text": "But[G1161] after[G3753] that the kindness[G5544] and[G2532] love[G5363] of God[G2316] our[G2257] Saviour[G4990] toward man[G5363] appeared,"
+        },
+        {
+          "verse": "5",
+          "text": "Not[G3756] by[G1537] works[G2041] of[G1722] righteousness[G1343] which[G3739] we[G2249] have done,[G4160] but[G235] according to[G2596] his[G846] mercy[G1656] he saved[G4982] us,[G2248] by[G1223] the washing[G3067] of regeneration,[G3824] and[G2532] renewing[G342] of the Holy[G40] Ghost;"
+        },
+        {
+          "verse": "6",
+          "text": "Which[G3739] he shed[G1632] on[G1909] us[G2248] abundantly[G4146] through[G1223] Jesus[G2424] Christ[G5547] our[G2257] Saviour;"
+        },
+        {
+          "verse": "7",
+          "text": "That[G2443] being justified by[G1344] his[G1565] grace,[G5485] we should be made[G1096] heirs[G2818] according to[G2596] the hope[G1680] of eternal[G166] life."
+        },
+        {
+          "verse": "8",
+          "text": "This is a faithful[G4103] saying,[G3056] and[G2532] these things[G4012][G5130] I will[G1014] that thou[G4571] affirm constantly,[G1226] that[G2443] they which have believed[G4100] in God[G2316] might be careful[G5431] to maintain[G4291] good[G2570] works.[G2041] These things[G5023] are[G2076] good[G2570] and[G2532] profitable[G5624] unto men."
+        },
+        {
+          "verse": "9",
+          "text": "But[G1161] avoid[G4026] foolish[G3474] questions,[G2214] and[G2532] genealogies,[G1076] and[G2532] contentions,[G2054] and[G2532] strivings about[G3163] the law;[G3544] for[G1063] they are[G1526] unprofitable[G512] and[G2532] vain."
+        },
+        {
+          "verse": "10",
+          "text": "A man[G444] that is an heretick[G141] after[G3326] the first[G3391] and[G2532] second[G1208] admonition[G3559] reject;"
+        },
+        {
+          "verse": "11",
+          "text": "Knowing[G1492] that[G3754] he that is such[G5108] is subverted,[G1612] and[G2532] sinneth,[G264] being[G5607] condemned of himself."
+        },
+        {
+          "verse": "12",
+          "text": "When[G3752] I shall send[G3992] Artemas[G734] unto[G4314] thee,[G4571] or[G2228] Tychicus,[G5190] be diligent[G4704] to come[G2064] unto[G4314] me[G3165] to[G1519] Nicopolis:[G3533] for[G1063] I have determined[G2919] there[G1563] to winter."
+        },
+        {
+          "verse": "13",
+          "text": "Bring[G4311] Zenas[G2211] the lawyer[G3544] and[G2532] Apollos[G625] on their journey[G4311] diligently,[G4709] that[G2443] nothing[G3367] be wanting[G3007] unto them."
+        },
+        {
+          "verse": "14",
+          "text": "And[G1161] let[G3129] ours[G2251] also[G2532] learn[G3129] to maintain[G4291] good[G2570] works[G2041] for[G1519] necessary[G316] uses,[G5532] that[G3363] they be[G5600] not[G3363] unfruitful."
+        },
+        {
+          "verse": "15",
+          "text": "All[G3956] that are with[G3326] me[G1700] salute[G782] thee.[G4571] Greet[G782] them that love[G5368] us[G2248] in[G1722] the faith.[G4102] Grace[G5485] be with[G3326] you[G5216] all.[G3956] Amen."
+        }
+      ]
+    }
+  ]
+}
