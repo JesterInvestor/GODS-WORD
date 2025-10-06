@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense, ReactElement } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
@@ -53,102 +53,36 @@ function BibleContent() {
   const currentChapter = bookData?.chapters.find(ch => ch.chapter === String(selectedChapter));
 
   // Function to render text with clickable Strong's words
-  // Maps important theological words to their Strong's references
+  // Parses Strong's numbers embedded in the text like "God[H430]"
   const renderTextWithStrongsLinks = (text: string) => {
-    // Comprehensive mapping of English words to Strong's references
-    const wordToStrongsMap: { [key: string]: string } = {
-      // Hebrew words (Old Testament)
-      'God': 'H430',
-      'LORD': 'H3068',
-      'Spirit': 'H7307',
-      'spirit': 'H7307',
-      'Heaven': 'H8064',
-      'heaven': 'H8064',
-      'Earth': 'H776',
-      'earth': 'H776',
-      'Israel': 'H3478',
-      'Jerusalem': 'H3389',
-      'Moses': 'H4872',
-      'Abraham': 'H85',
-      'David': 'H1732',
-      'prophet': 'H5030',
-      'Prophet': 'H5030',
-      'angel': 'H4397',
-      'Angel': 'H4397',
-      'holy': 'H6944',
-      'Holy': 'H6944',
-      'blessed': 'H1288',
-      'Blessed': 'H1288',
-      'covenant': 'H1285',
-      'Covenant': 'H1285',
-      'mercy': 'H2617',
-      'Mercy': 'H2617',
-      'righteousness': 'H6663',
-      'Righteousness': 'H6663',
-      'righteous': 'H6662',
-      'Righteous': 'H6662',
-      'truth': 'H571',
-      'Truth': 'H571',
-      'faith': 'H530',
-      'Faith': 'H530',
-      'faithful': 'H539',
-      'Faithful': 'H539',
-      'wisdom': 'H2451',
-      'Wisdom': 'H2451',
-      'peace': 'H7965',
-      'Peace': 'H7965',
-      
-      // Greek words (New Testament)
-      'Jesus': 'G2424',
-      'Christ': 'G5547',
-      'love': 'G26',
-      'Love': 'G26',
-      'grace': 'G5485',
-      'Grace': 'G5485',
-      'glory': 'G1391',
-      'Glory': 'G1391',
-      'salvation': 'G4991',
-      'Salvation': 'G4991',
-      'church': 'G1577',
-      'Church': 'G1577',
-      'kingdom': 'G932',
-      'Kingdom': 'G932',
-      'gospel': 'G2098',
-      'Gospel': 'G2098',
-      'apostle': 'G652',
-      'Apostle': 'G652',
-      'disciple': 'G3101',
-      'Disciple': 'G3101',
-      'cross': 'G4716',
-      'Cross': 'G4716',
-      'resurrection': 'G386',
-      'Resurrection': 'G386',
-      'eternal': 'G166',
-      'Eternal': 'G166',
-      'prayer': 'G4335',
-      'Prayer': 'G4335',
-      'hope': 'G1680',
-      'Hope': 'G1680',
-    };
+    // Pattern to match words with Strong's numbers: word[H1234] or word[G1234]
+    // Supports multiple consecutive Strong's numbers like: word[H1234][H5678]
+    const strongsPattern = /(\S+?)(\[(?:H|G)\d+\](?:\[(?:H|G)\d+\])*)|(\S+)|(\s+)/g;
+    const parts: ReactElement[] = [];
+    let match;
+    let index = 0;
 
-    // Create a pattern that matches any of the words
-    const words = Object.keys(wordToStrongsMap);
-    const pattern = new RegExp(`\\b(${words.join('|')})\\b`, 'g');
-    const parts = text.split(pattern);
-    
-    return parts.map((part, index) => {
-      if (wordToStrongsMap[part]) {
+    while ((match = strongsPattern.exec(text)) !== null) {
+      if (match[4]) {
+        // Whitespace
+        parts.push(<span key={`space-${index++}`}>{match[4]}</span>);
+      } else if (match[1] && match[2]) {
+        // Word with Strong's number(s)
+        const word = match[1];
+        const strongsRefs = match[2];
+        // Extract all Strong's numbers from the brackets
+        const refs = strongsRefs.match(/[HG]\d+/g) || [];
+        const primaryRef = refs[0]; // Use the first reference as primary
+
         const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
-          if (!isTouch) {
-            // Clear any existing timeout
+          if (!isTouch && primaryRef) {
             if (hoverTimeoutRef.current) {
               clearTimeout(hoverTimeoutRef.current);
             }
-            // Set a small delay before showing tooltip to avoid flickering
             hoverTimeoutRef.current = setTimeout(() => {
               setHoveredWord({
-                word: part,
-                ref: wordToStrongsMap[part],
+                word,
+                ref: primaryRef,
                 element: e.currentTarget
               });
             }, 200);
@@ -157,14 +91,11 @@ function BibleContent() {
 
         const handleMouseLeave = () => {
           if (!isTouch) {
-            // Clear timeout if mouse leaves before delay completes
             if (hoverTimeoutRef.current) {
               clearTimeout(hoverTimeoutRef.current);
               hoverTimeoutRef.current = null;
             }
-            // Delay hiding to allow moving to tooltip
             setTimeout(() => {
-              // Only close if not hovering over tooltip
               if (tooltipRef.current && !tooltipRef.current.matches(':hover')) {
                 setHoveredWord(null);
               }
@@ -173,48 +104,42 @@ function BibleContent() {
         };
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-          // Allow clicks on all devices (including hybrid touchscreen desktops)
-          console.log('Clicked', part);
-          e.preventDefault();
-          e.stopPropagation();
-          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
-        };
-
-        const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
-          // Mark that a touch started (no action needed)
-          e.stopPropagation();
+          if (primaryRef) {
+            e.preventDefault();
+            e.stopPropagation();
+            setSelectedWord({ word, ref: primaryRef });
+          }
         };
 
         const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
-          // For mobile devices, handle the tap here
-          // preventDefault stops the subsequent click event from firing
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Touch ended', part);
-          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+          if (primaryRef) {
+            e.preventDefault();
+            e.stopPropagation();
+            setSelectedWord({ word, ref: primaryRef });
+          }
         };
 
-        return (
+        parts.push(
           <span
-            key={index}
-            className="text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
+            key={`word-${index++}`}
+            className="text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
-            onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            title={isTouch ? "Tap to see Strong's Concordance" : "Hover to see Strong's Concordance"}
+            title={`${word} (${refs.join(', ')})`}
             style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}
-            tabIndex={0}
-            role="button"
-            aria-label={`View Strong's Concordance for ${part}`}
           >
-            {part}
+            {word}
           </span>
         );
+      } else if (match[3]) {
+        // Regular word without Strong's number
+        parts.push(<span key={`text-${index++}`}>{match[3]}</span>);
       }
-      return <span key={index}>{part}</span>;
-    });
+    }
+
+    return <>{parts}</>;
   };
 
   return (

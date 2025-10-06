@@ -1,1 +1,62 @@
-{"book": "2 John","chapters": [{"chapter": "1", "verses": [{"verse": "1", "text": "The elder unto the elect lady and her children, whom I love in the truth; and not I only, but also all they that have known the truth;"}, {"verse": "2", "text": "For the truth\u2019s sake, which dwelleth in us, and shall be with us for ever."}, {"verse": "3", "text": "Grace be with you, mercy, and peace, from God the Father, and from the Lord Jesus Christ, the Son of the Father, in truth and love."}, {"verse": "4", "text": "I rejoiced greatly that I found of thy children walking in truth, as we have received a commandment from the Father."}, {"verse": "5", "text": "And now I beseech thee, lady, not as though I wrote a new commandment unto thee, but that which we had from the beginning, that we love one another."}, {"verse": "6", "text": "And this is love, that we walk after his commandments. This is the commandment, That, as ye have heard from the beginning, ye should walk in it."}, {"verse": "7", "text": "For many deceivers are entered into the world, who confess not that Jesus Christ is come in the flesh. This is a deceiver and an antichrist."}, {"verse": "8", "text": "Look to yourselves, that we lose not those things which we have wrought, but that we receive a full reward."}, {"verse": "9", "text": "Whosoever transgresseth, and abideth not in the doctrine of Christ, hath not God. He that abideth in the doctrine of Christ, he hath both the Father and the Son."}, {"verse": "10", "text": "If there come any unto you, and bring not this doctrine, receive him not into your house, neither bid him God speed:"}, {"verse": "11", "text": "For he that biddeth him God speed is partaker of his evil deeds."}, {"verse": "12", "text": "Having many things to write unto you, I would not write with paper and ink: but I trust to come unto you, and speak face to face, that our joy may be full."}, {"verse": "13", "text": "The children of thy elect sister greet thee. Amen."}]}]}
+{
+  "book": "2John",
+  "chapters": [
+    {
+      "chapter": "1",
+      "verses": [
+        {
+          "verse": "1",
+          "text": "The elder[G4245] unto the elect[G1588] lady[G2959] and[G2532] her[G846] children,[G5043] whom[G3739] I[G1473] love[G25] in[G1722] the truth;[G225] and[G2532] not[G3756] I[G1473] only,[G3441] but[G235] also[G2532] all[G3956] they that have known[G1097] the truth;[G225]"
+        },
+        {
+          "verse": "2",
+          "text": "For[G1223] the truth's sake,[G225] which[G3588] dwelleth[G3306] in[G1722] us,[G2254] and[G2532] shall be[G2071] with[G3326] us[G2257] for[G1519] ever.[G165]"
+        },
+        {
+          "verse": "3",
+          "text": "Grace[G5485] be[G2071] with[G3326] you,[G5216] mercy,[G1656] and peace,[G1515] from[G3844] God[G2316] the Father,[G3962] and[G2532] from[G3844] the Lord[G2962] Jesus[G2424] Christ,[G5547] the Son[G5207] of the Father,[G3962] in[G1722] truth[G225] and[G2532] love.[G26]"
+        },
+        {
+          "verse": "4",
+          "text": "I rejoiced[G5463] greatly[G3029] that[G3754] I found[G2147] of[G1537] thy[G4675] children[G5043] walking[G4043] in[G1722] truth,[G225] as[G2531] we have received[G2983] a commandment[G1785] from[G3844] the Father.[G3962]"
+        },
+        {
+          "verse": "5",
+          "text": "And[G2532] now[G3568] I beseech[G2065] thee,[G4571] lady,[G2959] not[G3756] as though[G5613] I wrote[G1125][G1125] a new[G2537] commandment[G1785] unto thee,[G4671] but[G235] that which[G3739] we had[G2192] from[G575] the beginning,[G746] that[G2443] we love[G25] one another.[G240]"
+        },
+        {
+          "verse": "6",
+          "text": "And[G2532] this[G3778] is[G2076] love,[G26] that[G2443] we walk[G4043] after[G2596] his[G846] commandments.[G1785] This[G3778] is[G2076] the commandment,[G1785] That,[G2443] as[G2531] ye have heard[G191] from[G575] the beginning,[G746] ye should walk[G4043] in[G1722] it.[G846]"
+        },
+        {
+          "verse": "7",
+          "text": "For[G3754] many[G4183] deceivers[G4108] are entered[G1525] into[G1519] the world,[G2889] who[G3588] confess[G3670] not[G3361] that Jesus[G2424] Christ[G5547] is come[G2064] in[G1722] the flesh.[G4561] This[G3778] is[G2076] a deceiver[G4108] and[G2532] an antichrist.[G500]"
+        },
+        {
+          "verse": "8",
+          "text": "Look[G991] to yourselves,[G1438] that[G3363] ➔ we lose[G622] not[G3363] those things which[G3739] we have wrought,[G2038] but[G235] that we receive[G618] a full[G4134] reward.[G3408]"
+        },
+        {
+          "verse": "9",
+          "text": "Whosoever[G3956] transgresseth,[G3845] and[G2532] abideth[G3306] not[G3361] in[G1722] the doctrine[G1322] of Christ,[G5547] hath[G2192] not[G3756] God.[G2316] He that abideth[G3306] in[G1722] the doctrine[G1322] of Christ,[G5547] he[G3778] hath[G2192] both[G2532] the Father[G3962] and[G2532] the Son.[G5207]"
+        },
+        {
+          "verse": "10",
+          "text": "If[G1536] ➔ there come[G2064] any[G1536][G5100] unto[G4314] you,[G5209] and[G2532] bring[G5342] not[G3756] this[G5026] doctrine,[G1322] receive[G2983] him[G846] not[G3361] into[G1519] your house,[G3614] neither[G2532][G3361] bid[G3004] him[G846] God speed:[G5463]"
+        },
+        {
+          "verse": "11",
+          "text": "For[G1063] he that biddeth[G3004] him[G846] God speed[G5463] is partaker[G2841] of his[G846] evil[G4190] deeds.[G2041]"
+        },
+        {
+          "verse": "12",
+          "text": "Having[G2192] many things[G4183] to write[G1125] unto you,[G5213] I would[G1014] not[G3756] write with[G1223] paper[G5489] and[G2532] ink:[G3188] but[G235] I trust[G1679] to come[G2064] unto[G4314] you,[G5209] and[G2532] speak[G2980] face[G4750] to[G4314] face,[G4750] that[G2443] our[G2257] joy[G5479] may be[G5600] full.[G4137]"
+        },
+        {
+          "verse": "13",
+          "text": "The children[G5043] of thy[G4675] elect[G1588] sister[G79] greet[G782] thee.[G4571] Amen.[G281]"
+        }
+      ]
+    }
+  ]
+}
