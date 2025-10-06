@@ -173,19 +173,22 @@ function BibleContent() {
         };
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-          e.preventDefault();
-          e.stopPropagation();
-          // On touch devices, open full modal
-          // On desktop, also open modal as a fallback/alternative to hover
-          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+          // On touch devices, the touch handler will handle opening the modal
+          // This click handler is only for desktop mouse clicks
+          if (!isTouch) {
+            e.preventDefault();
+            e.stopPropagation();
+            setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+          }
         };
 
         const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
-          // Explicit touch handler for mobile devices
+          // Mark that a touch started (no action needed)
           e.stopPropagation();
         };
 
         const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
+          // For mobile devices, handle the tap here
           e.preventDefault();
           e.stopPropagation();
           setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
