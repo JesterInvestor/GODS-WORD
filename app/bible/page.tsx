@@ -1,9 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
 import StrongsModal from '@/components/StrongsModal';
+import StrongsTooltip from '@/components/StrongsTooltip';
+import { isTouchDevice } from '@/lib/deviceDetection';
 
 export default function BiblePage() {
   const [selectedBook, setSelectedBook] = useState<string>('Genesis');
@@ -12,10 +14,19 @@ export default function BiblePage() {
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
   const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
+  const [hoveredWord, setHoveredWord] = useState<{ word: string; ref: string; element: HTMLElement } | null>(null);
+  const [isTouch, setIsTouch] = useState(false);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     loadBookData(selectedBook);
   }, [selectedBook]);
+
+  useEffect(() => {
+    // Detect if device supports touch
+    setIsTouch(isTouchDevice());
+  }, []);
 
   const loadBookData = async (book: string) => {
     setLoading(true);
@@ -113,12 +124,54 @@ export default function BiblePage() {
     
     return parts.map((part, index) => {
       if (wordToStrongsMap[part]) {
+        const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
+          if (!isTouch) {
+            // Clear any existing timeout
+            if (hoverTimeoutRef.current) {
+              clearTimeout(hoverTimeoutRef.current);
+            }
+            // Set a small delay before showing tooltip to avoid flickering
+            hoverTimeoutRef.current = setTimeout(() => {
+              setHoveredWord({
+                word: part,
+                ref: wordToStrongsMap[part],
+                element: e.currentTarget
+              });
+            }, 200);
+          }
+        };
+
+        const handleMouseLeave = () => {
+          if (!isTouch) {
+            // Clear timeout if mouse leaves before delay completes
+            if (hoverTimeoutRef.current) {
+              clearTimeout(hoverTimeoutRef.current);
+              hoverTimeoutRef.current = null;
+            }
+            // Delay hiding to allow moving to tooltip
+            setTimeout(() => {
+              // Only close if not hovering over tooltip
+              if (tooltipRef.current && !tooltipRef.current.matches(':hover')) {
+                setHoveredWord(null);
+              }
+            }, 100);
+          }
+        };
+
+        const handleClick = () => {
+          // On touch devices, open full modal
+          // On desktop, also open modal as a fallback/alternative to hover
+          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
+        };
+
         return (
           <span
             key={index}
             className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold transition-colors"
-            onClick={() => setSelectedWord({ word: part, ref: wordToStrongsMap[part] })}
-            title="Click to see Strong's Concordance"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
+            title={isTouch ? "Tap to see Strong's Concordance" : "Hover to see Strong's Concordance"}
           >
             {part}
           </span>
@@ -335,7 +388,31 @@ export default function BiblePage() {
         )}
       </div>
 
-      {/* Strong's Concordance Modal */}
+      {/* Strong's Concordance Hover Tooltip (Desktop) */}
+      {hoveredWord && !isTouch && (
+        <div
+          ref={tooltipRef}
+          onMouseEnter={() => {
+            // Keep tooltip open when hovering over it
+            if (hoverTimeoutRef.current) {
+              clearTimeout(hoverTimeoutRef.current);
+            }
+          }}
+          onMouseLeave={() => {
+            // Close tooltip when mouse leaves
+            setHoveredWord(null);
+          }}
+        >
+          <StrongsTooltip
+            word={hoveredWord.word}
+            strongsRef={hoveredWord.ref}
+            anchorElement={hoveredWord.element}
+            onClose={() => setHoveredWord(null)}
+          />
+        </div>
+      )}
+
+      {/* Strong's Concordance Modal (Mobile/Touch) */}
       {selectedWord && (
         <StrongsModal
           word={selectedWord.word}
