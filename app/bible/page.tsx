@@ -194,7 +194,7 @@ function BibleContent() {
         return (
           <span
             key={index}
-            className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold transition-colors active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
+            className="text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
@@ -202,6 +202,9 @@ function BibleContent() {
             onTouchEnd={handleTouchEnd}
             title={isTouch ? "Tap to see Strong's Concordance" : "Hover to see Strong's Concordance"}
             style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}
+            tabIndex={0}
+            role="button"
+            aria-label={`View Strong's Concordance for ${part}`}
           >
             {part}
           </span>
@@ -216,7 +219,7 @@ function BibleContent() {
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="text-blue-600 hover:text-blue-700 font-semibold">
+          <Link href="/" className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all">
             ← Home
           </Link>
           <h1 className="text-xl font-bold text-gray-800 dark:text-white">
@@ -224,7 +227,8 @@ function BibleContent() {
           </h1>
           <button
             onClick={() => setShowTOC(!showTOC)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+            aria-label={showTOC ? 'Close table of contents' : 'Open table of contents'}
           >
             {showTOC ? 'Close' : 'Menu'}
           </button>
@@ -244,13 +248,15 @@ function BibleContent() {
               <div className="mb-4 flex gap-2">
                 <button
                   onClick={() => setTocSection('old')}
-                  className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
+                  className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  aria-label="Jump to Old Testament"
                 >
                   Old Testament
                 </button>
                 <button
                   onClick={() => setTocSection('new')}
-                  className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
+                  className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  aria-label="Jump to New Testament"
                 >
                   New Testament
                 </button>
@@ -271,11 +277,12 @@ function BibleContent() {
                           setSelectedChapter(1);
                           setShowTOC(false);
                         }}
-                        className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${
+                        className={`block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           selectedBook === book
                             ? 'bg-blue-600 text-white font-semibold'
                             : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                         }`}
+                        aria-label={`Select book ${BOOK_NAMES[index]}`}
                       >
                         {BOOK_NAMES[index]}
                       </button>
@@ -298,11 +305,12 @@ function BibleContent() {
                           setSelectedChapter(1);
                           setShowTOC(false);
                         }}
-                        className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${
+                        className={`block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           selectedBook === book
                             ? 'bg-blue-600 text-white font-semibold'
                             : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                         }`}
+                        aria-label={`Select book ${BOOK_NAMES[39 + index]}`}
                       >
                         {BOOK_NAMES[39 + index]}
                       </button>
@@ -325,11 +333,13 @@ function BibleContent() {
                 <button
                   key={ch.chapter}
                   onClick={() => setSelectedChapter(Number(ch.chapter))}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold ${
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     selectedChapter === Number(ch.chapter)
                       ? 'text-blue-600 dark:text-blue-400'
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                   }`}
+                  aria-label={`Go to chapter ${ch.chapter}`}
+                  aria-current={selectedChapter === Number(ch.chapter) ? 'true' : 'false'}
                 >
                   {ch.chapter}
                 </button>
@@ -388,7 +398,8 @@ function BibleContent() {
                 }
               }}
               disabled={selectedBook === BOOKS[0] && selectedChapter === 1}
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold"
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              aria-label="Go to previous chapter"
             >
               ← Previous
             </button>
@@ -407,7 +418,8 @@ function BibleContent() {
                 }
               }}
               disabled={selectedBook === BOOKS[BOOKS.length - 1] && bookData && selectedChapter === bookData.chapters.length}
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold"
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              aria-label="Go to next chapter"
             >
               Next →
             </button>
