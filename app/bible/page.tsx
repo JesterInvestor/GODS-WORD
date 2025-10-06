@@ -173,13 +173,11 @@ function BibleContent() {
         };
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-          // On touch devices, the touch handler will handle opening the modal
-          // This click handler is only for desktop mouse clicks
-          if (!isTouch) {
-            e.preventDefault();
-            e.stopPropagation();
-            setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
-          }
+          // Allow clicks on all devices (including hybrid touchscreen desktops)
+          console.log('Clicked', part);
+          e.preventDefault();
+          e.stopPropagation();
+          setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
         };
 
         const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
@@ -189,8 +187,10 @@ function BibleContent() {
 
         const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
           // For mobile devices, handle the tap here
+          // preventDefault stops the subsequent click event from firing
           e.preventDefault();
           e.stopPropagation();
+          console.log('Touch ended', part);
           setSelectedWord({ word: part, ref: wordToStrongsMap[part] });
         };
 
