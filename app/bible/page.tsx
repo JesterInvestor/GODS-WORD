@@ -19,6 +19,7 @@ function BibleContent() {
   const [bookData, setBookData] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
+  const [tocSection, setTocSection] = useState<'all' | 'old' | 'new'>('all');
   const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
   const [hoveredWord, setHoveredWord] = useState<{ word: string; ref: string; element: HTMLElement } | null>(null);
   const [isTouch, setIsTouch] = useState(false);
@@ -226,76 +227,79 @@ function BibleContent() {
               {/* Quick Navigation */}
               <div className="mb-4 flex gap-2">
                 <button
-                  onClick={() => {
-                    const element = document.getElementById('old-testament-section');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => setTocSection('old')}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
                 >
                   Old Testament
                 </button>
                 <button
-                  onClick={() => {
-                    const element = document.getElementById('new-testament-section');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => setTocSection('new')}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold"
                 >
                   New Testament
                 </button>
+                <button
+                  onClick={() => setTocSection('all')}
+                  className="flex-1 bg-gray-100 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 px-3 py-2 rounded-lg text-xs font-semibold"
+                >
+                  Show Both
+                </button>
               </div>
               
-              {/* Old Testament */}
-              <div className="mb-6" id="old-testament-section">
-                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                  Old Testament
-                </h3>
-                <div className="space-y-1">
-                  {BOOKS.slice(0, 39).map((book, index) => (
-                    <button
-                      key={book}
-                      onClick={() => {
-                        setSelectedBook(book);
-                        setSelectedChapter(1);
-                        setShowTOC(false);
-                      }}
-                      className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${
-                        selectedBook === book
-                          ? 'bg-blue-600 text-white font-semibold'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      {BOOK_NAMES[index]}
-                    </button>
-                  ))}
+              {/* Conditionally render sections */}
+              {(tocSection === 'all' || tocSection === 'old') && (
+                <div className="mb-6" id="old-testament-section">
+                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    Old Testament
+                  </h3>
+                  <div className="space-y-1">
+                    {BOOKS.slice(0, 39).map((book, index) => (
+                      <button
+                        key={book}
+                        onClick={() => {
+                          setSelectedBook(book);
+                          setSelectedChapter(1);
+                          setShowTOC(false);
+                        }}
+                        className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${
+                          selectedBook === book
+                            ? 'bg-blue-600 text-white font-semibold'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        }`}
+                      >
+                        {BOOK_NAMES[index]}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* New Testament */}
-              <div id="new-testament-section">
-                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                  New Testament
-                </h3>
-                <div className="space-y-1">
-                  {BOOKS.slice(39).map((book, index) => (
-                    <button
-                      key={book}
-                      onClick={() => {
-                        setSelectedBook(book);
-                        setSelectedChapter(1);
-                        setShowTOC(false);
-                      }}
-                      className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${
-                        selectedBook === book
-                          ? 'bg-blue-600 text-white font-semibold'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      {BOOK_NAMES[39 + index]}
-                    </button>
-                  ))}
+              {(tocSection === 'all' || tocSection === 'new') && (
+                <div id="new-testament-section">
+                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    New Testament
+                  </h3>
+                  <div className="space-y-1">
+                    {BOOKS.slice(39).map((book, index) => (
+                      <button
+                        key={book}
+                        onClick={() => {
+                          setSelectedBook(book);
+                          setSelectedChapter(1);
+                          setShowTOC(false);
+                        }}
+                        className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${
+                          selectedBook === book
+                            ? 'bg-blue-600 text-white font-semibold'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        }`}
+                      >
+                        {BOOK_NAMES[39 + index]}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         )}
