@@ -28,26 +28,97 @@ export default function BiblePage() {
   const currentChapter = bookData?.chapters.find(ch => ch.chapter === String(selectedChapter));
 
   // Function to render text with clickable Strong's words
-  // For demonstration, we'll make important words (God, LORD, etc.) clickable
-  // In a real implementation, this would be based on actual Strong's references in the data
+  // Maps important theological words to their Strong's references
   const renderTextWithStrongsLinks = (text: string) => {
-    const importantWords = ['God', 'LORD', 'Jesus', 'Christ', 'Spirit', 'Heaven', 'Earth', 'Israel', 'Jerusalem'];
-    const pattern = new RegExp(`\\b(${importantWords.join('|')})\\b`, 'g');
+    // Comprehensive mapping of English words to Strong's references
+    const wordToStrongsMap: { [key: string]: string } = {
+      // Hebrew words (Old Testament)
+      'God': 'H430',
+      'LORD': 'H3068',
+      'Spirit': 'H7307',
+      'spirit': 'H7307',
+      'Heaven': 'H8064',
+      'heaven': 'H8064',
+      'Earth': 'H776',
+      'earth': 'H776',
+      'Israel': 'H3478',
+      'Jerusalem': 'H3389',
+      'Moses': 'H4872',
+      'Abraham': 'H85',
+      'David': 'H1732',
+      'prophet': 'H5030',
+      'Prophet': 'H5030',
+      'angel': 'H4397',
+      'Angel': 'H4397',
+      'holy': 'H6944',
+      'Holy': 'H6944',
+      'blessed': 'H1288',
+      'Blessed': 'H1288',
+      'covenant': 'H1285',
+      'Covenant': 'H1285',
+      'mercy': 'H2617',
+      'Mercy': 'H2617',
+      'righteousness': 'H6663',
+      'Righteousness': 'H6663',
+      'righteous': 'H6662',
+      'Righteous': 'H6662',
+      'truth': 'H571',
+      'Truth': 'H571',
+      'faith': 'H530',
+      'Faith': 'H530',
+      'faithful': 'H539',
+      'Faithful': 'H539',
+      'wisdom': 'H2451',
+      'Wisdom': 'H2451',
+      'peace': 'H7965',
+      'Peace': 'H7965',
+      
+      // Greek words (New Testament)
+      'Jesus': 'G2424',
+      'Christ': 'G5547',
+      'love': 'G26',
+      'Love': 'G26',
+      'grace': 'G5485',
+      'Grace': 'G5485',
+      'glory': 'G1391',
+      'Glory': 'G1391',
+      'salvation': 'G4991',
+      'Salvation': 'G4991',
+      'church': 'G1577',
+      'Church': 'G1577',
+      'kingdom': 'G932',
+      'Kingdom': 'G932',
+      'gospel': 'G2098',
+      'Gospel': 'G2098',
+      'apostle': 'G652',
+      'Apostle': 'G652',
+      'disciple': 'G3101',
+      'Disciple': 'G3101',
+      'cross': 'G4716',
+      'Cross': 'G4716',
+      'resurrection': 'G386',
+      'Resurrection': 'G386',
+      'eternal': 'G166',
+      'Eternal': 'G166',
+      'prayer': 'G4335',
+      'Prayer': 'G4335',
+      'hope': 'G1680',
+      'Hope': 'G1680',
+    };
+
+    // Create a pattern that matches any of the words
+    const words = Object.keys(wordToStrongsMap);
+    const pattern = new RegExp(`\\b(${words.join('|')})\\b`, 'g');
     const parts = text.split(pattern);
     
     return parts.map((part, index) => {
-      if (importantWords.some(word => word === part)) {
-        // Generate a sample Strong's reference (H430 for God, H3068 for LORD, etc.)
-        let ref = 'H430'; // Default to God
-        if (part === 'LORD') ref = 'H3068';
-        if (part === 'Jesus' || part === 'Christ') ref = 'G2424';
-        if (part === 'Spirit') ref = 'H7307';
-        
+      if (wordToStrongsMap[part]) {
         return (
           <span
             key={index}
-            className="text-blue-400 dark:text-blue-300 hover:underline cursor-pointer font-semibold"
-            onClick={() => setSelectedWord({ word: part, ref })}
+            className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold transition-colors"
+            onClick={() => setSelectedWord({ word: part, ref: wordToStrongsMap[part] })}
+            title="Click to see Strong's Concordance"
           >
             {part}
           </span>
