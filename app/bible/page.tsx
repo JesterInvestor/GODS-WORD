@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
+import StrongsModal from '@/components/StrongsModal';
 
 export default function BiblePage() {
   const [selectedBook, setSelectedBook] = useState<string>('Genesis');
@@ -10,6 +11,7 @@ export default function BiblePage() {
   const [bookData, setBookData] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
+  const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
 
   useEffect(() => {
     loadBookData(selectedBook);
@@ -24,6 +26,36 @@ export default function BiblePage() {
 
   const bookDisplayName = BOOK_NAMES[BOOKS.indexOf(selectedBook)];
   const currentChapter = bookData?.chapters.find(ch => ch.chapter === String(selectedChapter));
+
+  // Function to render text with clickable Strong's words
+  // For demonstration, we'll make important words (God, LORD, etc.) clickable
+  // In a real implementation, this would be based on actual Strong's references in the data
+  const renderTextWithStrongsLinks = (text: string) => {
+    const importantWords = ['God', 'LORD', 'Jesus', 'Christ', 'Spirit', 'Heaven', 'Earth', 'Israel', 'Jerusalem'];
+    const pattern = new RegExp(`\\b(${importantWords.join('|')})\\b`, 'g');
+    const parts = text.split(pattern);
+    
+    return parts.map((part, index) => {
+      if (importantWords.some(word => word === part)) {
+        // Generate a sample Strong's reference (H430 for God, H3068 for LORD, etc.)
+        let ref = 'H430'; // Default to God
+        if (part === 'LORD') ref = 'H3068';
+        if (part === 'Jesus' || part === 'Christ') ref = 'G2424';
+        if (part === 'Spirit') ref = 'H7307';
+        
+        return (
+          <span
+            key={index}
+            className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-semibold"
+            onClick={() => setSelectedWord({ word: part, ref })}
+          >
+            {part}
+          </span>
+        );
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -152,7 +184,7 @@ export default function BiblePage() {
                       {verse.verse}
                     </span>
                     <p className="text-gray-800 dark:text-gray-200 text-lg md:text-xl leading-relaxed">
-                      {verse.text}
+                      {renderTextWithStrongsLinks(verse.text)}
                     </p>
                   </div>
                 ))}
@@ -209,6 +241,15 @@ export default function BiblePage() {
           </div>
         )}
       </div>
+
+      {/* Strong's Concordance Modal */}
+      {selectedWord && (
+        <StrongsModal
+          word={selectedWord.word}
+          strongsRef={selectedWord.ref}
+          onClose={() => setSelectedWord(null)}
+        />
+      )}
     </div>
   );
 }
