@@ -9,7 +9,9 @@ A Next.js application for reading the King James Version Bible with an integrate
 ✅ Interactive table of contents for easy navigation
 ✅ Chapter selection interface
 ✅ Previous/Next chapter navigation
-✅ Strong's Concordance integration (data included)
+✅ **Strong's Concordance integration with clickable word references**
+✅ **Interactive tooltips and modals for Strong's definitions**
+✅ **Embedded Strong's numbers in Bible text (e.g., God[H430])**
 ✅ Dark mode support
 ✅ Clean, distraction-free reading experience
 
@@ -64,7 +66,7 @@ npm start
 - **React 18** - UI library
 - **TypeScript** - Type-safe JavaScript
 - **Tailwind CSS** - Utility-first CSS framework
-- **Bible Data** - KJV from [aruljohn/Bible-kjv](https://github.com/aruljohn/Bible-kjv)
+- **Bible Data** - KJV with Strong's numbers from [kaiserlik/kjv](https://github.com/kaiserlik/kjv)
 - **Strong's Concordance** - From [openscriptures/strongs](https://github.com/openscriptures/strongs)
 
 ## Project Structure
@@ -88,7 +90,7 @@ GODS-WORD/
 ## Data Sources
 
 This application uses:
-- **Bible Text**: King James Version from [aruljohn/Bible-kjv](https://github.com/aruljohn/Bible-kjv)
+- **Bible Text**: King James Version with embedded Strong's numbers from [kaiserlik/kjv](https://github.com/kaiserlik/kjv)
 - **Strong's Concordance**: Hebrew and Greek dictionaries from [openscriptures/strongs](https://github.com/openscriptures/strongs)
 
 ## License
@@ -97,6 +99,6 @@ This project uses public domain Bible texts and concordance data.
 
 ## Acknowledgments
 
-- Bible text courtesy of [aruljohn/Bible-kjv](https://github.com/aruljohn/Bible-kjv)
+- Bible text with Strong's numbers courtesy of [kaiserlik/kjv](https://github.com/kaiserlik/kjv)
 - Strong's Concordance data from [openscriptures/strongs](https://github.com/openscriptures/strongs)
 - Built with love for studying God's Word
