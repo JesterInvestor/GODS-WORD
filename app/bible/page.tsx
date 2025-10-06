@@ -265,6 +265,14 @@ function BibleContent() {
                 </button>
               </div>
               
+              {/* Strong's Concordance Link */}
+              <Link
+                href="/strongs"
+                className="block mb-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg text-sm font-semibold text-center focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+              >
+                Strong&apos;s Concordance
+              </Link>
+              
               {/* Conditionally render sections */}
               {(tocSection === 'all' || tocSection === 'old') && (
                 <div className="mb-6" id="old-testament-section">
