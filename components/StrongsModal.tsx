@@ -50,7 +50,7 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-60 z-[60] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm"
+      className="fixed inset-0 bg-black bg-opacity-80 z-[60] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
