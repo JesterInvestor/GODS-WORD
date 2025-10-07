@@ -175,7 +175,7 @@ function BibleContent() {
         {/* Table of Contents Overlay */}
         {showTOC && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={() => setShowTOC(false)}>
-            <div className="bg-white dark:bg-gray-800 h-full w-80 overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
+            <div className="bg-gray-100 dark:bg-gray-900 h-full w-80 overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                 Table of Contents
               </h2>
