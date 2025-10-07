@@ -11,7 +11,10 @@ function getBibleLink(book: string, chapter: number): string {
     'Psalm': 'Psalms',
     'Romans': 'Romans',
     'Hebrews': 'Hebrews',
-    '1 Corinthians': '1Corinthians'
+    '1 Corinthians': '1Corinthians',
+    'Isaiah': 'Isaiah',
+    'Ephesians': 'Ephesians',
+    'Jeremiah': 'Jeremiah'
   };
   const bookFile = bookMap[book] || book;
   return `/bible?book=${bookFile}&chapter=${chapter}`;
@@ -88,6 +91,27 @@ export default function Home() {
               </Link>
               <Link href={getBibleLink('Hebrews', 11)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Hebrews 11</span>
+              </Link>
+              <Link href={getBibleLink('Romans', 1)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 1</span>
+              </Link>
+              <Link href={getBibleLink('Romans', 3)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 3</span>
+              </Link>
+              <Link href={getBibleLink('Genesis', 6)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Genesis 6</span>
+              </Link>
+              <Link href={getBibleLink('Psalm', 14)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Psalm 14</span>
+              </Link>
+              <Link href={getBibleLink('Isaiah', 53)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Isaiah 53</span>
+              </Link>
+              <Link href={getBibleLink('Ephesians', 2)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Ephesians 2</span>
+              </Link>
+              <Link href={getBibleLink('Jeremiah', 17)} className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Jeremiah 17</span>
               </Link>
             </div>
           </div>
