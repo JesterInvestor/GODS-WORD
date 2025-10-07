@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
 import StrongsModal from '@/components/StrongsModal';
+import { shouldHighlightAsJesusWords } from '@/lib/jesusWords';
 
 function BibleContent() {
   const searchParams = useSearchParams();
@@ -25,6 +26,7 @@ function BibleContent() {
   const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
   const [fontSize, setFontSize] = useState<number>(18);
   const [strongsEnabled, setStrongsEnabled] = useState<boolean>(true);
+  const [jesusWordsEnabled, setJesusWordsEnabled] = useState<boolean>(true);
   const readingMode = 'sepia'; // Fixed to sepia mode
   const [fontFamily, setFontFamily] = useState<'sans' | 'serif' | 'crimson'>('serif');
   const [lineHeight, setLineHeight] = useState<'compact' | 'normal' | 'relaxed'>('normal');
@@ -41,12 +43,23 @@ function BibleContent() {
     if (savedStrongsEnabled !== null) {
       setStrongsEnabled(savedStrongsEnabled === 'true');
     }
+    
+    // Load Jesus's words preference from localStorage
+    const savedJesusWordsEnabled = localStorage.getItem('jesusWordsEnabled');
+    if (savedJesusWordsEnabled !== null) {
+      setJesusWordsEnabled(savedJesusWordsEnabled === 'true');
+    }
   }, []);
 
   useEffect(() => {
     // Save Strong's preference to localStorage
     localStorage.setItem('strongsEnabled', String(strongsEnabled));
   }, [strongsEnabled]);
+
+  useEffect(() => {
+    // Save Jesus's words preference to localStorage
+    localStorage.setItem('jesusWordsEnabled', String(jesusWordsEnabled));
+  }, [jesusWordsEnabled]);
 
   useEffect(() => {
     // Load reading preferences from localStorage
@@ -193,7 +206,10 @@ function BibleContent() {
 
   // Function to render text with clickable Strong's words
   // Parses Strong's numbers embedded in the text like "God[H430]"
-  const renderTextWithStrongsLinks = (text: string) => {
+  const renderTextWithStrongsLinks = (text: string, verseInfo?: { book: string; chapter: string; verse: string }) => {
+    // Check if this verse contains Jesus's words
+    const isJesusVerse = verseInfo && jesusWordsEnabled && shouldHighlightAsJesusWords(verseInfo.book, verseInfo.chapter, verseInfo.verse);
+    
     // Pattern to match words with Strong's numbers: word[H1234] or word[G1234]
     // Supports multiple consecutive Strong's numbers like: word[H1234][H5678]
     const strongsPattern = /(\S+?)(\[(?:H|G)\d+\](?:\[(?:H|G)\d+\])*)|(\S+)|(\s+)/g;
@@ -239,12 +255,19 @@ function BibleContent() {
           }
         };
 
+        // Build className with Jesus's words border styling
+        let className = strongsEnabled 
+          ? "text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
+          : "";
+        
+        if (isJesusVerse) {
+          className += " jesus-words";
+        }
+
         parts.push(
           <span
             key={`word-${index++}`}
-            className={strongsEnabled 
-              ? "text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
-              : ""}
+            className={className}
             onClick={handleClick}
             onTouchEnd={handleTouchEnd}
             title={strongsEnabled ? `${word} (${refs.join(', ')})` : undefined}
@@ -254,8 +277,9 @@ function BibleContent() {
           </span>
         );
       } else if (match[3]) {
-        // Regular word without Strong's number
-        parts.push(<span key={`text-${index++}`}>{match[3]}</span>);
+        // Regular word without Strong's number - also apply Jesus's words styling if applicable
+        const className = isJesusVerse ? "jesus-words" : "";
+        parts.push(<span key={`text-${index++}`} className={className}>{match[3]}</span>);
       }
     }
 
@@ -319,6 +343,14 @@ function BibleContent() {
               title={strongsEnabled ? 'Strong\'s references enabled' : 'Strong\'s references disabled'}
             >
               S#
+            </button>
+            <button
+              onClick={() => setJesusWordsEnabled(!jesusWordsEnabled)}
+              className={`${jesusWordsEnabled ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-400 hover:bg-gray-500'} text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all`}
+              aria-label={jesusWordsEnabled ? 'Disable Jesus\'s words highlighting' : 'Enable Jesus\'s words highlighting'}
+              title={jesusWordsEnabled ? 'Jesus\'s words highlighting enabled' : 'Jesus\'s words highlighting disabled'}
+            >
+              J
             </button>
             <button
               onClick={() => setShowTOC(!showTOC)}
@@ -635,7 +667,11 @@ function BibleContent() {
                         lineHeight: getLineHeightValue()
                       }}
                     >
-                      {renderTextWithStrongsLinks(verse.text)}
+                      {renderTextWithStrongsLinks(verse.text, { 
+                        book: selectedBook, 
+                        chapter: String(selectedChapter), 
+                        verse: verse.verse 
+                      })}
                     </p>
                   </div>
                 ))}
