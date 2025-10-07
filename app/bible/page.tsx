@@ -196,7 +196,7 @@ function BibleContent() {
               {/* Strong's Concordance Link */}
               <Link
                 href="/strongs"
-                className="block mb-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg text-sm font-semibold text-center focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+                className="block mb-4 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold text-center focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               >
                 Strong&apos;s Concordance
               </Link>
@@ -204,9 +204,6 @@ function BibleContent() {
               {/* Conditionally render sections */}
               {(tocSection === 'all' || tocSection === 'old') && (
                 <div className="mb-6" id="old-testament-section">
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    Old Testament
-                  </h3>
                   <div className="space-y-1">
                     {BOOKS.slice(0, 39).map((book, index) => (
                       <button
@@ -232,9 +229,6 @@ function BibleContent() {
 
               {(tocSection === 'all' || tocSection === 'new') && (
                 <div id="new-testament-section">
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    New Testament
-                  </h3>
                   <div className="space-y-1">
                     {BOOKS.slice(39).map((book, index) => (
                       <button

@@ -20,15 +20,13 @@ export default function Home() {
             </Link>
             <Link 
               href="/bible?testament=new"
-              className="inline-block bg-green-600 hover:bg-green-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
             >
               New Testament
             </Link>
-          </div>
-          <div className="flex justify-center mt-4">
             <Link 
               href="/strongs"
-              className="inline-block bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
             >
               Strong&apos;s Concordance
             </Link>
