@@ -65,24 +65,59 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-80 z-[60] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 60,
+        padding: '16px',
+      }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div 
-        className="bg-white dark:bg-black rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        style={{
+          background: 'var(--background)',
+          padding: '20px',
+          borderRadius: '8px',
+          width: '90%',
+          maxWidth: '400px',
+          maxHeight: '90vh',
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+        className="shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 id="modal-title" className="text-2xl font-bold text-black dark:text-white">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '16px', borderBottom: '1px solid rgba(128, 128, 128, 0.3)' }}>
+          <h2 id="modal-title" style={{ fontSize: '24px', fontWeight: 'bold', margin: 0, color: 'var(--foreground)' }}>
             {word}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white text-2xl font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-black rounded transition-all"
+            style={{ 
+              background: 'none',
+              border: 'none',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              padding: '0 8px',
+              color: 'var(--foreground)',
+              opacity: 0.6,
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
             aria-label="Close modal"
           >
             ×
@@ -90,14 +125,20 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b border-gray-200 dark:border-gray-700">
+        <div style={{ display: 'flex', borderBottom: '1px solid rgba(128, 128, 128, 0.3)', marginTop: '16px' }}>
           <button
             onClick={() => setActiveTab('hebrew')}
-            className={`flex-1 py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
-              activeTab === 'hebrew'
-                ? 'bg-blue-600 text-white'
-                : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed'
-            }`}
+            style={{
+              flex: 1,
+              padding: '12px 16px',
+              fontWeight: '600',
+              border: 'none',
+              background: activeTab === 'hebrew' ? '#2563eb' : 'transparent',
+              color: activeTab === 'hebrew' ? 'white' : 'var(--foreground)',
+              cursor: hebrewEntry ? 'pointer' : 'not-allowed',
+              opacity: hebrewEntry ? 1 : 0.5,
+              transition: 'all 0.2s',
+            }}
             disabled={!hebrewEntry}
             aria-label="Show Hebrew translation"
           >
@@ -105,11 +146,17 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
           </button>
           <button
             onClick={() => setActiveTab('greek')}
-            className={`flex-1 py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
-              activeTab === 'greek'
-                ? 'bg-blue-600 text-white'
-                : 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed'
-            }`}
+            style={{
+              flex: 1,
+              padding: '12px 16px',
+              fontWeight: '600',
+              border: 'none',
+              background: activeTab === 'greek' ? '#2563eb' : 'transparent',
+              color: activeTab === 'greek' ? 'white' : 'var(--foreground)',
+              cursor: greekEntry ? 'pointer' : 'not-allowed',
+              opacity: greekEntry ? 1 : 0.5,
+              transition: 'all 0.2s',
+            }}
             disabled={!greekEntry}
             aria-label="Show Greek translation"
           >
@@ -118,29 +165,29 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(80vh-180px)]">
+        <div style={{ padding: '20px 0', overflowY: 'auto', flex: 1, minHeight: 0 }}>
           {loading ? (
-            <div className="flex justify-center items-center py-12">
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '48px 0', textAlign: 'center' }}>
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
             </div>
           ) : error ? (
-            <div className="text-center py-12">
-              <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
-                <p className="text-red-700 dark:text-red-300 font-semibold mb-2">Error Loading Strong&apos;s Reference</p>
-                <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
-                <p className="text-gray-600 dark:text-gray-400 text-xs mt-4">
+            <div style={{ textAlign: 'center', padding: '48px 0' }}>
+              <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '2px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '24px' }}>
+                <p style={{ color: '#dc2626', fontWeight: '600', marginBottom: '8px', fontSize: '16px' }}>Error Loading Strong&apos;s Reference</p>
+                <p style={{ color: '#ef4444', fontSize: '14px', marginBottom: '16px' }}>{error}</p>
+                <p style={{ color: 'var(--foreground)', opacity: 0.6, fontSize: '12px' }}>
                   Check the browser console (F12) for more details.
                 </p>
               </div>
             </div>
           ) : currentEntry ? (
-            <div className="space-y-4">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {currentEntry.lemma && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">
+                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
                     Original Word
                   </h3>
-                  <p className="text-2xl text-black dark:text-white mt-1">
+                  <p style={{ fontSize: '24px', color: 'var(--foreground)', textAlign: 'center' }}>
                     {currentEntry.lemma}
                   </p>
                 </div>
@@ -148,10 +195,10 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
               {(currentEntry.xlit || currentEntry.translit) && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">
+                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
                     Transliteration
                   </h3>
-                  <p className="text-lg text-black dark:text-white mt-1">
+                  <p style={{ fontSize: '18px', color: 'var(--foreground)', textAlign: 'center' }}>
                     {currentEntry.xlit || currentEntry.translit}
                   </p>
                 </div>
@@ -159,10 +206,10 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
               {currentEntry.pron && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">
+                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
                     Pronunciation
                   </h3>
-                  <p className="text-lg text-black dark:text-white mt-1">
+                  <p style={{ fontSize: '18px', color: 'var(--foreground)', textAlign: 'center' }}>
                     {currentEntry.pron}
                   </p>
                 </div>
@@ -170,59 +217,59 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
               {currentEntry.derivation && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">
+                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
                     Derivation
                   </h3>
-                  <p className="text-base text-black dark:text-white mt-1">
+                  <p style={{ fontSize: '16px', color: 'var(--foreground)' }}>
                     {currentEntry.derivation}
                   </p>
                 </div>
               )}
 
               <div>
-                <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">
+                <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
                   Strong&apos;s Definition
                 </h3>
-                <p className="text-base text-black dark:text-white mt-1">
+                <p style={{ fontSize: '16px', color: 'var(--foreground)' }}>
                   {currentEntry.strongs_def}
                 </p>
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">
+                <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
                   KJV Translation
                 </h3>
-                <p className="text-base text-black dark:text-white mt-1">
+                <p style={{ fontSize: '16px', color: 'var(--foreground)' }}>
                   {currentEntry.kjv_def}
                 </p>
               </div>
             </div>
           ) : (
-            <div className="text-center py-12 text-gray-600 dark:text-gray-400">
-              <p>No Strong&apos;s reference available for this word.</p>
-              <p className="text-sm mt-2">Strong&apos;s references are available for original Hebrew and Greek words.</p>
+            <div style={{ textAlign: 'center', padding: '48px 0', color: 'var(--foreground)', opacity: 0.6 }}>
+              <p style={{ marginBottom: '8px' }}>No Strong&apos;s reference available for this word.</p>
+              <p style={{ fontSize: '14px' }}>Strong&apos;s references are available for original Hebrew and Greek words.</p>
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-950">
-          <div className="mb-3 text-xs text-gray-600 dark:text-gray-400">
-            <p className="font-semibold mb-1">Tap these words in the Bible text to see Strong&apos;s references:</p>
-            <p className="flex flex-wrap gap-1">
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">God</span>
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">LORD</span>
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">Jesus</span>
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">Christ</span>
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">love</span>
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">grace</span>
-              <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded">faith</span>
-              <span className="text-gray-500">and more...</span>
-            </p>
-          </div>
+        <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(128, 128, 128, 0.3)', marginTop: '16px' }}>
           <button
             onClick={onClose}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-black transition-all"
+            style={{
+              width: '100%',
+              background: '#2563eb',
+              color: 'white',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              fontWeight: '600',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '16px',
+              transition: 'background 0.2s',
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.background = '#1d4ed8'}
+            onMouseLeave={(e) => e.currentTarget.style.background = '#2563eb'}
             aria-label="Close modal"
           >
             Close
