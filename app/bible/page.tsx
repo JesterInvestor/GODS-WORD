@@ -1,12 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef, Suspense, ReactElement } from 'react';
+import { useState, useEffect, Suspense, ReactElement } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
 import StrongsModal from '@/components/StrongsModal';
-import StrongsTooltip from '@/components/StrongsTooltip';
-import { isTouchDevice } from '@/lib/deviceDetection';
 
 function BibleContent() {
   const searchParams = useSearchParams();
@@ -21,26 +19,15 @@ function BibleContent() {
   const [showTOC, setShowTOC] = useState(false);
   const [tocSection, setTocSection] = useState<'all' | 'old' | 'new'>('all');
   const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
-  const [hoveredWord, setHoveredWord] = useState<{ word: string; ref: string; element: HTMLElement } | null>(null);
-  const [isTouch, setIsTouch] = useState(false);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const tooltipRef = useRef<HTMLDivElement>(null);
+  const [fontSize, setFontSize] = useState<number>(16);
 
   useEffect(() => {
     loadBookData(selectedBook);
   }, [selectedBook]);
 
-  useEffect(() => {
-    // Detect if device supports touch
-    setIsTouch(isTouchDevice());
-  }, []);
 
-  // Show TOC automatically when page loads with a testament parameter
-  useEffect(() => {
-    if (testament) {
-      setShowTOC(true);
-    }
-  }, [testament]);
+
+
 
   const loadBookData = async (book: string) => {
     setLoading(true);
@@ -51,6 +38,10 @@ function BibleContent() {
 
   const bookDisplayName = BOOK_NAMES[BOOKS.indexOf(selectedBook)];
   const currentChapter = bookData?.chapters.find(ch => ch.chapter === String(selectedChapter));
+
+  const handleFontSizeToggle = () => {
+    setFontSize(fontSize === 16 ? 20 : 16);
+  };
 
   // Function to render text with clickable Strong's words
   // Parses Strong's numbers embedded in the text like "God[H430]"
@@ -73,35 +64,6 @@ function BibleContent() {
         // Extract all Strong's numbers from the brackets
         const refs = strongsRefs.match(/[HG]\d+/g) || [];
         const primaryRef = refs[0]; // Use the first reference as primary
-
-        const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
-          if (!isTouch && primaryRef) {
-            if (hoverTimeoutRef.current) {
-              clearTimeout(hoverTimeoutRef.current);
-            }
-            hoverTimeoutRef.current = setTimeout(() => {
-              setHoveredWord({
-                word,
-                ref: primaryRef,
-                element: e.currentTarget
-              });
-            }, 200);
-          }
-        };
-
-        const handleMouseLeave = () => {
-          if (!isTouch) {
-            if (hoverTimeoutRef.current) {
-              clearTimeout(hoverTimeoutRef.current);
-              hoverTimeoutRef.current = null;
-            }
-            setTimeout(() => {
-              if (tooltipRef.current && !tooltipRef.current.matches(':hover')) {
-                setHoveredWord(null);
-              }
-            }, 100);
-          }
-        };
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
           console.log('[BiblePage] Word clicked:', word, 'primaryRef:', primaryRef);
@@ -131,8 +93,6 @@ function BibleContent() {
           <span
             key={`word-${index++}`}
             className="text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             onClick={handleClick}
             onTouchEnd={handleTouchEnd}
             title={`${word} (${refs.join(', ')})`}
@@ -161,13 +121,22 @@ function BibleContent() {
           <h1 className="text-xl font-bold text-gray-800 dark:text-white">
             {bookDisplayName} {selectedChapter}
           </h1>
-          <button
-            onClick={() => setShowTOC(!showTOC)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
-            aria-label={showTOC ? 'Close table of contents' : 'Open table of contents'}
-          >
-            {showTOC ? 'Close' : 'Menu'}
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={handleFontSizeToggle}
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all"
+              aria-label={fontSize === 16 ? 'Increase text size' : 'Reset text size'}
+            >
+              {fontSize === 16 ? 'A+' : 'A−'}
+            </button>
+            <button
+              onClick={() => setShowTOC(!showTOC)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              aria-label={showTOC ? 'Close table of contents' : 'Open table of contents'}
+            >
+              {showTOC ? 'Close' : 'Menu'}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -307,10 +276,10 @@ function BibleContent() {
               <div className="space-y-4">
                 {currentChapter.verses.map((verse) => (
                   <div key={verse.verse} className="flex group">
-                    <span className="text-blue-600 font-bold text-lg md:text-xl mr-3 flex-shrink-0 select-none">
+                    <span className="text-blue-600 font-bold mr-3 flex-shrink-0 select-none" style={{ fontSize: `${fontSize}px` }}>
                       {verse.verse}
                     </span>
-                    <p className="text-gray-800 dark:text-gray-200 text-lg md:text-xl leading-relaxed">
+                    <p className="text-gray-800 dark:text-gray-200 leading-relaxed" style={{ fontSize: `${fontSize}px` }}>
                       {renderTextWithStrongsLinks(verse.text)}
                     </p>
                   </div>
@@ -371,31 +340,7 @@ function BibleContent() {
         )}
       </div>
 
-      {/* Strong's Concordance Hover Tooltip (Desktop) */}
-      {hoveredWord && !isTouch && (
-        <div
-          ref={tooltipRef}
-          onMouseEnter={() => {
-            // Keep tooltip open when hovering over it
-            if (hoverTimeoutRef.current) {
-              clearTimeout(hoverTimeoutRef.current);
-            }
-          }}
-          onMouseLeave={() => {
-            // Close tooltip when mouse leaves
-            setHoveredWord(null);
-          }}
-        >
-          <StrongsTooltip
-            word={hoveredWord.word}
-            strongsRef={hoveredWord.ref}
-            anchorElement={hoveredWord.element}
-            onClose={() => setHoveredWord(null)}
-          />
-        </div>
-      )}
-
-      {/* Strong's Concordance Modal (Mobile/Touch) */}
+      {/* Strong's Concordance Modal */}
       {selectedWord && (
         <>
           {console.log('[BiblePage] Rendering StrongsModal for:', selectedWord)}
