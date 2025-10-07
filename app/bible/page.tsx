@@ -9,11 +9,15 @@ import StrongsModal from '@/components/StrongsModal';
 function BibleContent() {
   const searchParams = useSearchParams();
   const testament = searchParams.get('testament');
+  const bookParam = searchParams.get('book');
+  const chapterParam = searchParams.get('chapter');
   
-  // Set initial book based on testament parameter
-  const initialBook = testament === 'new' ? 'Matthew' : 'Genesis';
+  // Set initial book based on parameters
+  const initialBook = bookParam || (testament === 'new' ? 'Matthew' : 'Genesis');
+  const initialChapter = chapterParam ? parseInt(chapterParam, 10) : 1;
+  
   const [selectedBook, setSelectedBook] = useState<string>(initialBook);
-  const [selectedChapter, setSelectedChapter] = useState<number>(1);
+  const [selectedChapter, setSelectedChapter] = useState<number>(initialChapter);
   const [bookData, setBookData] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
