@@ -20,10 +20,24 @@ function BibleContent() {
   const [tocSection, setTocSection] = useState<'all' | 'old' | 'new'>('all');
   const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
   const [fontSize, setFontSize] = useState<number>(16);
+  const [strongsEnabled, setStrongsEnabled] = useState<boolean>(true);
 
   useEffect(() => {
     loadBookData(selectedBook);
   }, [selectedBook]);
+
+  useEffect(() => {
+    // Load Strong's preference from localStorage
+    const savedStrongsEnabled = localStorage.getItem('strongsEnabled');
+    if (savedStrongsEnabled !== null) {
+      setStrongsEnabled(savedStrongsEnabled === 'true');
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save Strong's preference to localStorage
+    localStorage.setItem('strongsEnabled', String(strongsEnabled));
+  }, [strongsEnabled]);
 
 
 
@@ -66,6 +80,7 @@ function BibleContent() {
         const primaryRef = refs[0]; // Use the first reference as primary
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+          if (!strongsEnabled) return;
           console.log('[BiblePage] Word clicked:', word, 'primaryRef:', primaryRef);
           if (primaryRef) {
             e.preventDefault();
@@ -78,6 +93,7 @@ function BibleContent() {
         };
 
         const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
+          if (!strongsEnabled) return;
           console.log('[BiblePage] Word touched:', word, 'primaryRef:', primaryRef);
           if (primaryRef) {
             e.preventDefault();
@@ -92,11 +108,13 @@ function BibleContent() {
         parts.push(
           <span
             key={`word-${index++}`}
-            className="text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
+            className={strongsEnabled 
+              ? "text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
+              : ""}
             onClick={handleClick}
             onTouchEnd={handleTouchEnd}
-            title={`${word} (${refs.join(', ')})`}
-            style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}
+            title={strongsEnabled ? `${word} (${refs.join(', ')})` : undefined}
+            style={strongsEnabled ? { WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' } : undefined}
           >
             {word}
           </span>
@@ -128,6 +146,14 @@ function BibleContent() {
               aria-label={fontSize === 16 ? 'Increase text size' : 'Reset text size'}
             >
               {fontSize === 16 ? 'A+' : 'A−'}
+            </button>
+            <button
+              onClick={() => setStrongsEnabled(!strongsEnabled)}
+              className={`${strongsEnabled ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 hover:bg-gray-500'} text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all`}
+              aria-label={strongsEnabled ? 'Disable Strong\'s references' : 'Enable Strong\'s references'}
+              title={strongsEnabled ? 'Strong\'s references enabled' : 'Strong\'s references disabled'}
+            >
+              S#
             </button>
             <button
               onClick={() => setShowTOC(!showTOC)}
