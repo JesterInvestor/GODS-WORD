@@ -79,6 +79,7 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
         padding: '16px',
       }}
       onClick={onClose}
+      onTouchEnd={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -97,6 +98,7 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
         }}
         className="shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '16px', borderBottom: '1px solid rgba(128, 128, 128, 0.3)' }}>
