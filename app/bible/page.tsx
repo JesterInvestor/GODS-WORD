@@ -196,7 +196,7 @@ function BibleContent() {
               {/* Strong's Concordance Link */}
               <Link
                 href="/strongs"
-                className="block mb-4 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold text-center focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="block mb-4 bg-white hover:bg-gray-100 dark:bg-blue-900 dark:hover:bg-blue-800 text-gray-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold text-center focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               >
                 Strong&apos;s Concordance
               </Link>
