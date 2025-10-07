@@ -25,7 +25,7 @@ function BibleContent() {
   const [selectedWord, setSelectedWord] = useState<{ word: string; ref?: string } | null>(null);
   const [fontSize, setFontSize] = useState<number>(18);
   const [strongsEnabled, setStrongsEnabled] = useState<boolean>(true);
-  const [readingMode, setReadingMode] = useState<'light' | 'dark' | 'sepia'>('light');
+  const readingMode = 'sepia'; // Fixed to sepia mode
   const [fontFamily, setFontFamily] = useState<'sans' | 'serif' | 'crimson'>('serif');
   const [lineHeight, setLineHeight] = useState<'compact' | 'normal' | 'relaxed'>('normal');
   const [textWidth, setTextWidth] = useState<'narrow' | 'normal' | 'wide'>('normal');
@@ -51,13 +51,11 @@ function BibleContent() {
   useEffect(() => {
     // Load reading preferences from localStorage
     const savedFontSize = localStorage.getItem('fontSize');
-    const savedReadingMode = localStorage.getItem('readingMode');
     const savedFontFamily = localStorage.getItem('fontFamily');
     const savedLineHeight = localStorage.getItem('lineHeight');
     const savedTextWidth = localStorage.getItem('textWidth');
     
     if (savedFontSize) setFontSize(parseInt(savedFontSize));
-    if (savedReadingMode) setReadingMode(savedReadingMode as 'light' | 'dark' | 'sepia');
     if (savedFontFamily) setFontFamily(savedFontFamily as 'sans' | 'serif' | 'crimson');
     if (savedLineHeight) setLineHeight(savedLineHeight as 'compact' | 'normal' | 'relaxed');
     if (savedTextWidth) setTextWidth(savedTextWidth as 'narrow' | 'normal' | 'wide');
@@ -66,19 +64,15 @@ function BibleContent() {
   useEffect(() => {
     // Save reading preferences to localStorage
     localStorage.setItem('fontSize', String(fontSize));
-    localStorage.setItem('readingMode', readingMode);
     localStorage.setItem('fontFamily', fontFamily);
     localStorage.setItem('lineHeight', lineHeight);
     localStorage.setItem('textWidth', textWidth);
     
-    // Apply reading mode to body
+    // Apply sepia mode to body (always enabled)
     if (typeof document !== 'undefined') {
-      document.body.classList.remove('sepia-mode');
-      if (readingMode === 'sepia') {
-        document.body.classList.add('sepia-mode');
-      }
+      document.body.classList.add('sepia-mode');
     }
-  }, [fontSize, readingMode, fontFamily, lineHeight, textWidth]);
+  }, [fontSize, fontFamily, lineHeight, textWidth]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -375,43 +369,6 @@ function BibleContent() {
                     aria-label="Increase font size"
                   >
                     A+
-                  </button>
-                </div>
-              </div>
-
-              {/* Reading Mode */}
-              <div className="mb-6">
-                <h3 className={`text-sm font-semibold ${textClass} mb-3`}>Reading Mode</h3>
-                <div className="space-y-2">
-                  <button
-                    onClick={() => setReadingMode('light')}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      readingMode === 'light' 
-                        ? 'bg-blue-600 text-white font-semibold' 
-                        : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
-                    }`}
-                  >
-                    ☀️ Light Mode
-                  </button>
-                  <button
-                    onClick={() => setReadingMode('dark')}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      readingMode === 'dark' 
-                        ? 'bg-blue-600 text-white font-semibold' 
-                        : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
-                    }`}
-                  >
-                    🌙 Dark Mode
-                  </button>
-                  <button
-                    onClick={() => setReadingMode('sepia')}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      readingMode === 'sepia' 
-                        ? 'bg-blue-600 text-white font-semibold' 
-                        : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
-                    }`}
-                  >
-                    📖 Sepia Mode
                   </button>
                 </div>
               </div>
