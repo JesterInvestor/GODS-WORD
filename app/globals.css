@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --sepia-bg: #f4f1ea;
+  --sepia-fg: #5c4f3a;
+  --sepia-card: #faf8f3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +21,21 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Sepia Mode */
+body.sepia-mode {
+  background: var(--sepia-bg);
+  color: var(--sepia-fg);
+}
+
+/* Reading Fonts */
+.font-reading-serif {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.font-reading-crimson {
+  font-family: 'Crimson Text', Georgia, serif;
 }
 
 @layer utilities {
