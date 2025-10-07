@@ -14,26 +14,41 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
   const [greekEntry, setGreekEntry] = useState<StrongsEntry | null>(null);
   const [activeTab, setActiveTab] = useState<'hebrew' | 'greek'>('hebrew');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Load Strong's data
     const loadData = async () => {
+      console.log('[StrongsModal] Loading data for word:', word, 'ref:', strongsRef);
       setLoading(true);
+      setError(null);
       if (strongsRef) {
-        const data = await lookupStrongs(strongsRef);
-        setHebrewEntry(data.hebrew || null);
-        setGreekEntry(data.greek || null);
-        // Set active tab to whichever has data
-        if (data.hebrew && !data.greek) {
-          setActiveTab('hebrew');
-        } else if (data.greek && !data.hebrew) {
-          setActiveTab('greek');
+        try {
+          const data = await lookupStrongs(strongsRef);
+          console.log('[StrongsModal] Lookup result:', data);
+          setHebrewEntry(data.hebrew || null);
+          setGreekEntry(data.greek || null);
+          if (data.error) {
+            setError(data.error);
+          }
+          // Set active tab to whichever has data
+          if (data.hebrew && !data.greek) {
+            setActiveTab('hebrew');
+          } else if (data.greek && !data.hebrew) {
+            setActiveTab('greek');
+          }
+        } catch (err) {
+          const errorMsg = `Failed to load Strong's data: ${err}`;
+          console.error('[StrongsModal]', errorMsg);
+          setError(errorMsg);
         }
+      } else {
+        setError('No Strong\'s reference provided');
       }
       setLoading(false);
     };
     loadData();
-  }, [strongsRef]);
+  }, [strongsRef, word]);
 
   useEffect(() => {
     // Handle ESC key
@@ -107,6 +122,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
           {loading ? (
             <div className="flex justify-center items-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
+                <p className="text-red-700 dark:text-red-300 font-semibold mb-2">Error Loading Strong&apos;s Reference</p>
+                <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-xs mt-4">
+                  Check the browser console (F12) for more details.
+                </p>
+              </div>
             </div>
           ) : currentEntry ? (
             <div className="space-y-4">

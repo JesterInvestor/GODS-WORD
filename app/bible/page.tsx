@@ -104,18 +104,26 @@ function BibleContent() {
         };
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+          console.log('[BiblePage] Word clicked:', word, 'primaryRef:', primaryRef);
           if (primaryRef) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('[BiblePage] Setting selectedWord with ref:', primaryRef);
             setSelectedWord({ word, ref: primaryRef });
+          } else {
+            console.warn('[BiblePage] No primaryRef available for word:', word);
           }
         };
 
         const handleTouchEnd = (e: React.TouchEvent<HTMLSpanElement>) => {
+          console.log('[BiblePage] Word touched:', word, 'primaryRef:', primaryRef);
           if (primaryRef) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('[BiblePage] Setting selectedWord with ref:', primaryRef);
             setSelectedWord({ word, ref: primaryRef });
+          } else {
+            console.warn('[BiblePage] No primaryRef available for word:', word);
           }
         };
 
@@ -389,11 +397,14 @@ function BibleContent() {
 
       {/* Strong's Concordance Modal (Mobile/Touch) */}
       {selectedWord && (
-        <StrongsModal
-          word={selectedWord.word}
-          strongsRef={selectedWord.ref}
-          onClose={() => setSelectedWord(null)}
-        />
+        <>
+          {console.log('[BiblePage] Rendering StrongsModal for:', selectedWord)}
+          <StrongsModal
+            word={selectedWord.word}
+            strongsRef={selectedWord.ref}
+            onClose={() => setSelectedWord(null)}
+          />
+        </>
       )}
     </div>
   );
