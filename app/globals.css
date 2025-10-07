@@ -42,4 +42,22 @@ body.sepia-mode {
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Jesus's words highlighting with subtle red border */
+  .jesus-words {
+    border-bottom: 2px solid rgba(220, 38, 38, 0.4);
+    padding-bottom: 1px;
+  }
+  
+  /* Sepia mode - warmer red tone */
+  body.sepia-mode .jesus-words {
+    border-bottom-color: rgba(185, 28, 28, 0.5);
+  }
+  
+  /* Dark mode - brighter red for visibility */
+  @media (prefers-color-scheme: dark) {
+    .jesus-words {
+      border-bottom-color: rgba(248, 113, 113, 0.5);
+    }
+  }
 }
