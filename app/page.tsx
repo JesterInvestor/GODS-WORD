@@ -34,7 +34,7 @@ export default function Home() {
             </Link>
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-            Click on any word to view Strong&apos;s Concordance reference
+            Click on any word to view Strong&apos;s Concordance reference (toggle off with S#
           </p>
         </div>
       </div>
