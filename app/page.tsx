@@ -116,6 +116,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Attribution */}
+        <div className="mt-8">
+          <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+            Thanks to openscriptures
+          </p>
+        </div>
       </div>
     </main>
   );
