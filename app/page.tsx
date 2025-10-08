@@ -120,7 +120,7 @@ export default function Home() {
         {/* Attribution */}
         <div className="mt-8">
           <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
-            Thanks to openscriptures and kaiserlik
+            Thanks to openscriptures, kenyonbowers, and kaiserlik
           </p>
         </div>
       </div>
