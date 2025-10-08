@@ -207,6 +207,9 @@ function BibleContent() {
   // Function to render text with clickable Strong's words
   // Parses Strong's numbers embedded in the text like "God[H430]"
   const renderTextWithStrongsLinks = (text: string, verseInfo?: { book: string; chapter: string; verse: string }) => {
+    // Remove em tags from the text
+    const cleanedText = text.replace(/<\/?em>/g, '');
+    
     // Check if this verse contains Jesus's words
     const isJesusVerse = verseInfo && jesusWordsEnabled && shouldHighlightAsJesusWords(verseInfo.book, verseInfo.chapter, verseInfo.verse);
     
@@ -217,7 +220,7 @@ function BibleContent() {
     let match;
     let index = 0;
 
-    while ((match = strongsPattern.exec(text)) !== null) {
+    while ((match = strongsPattern.exec(cleanedText)) !== null) {
       if (match[4]) {
         // Whitespace
         parts.push(<span key={`space-${index++}`}>{match[4]}</span>);
