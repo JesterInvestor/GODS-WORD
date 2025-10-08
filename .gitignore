@@ -34,3 +34,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 public/data_backup/
+
+# verification reports and test files
+test_report.json
+verification_report_full.json
+*_report.json
