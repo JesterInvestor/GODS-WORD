@@ -106,7 +106,7 @@ function StrongsContent() {
         {/* Table of Contents Overlay */}
         {showTOC && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
-            <div className="bg-gray-100 dark:bg-gray-900 h-full w-80 overflow-y-auto p-6" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
+            <div className="bg-gray-100 dark:bg-gray-900 h-full w-80 overflow-y-auto p-6 pb-24" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                 Table of Contents
               </h2>
