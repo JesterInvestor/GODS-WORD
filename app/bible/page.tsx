@@ -522,7 +522,7 @@ function BibleContent() {
         {/* Table of Contents Overlay */}
         {showTOC && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
-            <div className={`${cardBgClass} h-full max-h-screen w-80 overflow-y-auto p-6`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
+            <div className={`${cardBgClass} h-screen w-80 overflow-y-auto p-6 pb-32`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
               <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>
                 Table of Contents
               </h2>
