@@ -556,7 +556,7 @@ function BibleContent() {
               {/* Conditionally render sections */}
               {(tocSection === 'all' || tocSection === 'old') && (
                 <div className="mb-6" id="old-testament-section">
-                  <div className="space-y-1">
+                  <div className="space-y-1 pb-64">
                     {BOOKS.slice(0, 39).map((book, index) => (
                       <button
                         key={book}
@@ -581,7 +581,7 @@ function BibleContent() {
 
               {(tocSection === 'all' || tocSection === 'new') && (
                 <div id="new-testament-section">
-                  <div className="space-y-1">
+                  <div className="space-y-1 pb-64">
                     {BOOKS.slice(39).map((book, index) => (
                       <button
                         key={book}
