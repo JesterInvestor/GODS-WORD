@@ -2,6 +2,24 @@
 
 This directory contains scripts for aggregating per-chapter Bible JSON files into book-level JSON files and performing comprehensive verification checks.
 
+## Scripts Overview
+
+### aggregate_and_verify.py
+
+Main script for aggregation, verification, and comparison.
+
+### format_report.py
+
+Formats JSON verification reports into human-readable text.
+
+**Usage:**
+```bash
+python3 scripts/format_report.py report.json
+python3 scripts/format_report.py report.json --output report.txt
+```
+
+---
+
 ## aggregate_and_verify.py
 
 A comprehensive Python script that handles:
