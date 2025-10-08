@@ -524,8 +524,8 @@ function BibleContent() {
 
         {/* Table of Contents Overlay */}
         {showTOC && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
-            <div className={`${cardBgClass} h-full max-h-screen w-80 overflow-y-auto p-6`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-20 flex items-center justify-center" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
+            <div className={`${cardBgClass} max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
               <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>
                 Table of Contents
               </h2>
