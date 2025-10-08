@@ -5,7 +5,9 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
 import StrongsModal from '@/components/StrongsModal';
+import SearchModal from '@/components/SearchModal';
 import { shouldHighlightAsJesusWords } from '@/lib/jesusWords';
+import { useSwipe } from '@/lib/useSwipe';
 
 function BibleContent() {
   const searchParams = useSearchParams();
@@ -32,6 +34,8 @@ function BibleContent() {
   const [lineHeight, setLineHeight] = useState<'compact' | 'normal' | 'relaxed'>('normal');
   const [textWidth, setTextWidth] = useState<'narrow' | 'normal' | 'wide'>('normal');
   const [showSettings, setShowSettings] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     loadBookData(selectedBook);
@@ -75,6 +79,26 @@ function BibleContent() {
   }, []);
 
   useEffect(() => {
+    // Load dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode !== null) {
+      setDarkMode(savedDarkMode === 'true');
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save and apply dark mode
+    localStorage.setItem('darkMode', String(darkMode));
+    if (typeof document !== 'undefined') {
+      if (darkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
     // Save reading preferences to localStorage
     localStorage.setItem('fontSize', String(fontSize));
     localStorage.setItem('fontFamily', fontFamily);
@@ -91,7 +115,14 @@ function BibleContent() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't trigger shortcuts when typing in inputs or modals are open
-      if (showTOC || showSettings || selectedWord) return;
+      if (showTOC || showSettings || selectedWord || showSearch) return;
+      
+      // Search shortcut (Ctrl+K or Cmd+K)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        setShowSearch(true);
+        return;
+      }
       
       switch(e.key) {
         case 'ArrowLeft':
@@ -141,13 +172,14 @@ function BibleContent() {
         case 'Escape':
           if (showTOC) setShowTOC(false);
           if (showSettings) setShowSettings(false);
+          if (showSearch) setShowSearch(false);
           break;
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedBook, selectedChapter, bookData, showTOC, showSettings, selectedWord]);
+  }, [selectedBook, selectedChapter, bookData, showTOC, showSettings, selectedWord, showSearch]);
 
 
 
@@ -162,6 +194,53 @@ function BibleContent() {
 
   const bookDisplayName = BOOK_NAMES[BOOKS.indexOf(selectedBook)];
   const currentChapter = bookData?.chapters.find(ch => ch.chapter === String(selectedChapter));
+
+  // Navigation helpers
+  const goToPreviousChapter = () => {
+    if (selectedChapter > 1) {
+      setSelectedChapter(selectedChapter - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const currentIndex = BOOKS.indexOf(selectedBook);
+      if (currentIndex > 0) {
+        const prevBook = BOOKS[currentIndex - 1];
+        setSelectedBook(prevBook);
+        loadBook(prevBook).then(data => {
+          if (data) setSelectedChapter(data.chapters.length);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    }
+  };
+
+  const goToNextChapter = () => {
+    if (bookData && selectedChapter < bookData.chapters.length) {
+      setSelectedChapter(selectedChapter + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const currentIndex = BOOKS.indexOf(selectedBook);
+      if (currentIndex < BOOKS.length - 1) {
+        const nextBook = BOOKS[currentIndex + 1];
+        setSelectedBook(nextBook);
+        setSelectedChapter(1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Swipe handlers for touch navigation
+  const swipeRef = useSwipe({
+    onSwipeLeft: () => {
+      if (!showTOC && !showSettings && !selectedWord && !showSearch) {
+        goToNextChapter();
+      }
+    },
+    onSwipeRight: () => {
+      if (!showTOC && !showSettings && !selectedWord && !showSearch) {
+        goToPreviousChapter();
+      }
+    }
+  }, { minSwipeDistance: 100 });
 
   const fontSizes = [14, 16, 18, 20, 24, 28];
   const handleFontSizeIncrease = () => {
@@ -317,11 +396,15 @@ function BibleContent() {
     : 'text-gray-800 dark:text-gray-200';
 
   return (
-    <div className={`min-h-screen ${bgClass}`}>
+    <div className={`min-h-screen ${bgClass}`} ref={swipeRef}>
       {/* Header */}
-      <header className={`${headerBgClass} sticky top-0 z-10`}>
+      <header className={`${headerBgClass} sticky top-0 z-10`} role="banner">
         <div className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}>
-          <Link href="/" className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all">
+          <Link 
+            href="/" 
+            className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all"
+            aria-label="Go to home page"
+          >
             ← Home
           </Link>
           <h1 className={`text-xl font-bold ${headerTextClass}`}>
@@ -329,9 +412,25 @@ function BibleContent() {
           </h1>
           <div className="flex gap-2">
             <button
+              onClick={() => setShowSearch(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              aria-label="Search books (Ctrl+K or Cmd+K)"
+              title="Search (Ctrl+K)"
+            >
+              🔍
+            </button>
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all"
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+              title={darkMode ? "Light Mode" : "Dark Mode"}
+            >
+              {darkMode ? '☀️' : '🌙'}
+            </button>
+            <button
               onClick={() => setShowSettings(!showSettings)}
               className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all"
-              aria-label="Open reading settings"
+              aria-label={showSettings ? "Close reading settings" : "Open reading settings"}
               title="Reading Settings"
             >
               ⚙️
@@ -521,9 +620,21 @@ function BibleContent() {
 
         {/* Table of Contents Overlay */}
         {showTOC && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
-            <div className={`${cardBgClass} h-full max-h-screen w-80 overflow-y-auto p-6`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
-              <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-20" 
+            onClick={() => setShowTOC(false)} 
+            onTouchEnd={() => setShowTOC(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Table of Contents"
+          >
+            <nav 
+              className={`${cardBgClass} h-full max-h-screen w-80 overflow-y-auto p-6`} 
+              onClick={e => e.stopPropagation()} 
+              onTouchEnd={e => e.stopPropagation()}
+              aria-label="Bible books navigation"
+            >
+              <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`} id="toc-title">
                 Table of Contents
               </h2>
               
@@ -603,7 +714,7 @@ function BibleContent() {
                   </div>
                 </div>
               )}
-            </div>
+            </nav>
           </div>
         )}
 
@@ -634,29 +745,34 @@ function BibleContent() {
         )}
 
         {/* Bible Text */}
-        <div className={`${cardBgClass} rounded-lg shadow-sm p-6 md:p-8 ${getFontFamilyClass()}`}>
+        <article className={`${cardBgClass} rounded-lg shadow-sm p-6 md:p-8 ${getFontFamilyClass()}`} role="main" aria-label="Bible chapter content">
           {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="text-center py-12" role="status" aria-live="polite">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" aria-hidden="true"></div>
               <p className={`mt-4 ${textClass}`}>Loading the Word of God...</p>
             </div>
           ) : currentChapter ? (
             <div>
               {/* Chapter Header with decorative divider */}
-              <div className="mb-8 pb-6 border-b-2 border-blue-200 dark:border-blue-800">
+              <header className="mb-8 pb-6 border-b-2 border-blue-200 dark:border-blue-800">
                 <h2 className={`text-3xl md:text-4xl font-bold ${headerTextClass} text-center`}>
                   {bookDisplayName}
                 </h2>
                 <p className={`text-xl md:text-2xl ${textClass} text-center mt-2 opacity-70`}>
                   Chapter {selectedChapter}
                 </p>
-              </div>
-              <div className="space-y-3">
+              </header>
+              <div className="space-y-3" role="list" aria-label="Verses">
                 {currentChapter.verses.map((verse) => (
-                  <div key={verse.verse} className="flex group hover:bg-gray-50 dark:hover:bg-gray-700/30 rounded px-2 py-1 transition-colors">
+                  <div 
+                    key={verse.verse} 
+                    className="flex group hover:bg-gray-50 dark:hover:bg-gray-700/30 rounded px-2 py-1 transition-colors"
+                    role="listitem"
+                  >
                     <span 
                       className="text-blue-600 font-bold mr-4 flex-shrink-0 select-none bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded min-w-[2rem] text-center" 
                       style={{ fontSize: `${Math.max(fontSize - 2, 12)}px` }}
+                      aria-label={`Verse ${verse.verse}`}
                     >
                       {verse.verse}
                     </span>
@@ -678,29 +794,15 @@ function BibleContent() {
               </div>
             </div>
           ) : (
-            <p className={`text-center ${textClass}`}>Chapter not found</p>
+            <p className={`text-center ${textClass}`} role="status">Chapter not found</p>
           )}
-        </div>
+        </article>
 
         {/* Navigation Buttons */}
         {bookData && (
-          <div className="flex justify-between mt-6">
+          <nav className="flex justify-between mt-6" aria-label="Chapter navigation">
             <button
-              onClick={() => {
-                if (selectedChapter > 1) {
-                  setSelectedChapter(selectedChapter - 1);
-                  window.scrollTo(0, 0);
-                } else {
-                  const currentIndex = BOOKS.indexOf(selectedBook);
-                  if (currentIndex > 0) {
-                    const prevBook = BOOKS[currentIndex - 1];
-                    setSelectedBook(prevBook);
-                    loadBook(prevBook).then(data => {
-                      if (data) setSelectedChapter(data.chapters.length);
-                    });
-                  }
-                }
-              }}
+              onClick={goToPreviousChapter}
               disabled={selectedBook === BOOKS[0] && selectedChapter === 1}
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
               aria-label="Go to previous chapter"
@@ -708,26 +810,14 @@ function BibleContent() {
               ← Previous
             </button>
             <button
-              onClick={() => {
-                if (bookData && selectedChapter < bookData.chapters.length) {
-                  setSelectedChapter(selectedChapter + 1);
-                  window.scrollTo(0, 0);
-                } else {
-                  const currentIndex = BOOKS.indexOf(selectedBook);
-                  if (currentIndex < BOOKS.length - 1) {
-                    const nextBook = BOOKS[currentIndex + 1];
-                    setSelectedBook(nextBook);
-                    setSelectedChapter(1);
-                  }
-                }
-              }}
+              onClick={goToNextChapter}
               disabled={selectedBook === BOOKS[BOOKS.length - 1] && bookData && selectedChapter === bookData.chapters.length}
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
               aria-label="Go to next chapter"
             >
               Next →
             </button>
-          </div>
+          </nav>
         )}
       </div>
 
@@ -741,6 +831,19 @@ function BibleContent() {
             onClose={() => setSelectedWord(null)}
           />
         </>
+      )}
+
+      {/* Search Modal */}
+      {showSearch && (
+        <SearchModal
+          onClose={() => setShowSearch(false)}
+          onNavigate={(book, chapter) => {
+            setSelectedBook(book);
+            setSelectedChapter(chapter);
+            setShowSearch(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        />
       )}
     </div>
   );
