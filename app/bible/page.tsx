@@ -215,7 +215,8 @@ function BibleContent() {
     
     // Pattern to match words with Strong's numbers: word[H1234] or word[G1234]
     // Supports multiple consecutive Strong's numbers like: word[H1234][H5678]
-    const strongsPattern = /(\S+?)(\[(?:H|G)\d+\](?:\[(?:H|G)\d+\])*)|(\S+)|(\s+)/g;
+    // Also supports letter suffixes like [H1121A] or [G2388G]
+    const strongsPattern = /(\S+?)(\[(?:H|G)\d+[A-Z]*\](?:\[(?:H|G)\d+[A-Z]*\])*)|(\S+)|(\s+)/g;
     const parts: ReactElement[] = [];
     let match;
     let index = 0;
@@ -228,8 +229,8 @@ function BibleContent() {
         // Word with Strong's number(s)
         const word = match[1];
         const strongsRefs = match[2];
-        // Extract all Strong's numbers from the brackets
-        const refs = strongsRefs.match(/[HG]\d+/g) || [];
+        // Extract all Strong's numbers from the brackets (including letter suffixes)
+        const refs = strongsRefs.match(/[HG]\d+[A-Z]*/g) || [];
         const primaryRef = refs[0]; // Use the first reference as primary
 
         const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
