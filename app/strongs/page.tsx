@@ -20,7 +20,6 @@ function StrongsContent() {
   const [tocFilter, setTocFilter] = useState('');
   const [activeSection, setActiveSection] = useState<string>('');
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const readingMode = 'sepia'; // Fixed to sepia mode to match Bible page
 
   useEffect(() => {
     const loadData = async () => {
@@ -128,46 +127,10 @@ function StrongsContent() {
     groupKey.toLowerCase().includes(tocFilter.toLowerCase())
   );
 
-  // Dynamic styling based on reading mode (matching Bible page)
-  const bgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#f4f1ea]'
-      : readingMode === 'dark'
-        ? 'bg-gray-900'
-        : 'bg-gray-50 dark:bg-gray-900';
-
-  const headerBgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#faf8f3] shadow-sm'
-      : readingMode === 'dark'
-        ? 'bg-gray-800 shadow-sm'
-        : 'bg-white dark:bg-gray-800 shadow-sm';
-
-  const cardBgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#faf8f3]'
-      : readingMode === 'dark'
-        ? 'bg-gray-800'
-        : 'bg-white dark:bg-gray-800';
-
-  const headerTextClass =
-    readingMode === 'sepia'
-      ? 'text-[#5c4f3a]'
-      : readingMode === 'dark'
-        ? 'text-white'
-        : 'text-gray-800 dark:text-white';
-
-  const textClass =
-    readingMode === 'sepia'
-      ? 'text-[#5c4f3a]'
-      : readingMode === 'dark'
-        ? 'text-gray-200'
-        : 'text-gray-800 dark:text-gray-200';
-
   return (
-    <div className={`min-h-screen ${bgClass}`}>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className={`${headerBgClass} sticky top-0 z-30`}>
+      <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             href="/"
@@ -176,7 +139,7 @@ function StrongsContent() {
           >
             ← Home
           </Link>
-          <h1 className={`text-xl md:text-2xl font-bold ${headerTextClass}`}>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
             Strong&apos;s Concordance
           </h1>
           <button
@@ -193,12 +156,12 @@ function StrongsContent() {
       <div className="max-w-7xl mx-auto flex relative">
         {/* Desktop Sidebar TOC */}
         <aside 
-          className={`hidden md:block w-72 ${cardBgClass} border-r border-gray-200 dark:border-gray-700 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto`}
+          className="hidden md:block w-72 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto"
           role="navigation"
           aria-label="Table of contents navigation"
         >
           <div className="p-4 space-y-4">
-            <h2 className={`text-xl font-bold ${headerTextClass} mb-2`}>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
               Table of Contents
             </h2>
 
@@ -249,7 +212,7 @@ function StrongsContent() {
                 placeholder="Filter sections..."
                 value={tocFilter}
                 onChange={e => setTocFilter(e.target.value)}
-                className={`w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg ${cardBgClass} ${textClass} text-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 aria-label="Filter table of contents sections"
               />
             </div>
@@ -265,7 +228,7 @@ function StrongsContent() {
 
             {/* Section List */}
             <div>
-              <h3 className={`text-sm font-semibold ${textClass} mb-2`}>
+              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                 {activeTab === 'hebrew' ? 'Hebrew Dictionary' : 'Greek Dictionary'}
               </h3>
               <nav aria-label="Dictionary sections">
@@ -277,7 +240,7 @@ function StrongsContent() {
                         className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           activeSection === groupKey
                             ? 'bg-blue-600 text-white font-semibold'
-                            : `${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                         }`}
                         aria-label={`Jump to section ${groupKey}`}
                         aria-current={activeSection === groupKey ? 'true' : 'false'}
@@ -292,7 +255,7 @@ function StrongsContent() {
                 </ul>
               </nav>
               {tocFilter && filteredTocGroups.length === 0 && (
-                <p className={`text-sm ${textClass} opacity-75 mt-2`}>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   No matching sections
                 </p>
               )}
@@ -311,11 +274,11 @@ function StrongsContent() {
             aria-label="Table of contents"
           >
             <div
-              className={`${cardBgClass} max-h-[90vh] w-80 overflow-y-auto p-6 rounded-lg shadow-lg`}
+              className="bg-white dark:bg-gray-800 max-h-[90vh] w-80 overflow-y-auto p-6 rounded-lg shadow-lg"
               onClick={e => e.stopPropagation()}
               onTouchEnd={e => e.stopPropagation()}
             >
-              <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                 Table of Contents
               </h2>
 
@@ -366,7 +329,7 @@ function StrongsContent() {
                   placeholder="Filter sections..."
                   value={tocFilter}
                   onChange={e => setTocFilter(e.target.value)}
-                  className={`w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg ${cardBgClass} ${textClass} text-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   aria-label="Filter table of contents sections"
                 />
               </div>
@@ -380,7 +343,7 @@ function StrongsContent() {
                 Read Bible
               </Link>
 
-              <h3 className={`text-lg font-semibold ${textClass} mb-2`}>
+              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
                 {activeTab === 'hebrew' ? 'Hebrew Dictionary' : 'Greek Dictionary'}
               </h3>
               <nav aria-label="Dictionary sections">
@@ -392,7 +355,7 @@ function StrongsContent() {
                         className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           activeSection === groupKey
                             ? 'bg-blue-600 text-white font-semibold'
-                            : `${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                         }`}
                         aria-label={`Jump to section ${groupKey}`}
                         aria-current={activeSection === groupKey ? 'true' : 'false'}
@@ -407,7 +370,7 @@ function StrongsContent() {
                 </ul>
               </nav>
               {tocFilter && filteredTocGroups.length === 0 && (
-                <p className={`text-sm ${textClass} opacity-75 mt-2`}>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   No matching sections
                 </p>
               )}
@@ -427,7 +390,7 @@ function StrongsContent() {
               className={`flex-1 py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
                 activeTab === 'hebrew'
                   ? 'bg-blue-600 text-white'
-                  : `${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
               aria-label="Switch to Hebrew dictionary"
               aria-pressed={activeTab === 'hebrew'}
@@ -442,7 +405,7 @@ function StrongsContent() {
               className={`flex-1 py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
                 activeTab === 'greek'
                   ? 'bg-blue-600 text-white'
-                  : `${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
               aria-label="Switch to Greek dictionary"
               aria-pressed={activeTab === 'greek'}
@@ -462,11 +425,11 @@ function StrongsContent() {
               placeholder="Search by reference number, word, or definition..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className={`w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg ${cardBgClass} ${textClass} focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm`}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
               aria-label="Search dictionary entries by reference, word, or definition"
             />
             {searchQuery && (
-              <p className={`mt-2 text-sm ${textClass} opacity-75`} role="status">
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400" role="status">
                 Found {filteredEntries.length} {filteredEntries.length === 1 ? 'entry' : 'entries'}
               </p>
             )}
@@ -482,21 +445,21 @@ function StrongsContent() {
             <div className="space-y-10">
               {Object.entries(groupedEntries).map(([groupKey, groupEntries]) => (
                 <section key={groupKey} id={groupKey} data-section={groupKey} className="scroll-mt-20">
-                  <h2 className={`text-3xl font-bold ${headerTextClass} mb-6 pb-3 border-b-2 border-blue-600`}>
+                  <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 pb-3 border-b-2 border-blue-600">
                     {groupKey}
                   </h2>
                   <div className="space-y-6">
                     {groupEntries.map(([ref, entry]) => (
                       <article
                         key={ref}
-                        className={`${cardBgClass} rounded-lg p-6 shadow-md hover:shadow-xl transition-all border border-gray-200 dark:border-gray-700`}
+                        className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-all border border-gray-200 dark:border-gray-700"
                       >
                         <div className="flex items-start justify-between mb-4">
                           <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                             {ref}
                           </h3>
                           {entry.lemma && (
-                            <span className={`text-3xl ${textClass} font-serif`}>
+                            <span className="text-3xl text-gray-800 dark:text-gray-200 font-serif">
                               {entry.lemma}
                             </span>
                           )}
@@ -504,10 +467,10 @@ function StrongsContent() {
 
                         {(entry.xlit || entry.translit) && (
                           <div className="mb-3">
-                            <span className={`text-xs font-semibold ${textClass} opacity-75 uppercase tracking-wide`}>
+                            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                               Transliteration
                             </span>
-                            <p className={`text-base ${textClass} mt-1`}>
+                            <p className="text-base text-gray-700 dark:text-gray-300 mt-1">
                               {entry.xlit || entry.translit}
                             </p>
                           </div>
@@ -515,10 +478,10 @@ function StrongsContent() {
 
                         {entry.pron && (
                           <div className="mb-3">
-                            <span className={`text-xs font-semibold ${textClass} opacity-75 uppercase tracking-wide`}>
+                            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                               Pronunciation
                             </span>
-                            <p className={`text-base ${textClass} mt-1`}>
+                            <p className="text-base text-gray-700 dark:text-gray-300 mt-1">
                               {entry.pron}
                             </p>
                           </div>
@@ -526,10 +489,10 @@ function StrongsContent() {
 
                         {entry.derivation && (
                           <div className="mb-4">
-                            <span className={`text-xs font-semibold ${textClass} opacity-75 uppercase tracking-wide`}>
+                            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                               Derivation
                             </span>
-                            <p className={`text-base ${textClass} mt-1 leading-relaxed`}>
+                            <p className="text-base text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">
                               {entry.derivation}
                             </p>
                           </div>
@@ -537,19 +500,19 @@ function StrongsContent() {
 
                         <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 space-y-4">
                           <div>
-                            <span className={`text-xs font-semibold ${textClass} opacity-75 uppercase tracking-wide`}>
+                            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                               Strong&apos;s Definition
                             </span>
-                            <p className={`text-base ${textClass} mt-1 leading-relaxed`}>
+                            <p className="text-base text-gray-800 dark:text-gray-200 mt-1 leading-relaxed">
                               {entry.strongs_def}
                             </p>
                           </div>
 
                           <div>
-                            <span className={`text-xs font-semibold ${textClass} opacity-75 uppercase tracking-wide`}>
+                            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                               KJV Translation
                             </span>
-                            <p className={`text-base ${textClass} mt-1 leading-relaxed`}>
+                            <p className="text-base text-gray-800 dark:text-gray-200 mt-1 leading-relaxed">
                               {entry.kjv_def}
                             </p>
                           </div>
@@ -564,7 +527,7 @@ function StrongsContent() {
 
           {!loading && filteredEntries.length === 0 && (
             <div className="text-center py-12" role="status">
-              <p className={`${textClass} text-lg mb-4`}>
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">
                 No entries found matching &quot;{searchQuery}&quot;
               </p>
               <button
@@ -609,19 +572,10 @@ function StrongsContent() {
 }
 
 export default function StrongsPage() {
-  // Match the sepia theme for consistency
-  const readingMode = 'sepia';
-  const bgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#f4f1ea]'
-      : readingMode === 'dark'
-        ? 'bg-gray-900'
-        : 'bg-gray-50 dark:bg-gray-900';
-
   return (
     <Suspense
       fallback={
-        <div className={`min-h-screen ${bgClass} flex items-center justify-center`}>
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       }
