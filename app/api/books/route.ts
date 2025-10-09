@@ -15,7 +15,7 @@ export async function GET(_request: NextRequest) {
     }));
 
     return NextResponse.json(
-      { 
+      {
         books,
         total: books.length,
       },
@@ -28,10 +28,7 @@ export async function GET(_request: NextRequest) {
     );
   } catch (error) {
     console.error('[API /books] Error:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch books' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch books' }, { status: 500 });
   }
 }
 

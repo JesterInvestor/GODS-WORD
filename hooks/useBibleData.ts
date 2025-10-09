@@ -19,7 +19,7 @@ export function useBibleData(bookName: string) {
         setLoading(true);
         setError(null);
         const bookData = await loadBook(bookName);
-        
+
         if (isMounted) {
           setData(bookData);
           setLoading(false);

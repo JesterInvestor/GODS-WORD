@@ -7,6 +7,7 @@ The Bible JSON files now contain `<em>` tags to mark words that should be italic
 ## What You See Now
 
 In Genesis 1:2, the HTML shows:
+
 ```
 and darkness <em>was</em> upon the face
 ```
@@ -54,6 +55,7 @@ Or using Tailwind CSS classes, update the verse paragraph to:
 ### Option 3: Keep as Plain Text (Current)
 
 Leave as-is if you prefer all text to appear the same. The semantic `<em>` tags are still present in the HTML for:
+
 - Accessibility
 - Screen readers
 - Future styling decisions
@@ -91,4 +93,4 @@ To see the effect of styling, you can:
 
 ---
 
-*Note: This is an optional enhancement. The current implementation is complete and functional without additional styling.*
+_Note: This is an optional enhancement. The current implementation is complete and functional without additional styling._

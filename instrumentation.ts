@@ -7,7 +7,7 @@ export async function register() {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
     // Server-side instrumentation
     console.info('[Instrumentation] Server runtime initialized');
-    
+
     // You can add APM tools here like:
     // - New Relic
     // - Datadog

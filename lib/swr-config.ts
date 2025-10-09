@@ -8,18 +8,16 @@ export const swrConfig: SWRConfiguration = {
   revalidateOnFocus: false,
   revalidateOnReconnect: true,
   revalidateIfStale: false,
-  
+
   // Cache will be considered fresh for 1 hour
   dedupingInterval: 3600000,
-  
+
   // Retry configuration
   errorRetryCount: 3,
   errorRetryInterval: 5000,
-  
+
   // Load data from cache immediately and revalidate in background
   suspense: false,
-  
-
 };
 
 /**
@@ -27,12 +25,12 @@ export const swrConfig: SWRConfiguration = {
  */
 const fetcher = async (url: string) => {
   const res = await fetch(url);
-  
+
   if (!res.ok) {
     const error = new Error('An error occurred while fetching the data.');
     throw error;
   }
-  
+
   return res.json();
 };
 
@@ -51,15 +49,11 @@ export function useBibleBook(bookName: string) {
  * Hook for fetching Strong's dictionary data with SWR
  */
 export function useStrongsDictionary(type: 'hebrew' | 'greek') {
-  return useSWR(
-    `/data/strongs-${type}-dictionary.json`,
-    fetcher,
-    {
-      ...swrConfig,
-      // Dictionary data is static
-      revalidateOnMount: false,
-    }
-  );
+  return useSWR(`/data/strongs-${type}-dictionary.json`, fetcher, {
+    ...swrConfig,
+    // Dictionary data is static
+    revalidateOnMount: false,
+  });
 }
 
 // Import at the top for the hooks

@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 
 export const viewport: Viewport = {
@@ -15,8 +15,20 @@ export const metadata: Metadata = {
     default: "GOD'S WORD - KJV Bible",
     template: "%s | GOD'S WORD - KJV Bible",
   },
-  description: "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
-  keywords: ['Bible', 'KJV', 'King James Version', "Strong's Concordance", 'Hebrew', 'Greek', 'Scripture', 'Biblical', 'Old Testament', 'New Testament'],
+  description:
+    "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
+  keywords: [
+    'Bible',
+    'KJV',
+    'King James Version',
+    "Strong's Concordance",
+    'Hebrew',
+    'Greek',
+    'Scripture',
+    'Biblical',
+    'Old Testament',
+    'New Testament',
+  ],
   authors: [{ name: "GOD'S WORD" }],
   creator: "GOD'S WORD",
   publisher: "GOD'S WORD",
@@ -31,7 +43,8 @@ export const metadata: Metadata = {
     url: 'https://gods-word.vercel.app',
     siteName: "GOD'S WORD - KJV Bible",
     title: "GOD'S WORD - King James Version Bible",
-    description: "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
+    description:
+      "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
     images: [
       {
         url: '/og-image.png',

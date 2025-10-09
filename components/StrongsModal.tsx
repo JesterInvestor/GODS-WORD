@@ -43,7 +43,7 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
           setError(errorMsg);
         }
       } else {
-        setError('No Strong\'s reference provided');
+        setError("No Strong's reference provided");
       }
       setLoading(false);
     };
@@ -64,7 +64,7 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
   const currentEntry = activeTab === 'hebrew' ? hebrewEntry : greekEntry;
 
   return (
-    <div 
+    <div
       style={{
         position: 'fixed',
         top: 0,
@@ -84,7 +84,7 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div 
+      <div
         style={{
           background: 'var(--background)',
           padding: '20px',
@@ -97,17 +97,28 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
           flexDirection: 'column',
         }}
         className="shadow-2xl animate-in fade-in zoom-in-95 duration-200"
-        onClick={(e) => e.stopPropagation()}
-        onTouchEnd={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
+        onTouchEnd={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '16px', borderBottom: '1px solid rgba(128, 128, 128, 0.3)' }}>
-          <h2 id="modal-title" style={{ fontSize: '24px', fontWeight: 'bold', margin: 0, color: 'var(--foreground)' }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingBottom: '16px',
+            borderBottom: '1px solid rgba(128, 128, 128, 0.3)',
+          }}
+        >
+          <h2
+            id="modal-title"
+            style={{ fontSize: '24px', fontWeight: 'bold', margin: 0, color: 'var(--foreground)' }}
+          >
             {word}
           </h2>
           <button
             onClick={onClose}
-            style={{ 
+            style={{
               background: 'none',
               border: 'none',
               fontSize: '28px',
@@ -118,8 +129,8 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
               opacity: 0.6,
               transition: 'opacity 0.2s',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '0.6')}
             aria-label="Close modal"
           >
             ×
@@ -127,7 +138,13 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
         </div>
 
         {/* Tabs */}
-        <div style={{ display: 'flex', borderBottom: '1px solid rgba(128, 128, 128, 0.3)', marginTop: '16px' }}>
+        <div
+          style={{
+            display: 'flex',
+            borderBottom: '1px solid rgba(128, 128, 128, 0.3)',
+            marginTop: '16px',
+          }}
+        >
           <button
             onClick={() => setActiveTab('hebrew')}
             style={{
@@ -169,13 +186,37 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
         {/* Content */}
         <div style={{ padding: '20px 0', overflowY: 'auto', flex: 1, minHeight: 0 }}>
           {loading ? (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '48px 0', textAlign: 'center' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '48px 0',
+                textAlign: 'center',
+              }}
+            >
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
             </div>
           ) : error ? (
             <div style={{ textAlign: 'center', padding: '48px 0' }}>
-              <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '2px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', padding: '24px' }}>
-                <p style={{ color: '#dc2626', fontWeight: '600', marginBottom: '8px', fontSize: '16px' }}>Error Loading Strong&apos;s Reference</p>
+              <div
+                style={{
+                  background: 'rgba(239, 68, 68, 0.1)',
+                  border: '2px solid rgba(239, 68, 68, 0.3)',
+                  borderRadius: '8px',
+                  padding: '24px',
+                }}
+              >
+                <p
+                  style={{
+                    color: '#dc2626',
+                    fontWeight: '600',
+                    marginBottom: '8px',
+                    fontSize: '16px',
+                  }}
+                >
+                  Error Loading Strong&apos;s Reference
+                </p>
                 <p style={{ color: '#ef4444', fontSize: '14px', marginBottom: '16px' }}>{error}</p>
                 <p style={{ color: 'var(--foreground)', opacity: 0.6, fontSize: '12px' }}>
                   Check the browser console (F12) for more details.
@@ -186,7 +227,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {currentEntry.lemma && (
                 <div>
-                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
+                  <h3
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--foreground)',
+                      opacity: 0.6,
+                      textTransform: 'uppercase',
+                      marginBottom: '4px',
+                    }}
+                  >
                     Original Word
                   </h3>
                   <p style={{ fontSize: '24px', color: 'var(--foreground)', textAlign: 'center' }}>
@@ -197,7 +247,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
               {(currentEntry.xlit || currentEntry.translit) && (
                 <div>
-                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
+                  <h3
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--foreground)',
+                      opacity: 0.6,
+                      textTransform: 'uppercase',
+                      marginBottom: '4px',
+                    }}
+                  >
                     Transliteration
                   </h3>
                   <p style={{ fontSize: '18px', color: 'var(--foreground)', textAlign: 'center' }}>
@@ -208,7 +267,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
               {currentEntry.pron && (
                 <div>
-                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
+                  <h3
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--foreground)',
+                      opacity: 0.6,
+                      textTransform: 'uppercase',
+                      marginBottom: '4px',
+                    }}
+                  >
                     Pronunciation
                   </h3>
                   <p style={{ fontSize: '18px', color: 'var(--foreground)', textAlign: 'center' }}>
@@ -219,7 +287,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
 
               {currentEntry.derivation && (
                 <div>
-                  <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
+                  <h3
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--foreground)',
+                      opacity: 0.6,
+                      textTransform: 'uppercase',
+                      marginBottom: '4px',
+                    }}
+                  >
                     Derivation
                   </h3>
                   <p style={{ fontSize: '16px', color: 'var(--foreground)' }}>
@@ -229,7 +306,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
               )}
 
               <div>
-                <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
+                <h3
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    color: 'var(--foreground)',
+                    opacity: 0.6,
+                    textTransform: 'uppercase',
+                    marginBottom: '4px',
+                  }}
+                >
                   Strong&apos;s Definition
                 </h3>
                 <p style={{ fontSize: '16px', color: 'var(--foreground)' }}>
@@ -238,7 +324,16 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
               </div>
 
               <div>
-                <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)', opacity: 0.6, textTransform: 'uppercase', marginBottom: '4px' }}>
+                <h3
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    color: 'var(--foreground)',
+                    opacity: 0.6,
+                    textTransform: 'uppercase',
+                    marginBottom: '4px',
+                  }}
+                >
                   KJV Translation
                 </h3>
                 <p style={{ fontSize: '16px', color: 'var(--foreground)' }}>
@@ -247,15 +342,32 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
               </div>
             </div>
           ) : (
-            <div style={{ textAlign: 'center', padding: '48px 0', color: 'var(--foreground)', opacity: 0.6 }}>
-              <p style={{ marginBottom: '8px' }}>No Strong&apos;s reference available for this word.</p>
-              <p style={{ fontSize: '14px' }}>Strong&apos;s references are available for original Hebrew and Greek words.</p>
+            <div
+              style={{
+                textAlign: 'center',
+                padding: '48px 0',
+                color: 'var(--foreground)',
+                opacity: 0.6,
+              }}
+            >
+              <p style={{ marginBottom: '8px' }}>
+                No Strong&apos;s reference available for this word.
+              </p>
+              <p style={{ fontSize: '14px' }}>
+                Strong&apos;s references are available for original Hebrew and Greek words.
+              </p>
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(128, 128, 128, 0.3)', marginTop: '16px' }}>
+        <div
+          style={{
+            paddingTop: '16px',
+            borderTop: '1px solid rgba(128, 128, 128, 0.3)',
+            marginTop: '16px',
+          }}
+        >
           <button
             onClick={onClose}
             style={{
@@ -270,8 +382,8 @@ export default function StrongsModal({ word, strongsRef, onClose }: StrongsModal
               fontSize: '16px',
               transition: 'background 0.2s',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.background = '#1d4ed8'}
-            onMouseLeave={(e) => e.currentTarget.style.background = '#2563eb'}
+            onMouseEnter={e => (e.currentTarget.style.background = '#1d4ed8')}
+            onMouseLeave={e => (e.currentTarget.style.background = '#2563eb')}
             aria-label="Close modal"
           >
             Close

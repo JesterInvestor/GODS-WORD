@@ -3,7 +3,8 @@ import { DefaultSeoProps } from 'next-seo';
 export const defaultSEO: DefaultSeoProps = {
   titleTemplate: "%s | GOD'S WORD - KJV Bible",
   defaultTitle: "GOD'S WORD - King James Version Bible with Strong's Concordance",
-  description: "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
+  description:
+    "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
   canonical: 'https://gods-word.vercel.app',
   openGraph: {
     type: 'website',
@@ -11,7 +12,8 @@ export const defaultSEO: DefaultSeoProps = {
     url: 'https://gods-word.vercel.app',
     siteName: "GOD'S WORD - KJV Bible",
     title: "GOD'S WORD - King James Version Bible",
-    description: "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
+    description:
+      "Read the Word of God with Strong's Concordance. Study the King James Version Bible with original Hebrew and Greek word meanings.",
     images: [
       {
         url: 'https://gods-word.vercel.app/og-image.png',
@@ -30,7 +32,8 @@ export const defaultSEO: DefaultSeoProps = {
   additionalMetaTags: [
     {
       name: 'keywords',
-      content: 'Bible, KJV, King James Version, Strong\'s Concordance, Hebrew, Greek, Scripture, Biblical, Old Testament, New Testament',
+      content:
+        "Bible, KJV, King James Version, Strong's Concordance, Hebrew, Greek, Scripture, Biblical, Old Testament, New Testament",
     },
     {
       name: 'author',

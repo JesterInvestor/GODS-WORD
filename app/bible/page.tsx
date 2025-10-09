@@ -12,11 +12,11 @@ function BibleContent() {
   const testament = searchParams.get('testament');
   const bookParam = searchParams.get('book');
   const chapterParam = searchParams.get('chapter');
-  
+
   // Set initial book based on parameters
   const initialBook = bookParam || (testament === 'new' ? 'Matthew' : 'Genesis');
   const initialChapter = chapterParam ? parseInt(chapterParam, 10) : 1;
-  
+
   const [selectedBook, setSelectedBook] = useState<string>(initialBook);
   const [selectedChapter, setSelectedChapter] = useState<number>(initialChapter);
   const [bookData, setBookData] = useState<Book | null>(null);
@@ -43,7 +43,7 @@ function BibleContent() {
     if (savedStrongsEnabled !== null) {
       setStrongsEnabled(savedStrongsEnabled === 'true');
     }
-    
+
     // Load Jesus's words preference from localStorage
     const savedJesusWordsEnabled = localStorage.getItem('jesusWordsEnabled');
     if (savedJesusWordsEnabled !== null) {
@@ -67,7 +67,7 @@ function BibleContent() {
     const savedFontFamily = localStorage.getItem('fontFamily');
     const savedLineHeight = localStorage.getItem('lineHeight');
     const savedTextWidth = localStorage.getItem('textWidth');
-    
+
     if (savedFontSize) setFontSize(parseInt(savedFontSize));
     if (savedFontFamily) setFontFamily(savedFontFamily as 'sans' | 'serif' | 'crimson');
     if (savedLineHeight) setLineHeight(savedLineHeight as 'compact' | 'normal' | 'relaxed');
@@ -80,7 +80,7 @@ function BibleContent() {
     localStorage.setItem('fontFamily', fontFamily);
     localStorage.setItem('lineHeight', lineHeight);
     localStorage.setItem('textWidth', textWidth);
-    
+
     // Apply sepia mode to body (always enabled)
     if (typeof document !== 'undefined') {
       document.body.classList.add('sepia-mode');
@@ -92,8 +92,8 @@ function BibleContent() {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't trigger shortcuts when typing in inputs or modals are open
       if (showTOC || showSettings || selectedWord) return;
-      
-      switch(e.key) {
+
+      switch (e.key) {
         case 'ArrowLeft':
           e.preventDefault();
           // Previous chapter
@@ -149,10 +149,6 @@ function BibleContent() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedBook, selectedChapter, bookData, showTOC, showSettings, selectedWord]);
 
-
-
-
-
   const loadBookData = async (book: string) => {
     setLoading(true);
     const data = await loadBook(book);
@@ -179,40 +175,58 @@ function BibleContent() {
 
   const getLineHeightValue = () => {
     switch (lineHeight) {
-      case 'compact': return '1.5';
-      case 'normal': return '1.8';
-      case 'relaxed': return '2.2';
-      default: return '1.8';
+      case 'compact':
+        return '1.5';
+      case 'normal':
+        return '1.8';
+      case 'relaxed':
+        return '2.2';
+      default:
+        return '1.8';
     }
   };
 
   const getTextWidthClass = () => {
     switch (textWidth) {
-      case 'narrow': return 'max-w-2xl';
-      case 'normal': return 'max-w-4xl';
-      case 'wide': return 'max-w-6xl';
-      default: return 'max-w-4xl';
+      case 'narrow':
+        return 'max-w-2xl';
+      case 'normal':
+        return 'max-w-4xl';
+      case 'wide':
+        return 'max-w-6xl';
+      default:
+        return 'max-w-4xl';
     }
   };
 
   const getFontFamilyClass = () => {
     switch (fontFamily) {
-      case 'serif': return 'font-reading-serif';
-      case 'crimson': return 'font-reading-crimson';
-      case 'sans': return '';
-      default: return 'font-reading-serif';
+      case 'serif':
+        return 'font-reading-serif';
+      case 'crimson':
+        return 'font-reading-crimson';
+      case 'sans':
+        return '';
+      default:
+        return 'font-reading-serif';
     }
   };
 
   // Function to render text with clickable Strong's words
   // Parses Strong's numbers embedded in the text like "God[H430]"
-  const renderTextWithStrongsLinks = (text: string, verseInfo?: { book: string; chapter: string; verse: string }) => {
+  const renderTextWithStrongsLinks = (
+    text: string,
+    verseInfo?: { book: string; chapter: string; verse: string }
+  ) => {
     // Remove em tags from the text
     const cleanedText = text.replace(/<\/?em>/g, '');
-    
+
     // Check if this verse contains Jesus's words
-    const isJesusVerse = verseInfo && jesusWordsEnabled && shouldHighlightAsJesusWords(verseInfo.book, verseInfo.chapter, verseInfo.verse);
-    
+    const isJesusVerse =
+      verseInfo &&
+      jesusWordsEnabled &&
+      shouldHighlightAsJesusWords(verseInfo.book, verseInfo.chapter, verseInfo.verse);
+
     // Pattern to match words with Strong's numbers: word[H1234] or word[G1234]
     // Supports multiple consecutive Strong's numbers like: word[H1234][H5678]
     // Also supports letter suffixes like [H1121A] or [G2388G]
@@ -260,12 +274,12 @@ function BibleContent() {
         };
 
         // Build className with Jesus's words border styling
-        let className = strongsEnabled 
-          ? "text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5"
-          : "";
-        
+        let className = strongsEnabled
+          ? 'text-blue-600 dark:text-blue-400 underline decoration-blue-400 decoration-1 hover:decoration-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 cursor-pointer font-semibold transition-all active:bg-blue-100 dark:active:bg-blue-900 rounded px-0.5'
+          : '';
+
         if (isJesusVerse) {
-          className += " jesus-words";
+          className += ' jesus-words';
         }
 
         parts.push(
@@ -275,57 +289,75 @@ function BibleContent() {
             onClick={handleClick}
             onTouchEnd={handleTouchEnd}
             title={strongsEnabled ? `${word} (${refs.join(', ')})` : undefined}
-            style={strongsEnabled ? { WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' } : undefined}
+            style={
+              strongsEnabled
+                ? { WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }
+                : undefined
+            }
           >
             {word}
           </span>
         );
       } else if (match[3]) {
         // Regular word without Strong's number - also apply Jesus's words styling if applicable
-        const className = isJesusVerse ? "jesus-words" : "";
-        parts.push(<span key={`text-${index++}`} className={className}>{match[3]}</span>);
+        const className = isJesusVerse ? 'jesus-words' : '';
+        parts.push(
+          <span key={`text-${index++}`} className={className}>
+            {match[3]}
+          </span>
+        );
       }
     }
 
     return <>{parts}</>;
   };
 
-  const headerBgClass = readingMode === 'sepia' 
-    ? 'bg-[#faf8f3] shadow-sm' 
-    : readingMode === 'dark' 
-    ? 'bg-gray-800 shadow-sm' 
-    : 'bg-white dark:bg-gray-800 shadow-sm';
+  const headerBgClass =
+    readingMode === 'sepia'
+      ? 'bg-[#faf8f3] shadow-sm'
+      : readingMode === 'dark'
+        ? 'bg-gray-800 shadow-sm'
+        : 'bg-white dark:bg-gray-800 shadow-sm';
 
-  const headerTextClass = readingMode === 'sepia' 
-    ? 'text-[#5c4f3a]' 
-    : readingMode === 'dark' 
-    ? 'text-white' 
-    : 'text-gray-800 dark:text-white';
+  const headerTextClass =
+    readingMode === 'sepia'
+      ? 'text-[#5c4f3a]'
+      : readingMode === 'dark'
+        ? 'text-white'
+        : 'text-gray-800 dark:text-white';
 
-  const bgClass = readingMode === 'sepia' 
-    ? 'bg-[#f4f1ea]' 
-    : readingMode === 'dark' 
-    ? 'bg-gray-900' 
-    : 'bg-gray-50 dark:bg-gray-900';
+  const bgClass =
+    readingMode === 'sepia'
+      ? 'bg-[#f4f1ea]'
+      : readingMode === 'dark'
+        ? 'bg-gray-900'
+        : 'bg-gray-50 dark:bg-gray-900';
 
-  const cardBgClass = readingMode === 'sepia' 
-    ? 'bg-[#faf8f3]' 
-    : readingMode === 'dark' 
-    ? 'bg-gray-800' 
-    : 'bg-white dark:bg-gray-800';
+  const cardBgClass =
+    readingMode === 'sepia'
+      ? 'bg-[#faf8f3]'
+      : readingMode === 'dark'
+        ? 'bg-gray-800'
+        : 'bg-white dark:bg-gray-800';
 
-  const textClass = readingMode === 'sepia' 
-    ? 'text-[#5c4f3a]' 
-    : readingMode === 'dark' 
-    ? 'text-gray-200' 
-    : 'text-gray-800 dark:text-gray-200';
+  const textClass =
+    readingMode === 'sepia'
+      ? 'text-[#5c4f3a]'
+      : readingMode === 'dark'
+        ? 'text-gray-200'
+        : 'text-gray-800 dark:text-gray-200';
 
   return (
     <div className={`min-h-screen ${bgClass}`}>
       {/* Header */}
       <header className={`${headerBgClass} sticky top-0 z-10`}>
-        <div className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}>
-          <Link href="/" className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all">
+        <div
+          className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}
+        >
+          <Link
+            href="/"
+            className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all"
+          >
             ← Home
           </Link>
           <h1 className={`text-xl font-bold ${headerTextClass}`}>
@@ -343,16 +375,28 @@ function BibleContent() {
             <button
               onClick={() => setStrongsEnabled(!strongsEnabled)}
               className={`${strongsEnabled ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 hover:bg-gray-500'} text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all`}
-              aria-label={strongsEnabled ? 'Disable Strong\'s references' : 'Enable Strong\'s references'}
-              title={strongsEnabled ? 'Strong\'s references enabled' : 'Strong\'s references disabled'}
+              aria-label={
+                strongsEnabled ? "Disable Strong's references" : "Enable Strong's references"
+              }
+              title={
+                strongsEnabled ? "Strong's references enabled" : "Strong's references disabled"
+              }
             >
               S#
             </button>
             <button
               onClick={() => setJesusWordsEnabled(!jesusWordsEnabled)}
               className={`${jesusWordsEnabled ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-400 hover:bg-gray-500'} text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all`}
-              aria-label={jesusWordsEnabled ? 'Disable Jesus\'s words highlighting' : 'Enable Jesus\'s words highlighting'}
-              title={jesusWordsEnabled ? 'Jesus\'s words highlighting enabled' : 'Jesus\'s words highlighting disabled'}
+              aria-label={
+                jesusWordsEnabled
+                  ? "Disable Jesus's words highlighting"
+                  : "Enable Jesus's words highlighting"
+              }
+              title={
+                jesusWordsEnabled
+                  ? "Jesus's words highlighting enabled"
+                  : "Jesus's words highlighting disabled"
+              }
             >
               J
             </button>
@@ -370,13 +414,19 @@ function BibleContent() {
       <div className={`${getTextWidthClass()} mx-auto px-4 py-6`}>
         {/* Reading Settings Panel */}
         {showSettings && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-30" onClick={() => setShowSettings(false)} onTouchEnd={() => setShowSettings(false)}>
-            <div className={`${cardBgClass} h-full w-96 overflow-y-auto p-6 shadow-2xl`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-30"
+            onClick={() => setShowSettings(false)}
+            onTouchEnd={() => setShowSettings(false)}
+          >
+            <div
+              className={`${cardBgClass} h-full w-96 overflow-y-auto p-6 shadow-2xl`}
+              onClick={e => e.stopPropagation()}
+              onTouchEnd={e => e.stopPropagation()}
+            >
               <div className="flex justify-between items-center mb-6">
-                <h2 className={`text-2xl font-bold ${headerTextClass}`}>
-                  Reading Settings
-                </h2>
-                <button 
+                <h2 className={`text-2xl font-bold ${headerTextClass}`}>Reading Settings</h2>
+                <button
                   onClick={() => setShowSettings(false)}
                   className="text-gray-500 hover:text-gray-700 text-2xl"
                   aria-label="Close settings"
@@ -397,7 +447,9 @@ function BibleContent() {
                   >
                     A−
                   </button>
-                  <span className={`${textClass} font-semibold min-w-[60px] text-center`}>{fontSize}px</span>
+                  <span className={`${textClass} font-semibold min-w-[60px] text-center`}>
+                    {fontSize}px
+                  </span>
                   <button
                     onClick={handleFontSizeIncrease}
                     disabled={fontSize === fontSizes[fontSizes.length - 1]}
@@ -416,8 +468,8 @@ function BibleContent() {
                   <button
                     onClick={() => setFontFamily('serif')}
                     className={`w-full text-left px-4 py-3 rounded-lg font-reading-serif transition-all ${
-                      fontFamily === 'serif' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      fontFamily === 'serif'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -426,8 +478,8 @@ function BibleContent() {
                   <button
                     onClick={() => setFontFamily('crimson')}
                     className={`w-full text-left px-4 py-3 rounded-lg font-reading-crimson transition-all ${
-                      fontFamily === 'crimson' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      fontFamily === 'crimson'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -436,8 +488,8 @@ function BibleContent() {
                   <button
                     onClick={() => setFontFamily('sans')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      fontFamily === 'sans' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      fontFamily === 'sans'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -453,8 +505,8 @@ function BibleContent() {
                   <button
                     onClick={() => setLineHeight('compact')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      lineHeight === 'compact' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      lineHeight === 'compact'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -463,8 +515,8 @@ function BibleContent() {
                   <button
                     onClick={() => setLineHeight('normal')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      lineHeight === 'normal' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      lineHeight === 'normal'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -473,8 +525,8 @@ function BibleContent() {
                   <button
                     onClick={() => setLineHeight('relaxed')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      lineHeight === 'relaxed' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      lineHeight === 'relaxed'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -490,8 +542,8 @@ function BibleContent() {
                   <button
                     onClick={() => setTextWidth('narrow')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      textWidth === 'narrow' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      textWidth === 'narrow'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -500,8 +552,8 @@ function BibleContent() {
                   <button
                     onClick={() => setTextWidth('normal')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      textWidth === 'normal' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      textWidth === 'normal'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -510,8 +562,8 @@ function BibleContent() {
                   <button
                     onClick={() => setTextWidth('wide')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
-                      textWidth === 'wide' 
-                        ? 'bg-blue-600 text-white font-semibold' 
+                      textWidth === 'wide'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
                   >
@@ -525,12 +577,18 @@ function BibleContent() {
 
         {/* Table of Contents Overlay */}
         {showTOC && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-20 flex items-center justify-center" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
-            <div className={`${cardBgClass} max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg`} onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
-              <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>
-                Table of Contents
-              </h2>
-              
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-20 flex items-center justify-center"
+            onClick={() => setShowTOC(false)}
+            onTouchEnd={() => setShowTOC(false)}
+          >
+            <div
+              className={`${cardBgClass} max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg`}
+              onClick={e => e.stopPropagation()}
+              onTouchEnd={e => e.stopPropagation()}
+            >
+              <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>Table of Contents</h2>
+
               {/* Quick Navigation */}
               <div className="mb-4 flex gap-2">
                 <button
@@ -548,7 +606,7 @@ function BibleContent() {
                   New Testament
                 </button>
               </div>
-              
+
               {/* Strong's Concordance Link */}
               <Link
                 href="/strongs"
@@ -556,7 +614,7 @@ function BibleContent() {
               >
                 Strong&apos;s Concordance
               </Link>
-              
+
               {/* Conditionally render sections */}
               {(tocSection === 'all' || tocSection === 'old') && (
                 <div className="mb-6" id="old-testament-section">
@@ -614,11 +672,9 @@ function BibleContent() {
         {/* Chapter Navigation */}
         {bookData && (
           <div className={`${cardBgClass} rounded-lg shadow-sm p-4 mb-6`}>
-            <h3 className={`text-sm font-semibold ${textClass} mb-3`}>
-              Select Chapter
-            </h3>
+            <h3 className={`text-sm font-semibold ${textClass} mb-3`}>Select Chapter</h3>
             <div className="flex flex-wrap gap-2">
-              {bookData.chapters.map((ch) => (
+              {bookData.chapters.map(ch => (
                 <button
                   key={ch.chapter}
                   onClick={() => setSelectedChapter(Number(ch.chapter))}
@@ -656,25 +712,28 @@ function BibleContent() {
                 </p>
               </div>
               <div className="space-y-3">
-                {currentChapter.verses.map((verse) => (
-                  <div key={verse.verse} className="flex group hover:bg-gray-50 dark:hover:bg-gray-700/30 rounded px-2 py-1 transition-colors">
-                    <span 
-                      className="text-blue-600 font-bold mr-4 flex-shrink-0 select-none bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded min-w-[2rem] text-center" 
+                {currentChapter.verses.map(verse => (
+                  <div
+                    key={verse.verse}
+                    className="flex group hover:bg-gray-50 dark:hover:bg-gray-700/30 rounded px-2 py-1 transition-colors"
+                  >
+                    <span
+                      className="text-blue-600 font-bold mr-4 flex-shrink-0 select-none bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded min-w-[2rem] text-center"
                       style={{ fontSize: `${Math.max(fontSize - 2, 12)}px` }}
                     >
                       {verse.verse}
                     </span>
-                    <p 
-                      className={`${textClass}`} 
-                      style={{ 
+                    <p
+                      className={`${textClass}`}
+                      style={{
                         fontSize: `${fontSize}px`,
-                        lineHeight: getLineHeightValue()
+                        lineHeight: getLineHeightValue(),
                       }}
                     >
-                      {renderTextWithStrongsLinks(verse.text, { 
-                        book: selectedBook, 
-                        chapter: String(selectedChapter), 
-                        verse: verse.verse 
+                      {renderTextWithStrongsLinks(verse.text, {
+                        book: selectedBook,
+                        chapter: String(selectedChapter),
+                        verse: verse.verse,
                       })}
                     </p>
                   </div>
@@ -725,7 +784,11 @@ function BibleContent() {
                   }
                 }
               }}
-              disabled={selectedBook === BOOKS[BOOKS.length - 1] && bookData && selectedChapter === bookData.chapters.length}
+              disabled={
+                selectedBook === BOOKS[BOOKS.length - 1] &&
+                bookData &&
+                selectedChapter === bookData.chapters.length
+              }
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
               aria-label="Go to next chapter"
             >
@@ -752,14 +815,16 @@ function BibleContent() {
 
 export default function BiblePage() {
   return (
-    <Suspense fallback={
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <BibleContent />
     </Suspense>
   );

@@ -8,20 +8,14 @@ import { join } from 'path';
  * Returns data for a specific Bible book
  * Implements ISR with revalidation
  */
-export async function GET(
-  _request: NextRequest,
-  context: { params: Promise<{ book: string }> }
-) {
+export async function GET(_request: NextRequest, context: { params: Promise<{ book: string }> }) {
   try {
     const params = await context.params;
     const bookName = params.book;
-    
+
     // Validate book name
     if (!BOOKS.includes(bookName)) {
-      return NextResponse.json(
-        { error: 'Book not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Book not found' }, { status: 404 });
     }
 
     // Read the book data from file system
@@ -38,10 +32,7 @@ export async function GET(
     });
   } catch (error) {
     console.error('[API /books/[book]] Error:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch book data' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch book data' }, { status: 500 });
   }
 }
 

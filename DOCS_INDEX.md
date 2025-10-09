@@ -3,6 +3,7 @@
 ## Quick Links
 
 ### 🚀 Getting Started
+
 - **[README.md](README.md)** - Main application documentation
 - **[QUICK_START_VERIFICATION.md](QUICK_START_VERIFICATION.md)** - Quick guide to verify Bible data
 
@@ -15,12 +16,12 @@
   - Test results and success metrics
   - Usage examples
 
-- **[AGGREGATION_AND_VERIFICATION.md](AGGREGATION_AND_VERIFICATION.md)** 
+- **[AGGREGATION_AND_VERIFICATION.md](AGGREGATION_AND_VERIFICATION.md)**
   - Technical implementation details
   - Verification results (all 66 books)
   - How the system works
 
-- **[scripts/README.md](scripts/README.md)** 
+- **[scripts/README.md](scripts/README.md)**
   - Complete API reference
   - Command-line options
   - Input/output formats
@@ -50,6 +51,7 @@
 ## Quick Commands
 
 ### Verify All Books
+
 ```bash
 python3 scripts/aggregate_and_verify.py \
   --verify-only \
@@ -58,6 +60,7 @@ python3 scripts/aggregate_and_verify.py \
 ```
 
 ### Aggregate Per-Chapter Files
+
 ```bash
 python3 scripts/aggregate_and_verify.py \
   --source /path/to/chapters \
@@ -66,6 +69,7 @@ python3 scripts/aggregate_and_verify.py \
 ```
 
 ### Format Report
+
 ```bash
 python3 scripts/format_report.py report.json
 ```
@@ -91,12 +95,14 @@ Repository Root
 ## Recent Changes
 
 ### October 8, 2025 - Bible Data Verification System
+
 - ✅ Added comprehensive aggregation & verification tooling
 - ✅ Verified all 66 books (0 critical issues found)
 - ✅ Created extensive documentation
 - ✅ All builds passing
 
 ### October 2024 - Data Corrections
+
 - Fixed corrupted files (Mark, 1 Kings, 2 Chronicles)
 - Added em tags for italicized words
 - Verified against multiple KJV sources
@@ -104,6 +110,7 @@ Repository Root
 ## Support
 
 For questions or issues:
+
 1. Check the relevant documentation file
 2. See [QUICK_START_VERIFICATION.md](QUICK_START_VERIFICATION.md) for common use cases
 3. See [scripts/README.md](scripts/README.md) for detailed options

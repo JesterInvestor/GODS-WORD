@@ -34,9 +34,7 @@ export default function Error({
 
         {error.message && (
           <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
-            <p className="text-sm text-red-800 dark:text-red-200 font-mono">
-              {error.message}
-            </p>
+            <p className="text-sm text-red-800 dark:text-red-200 font-mono">{error.message}</p>
           </div>
         )}
 
@@ -56,9 +54,7 @@ export default function Error({
         </div>
 
         {error.digest && (
-          <p className="text-xs text-gray-500 dark:text-gray-600">
-            Error ID: {error.digest}
-          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-600">Error ID: {error.digest}</p>
         )}
       </div>
     </div>

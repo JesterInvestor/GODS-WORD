@@ -18,12 +18,15 @@ A Next.js application for reading the King James Version Bible with an integrate
 ## Screenshots
 
 ### Home Page
+
 ![Home Page](https://github.com/user-attachments/assets/6d5b4912-10b8-4229-9794-446652071dfd)
 
 ### Bible Reading View
+
 ![Bible Reading](https://github.com/user-attachments/assets/dd547643-cf66-4101-93c9-628f2b7decd9)
 
 ### Table of Contents
+
 ![Table of Contents](https://github.com/user-attachments/assets/49a437ad-deb7-4d2f-a140-cbef5a3b9d58)
 
 ## Getting Started
@@ -36,17 +39,20 @@ A Next.js application for reading the King James Version Bible with an integrate
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/JesterInvestor/GODS-WORD.git
 cd GODS-WORD
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -90,6 +96,7 @@ GODS-WORD/
 ## Data Sources
 
 This application uses:
+
 - **Bible Text**: King James Version with embedded Strong's numbers from [kaiserlik/kjv](https://github.com/kaiserlik/kjv)
 - **Strong's Concordance**: Hebrew and Greek dictionaries from [openscriptures/strongs](https://github.com/openscriptures/strongs)
 
