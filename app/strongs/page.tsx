@@ -13,7 +13,6 @@ function StrongsContent() {
   const [greekDict, setGreekDict] = useState<{ [key: string]: StrongsEntry }>({});
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
-  const [tocSection, setTocSection] = useState<'all' | 'hebrew' | 'greek'>('all');
   const [activeTab, setActiveTab] = useState<'hebrew' | 'greek'>(
     testament === 'greek' ? 'greek' : 'hebrew'
   );
@@ -21,7 +20,6 @@ function StrongsContent() {
     null
   );
   const [searchQuery, setSearchQuery] = useState('');
-  const readingMode = 'sepia'; // Fixed to sepia mode
 
   useEffect(() => {
     const loadData = async () => {
@@ -84,45 +82,10 @@ function StrongsContent() {
     }
   };
 
-  const headerBgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#faf8f3] shadow-sm'
-      : readingMode === 'dark'
-        ? 'bg-gray-800 shadow-sm'
-        : 'bg-white dark:bg-gray-800 shadow-sm';
-
-  const headerTextClass =
-    readingMode === 'sepia'
-      ? 'text-[#5c4f3a]'
-      : readingMode === 'dark'
-        ? 'text-white'
-        : 'text-gray-800 dark:text-white';
-
-  const bgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#f4f1ea]'
-      : readingMode === 'dark'
-        ? 'bg-gray-900'
-        : 'bg-gray-50 dark:bg-gray-900';
-
-  const cardBgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#faf8f3]'
-      : readingMode === 'dark'
-        ? 'bg-gray-800'
-        : 'bg-white dark:bg-gray-800';
-
-  const textClass =
-    readingMode === 'sepia'
-      ? 'text-[#5c4f3a]'
-      : readingMode === 'dark'
-        ? 'text-gray-200'
-        : 'text-gray-800 dark:text-gray-200';
-
   return (
-    <div className={`min-h-screen ${bgClass}`}>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className={`${headerBgClass} sticky top-0 z-10`}>
+      <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             href="/"
@@ -130,7 +93,7 @@ function StrongsContent() {
           >
             ← Home
           </Link>
-          <h1 className={`text-xl font-bold ${headerTextClass}`}>
+          <h1 className="text-xl font-bold text-gray-800 dark:text-white">
             Strong&apos;s Concordance
           </h1>
           <button
@@ -152,27 +115,33 @@ function StrongsContent() {
             onTouchEnd={() => setShowTOC(false)}
           >
             <div
-              className={`${cardBgClass} max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg`}
+              className="bg-gray-100 dark:bg-gray-900 max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg"
               onClick={e => e.stopPropagation()}
               onTouchEnd={e => e.stopPropagation()}
             >
-              <h2 className={`text-2xl font-bold ${headerTextClass} mb-4`}>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                 Table of Contents
               </h2>
 
               {/* Quick Navigation */}
               <div className="mb-4 flex gap-2">
                 <button
-                  onClick={() => setTocSection('hebrew')}
+                  onClick={() => {
+                    setActiveTab('hebrew');
+                    setSearchQuery('');
+                  }}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  aria-label="Jump to Hebrew"
+                  aria-label="Switch to Hebrew"
                 >
                   Hebrew
                 </button>
                 <button
-                  onClick={() => setTocSection('greek')}
+                  onClick={() => {
+                    setActiveTab('greek');
+                    setSearchQuery('');
+                  }}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  aria-label="Jump to Greek"
+                  aria-label="Switch to Greek"
                 >
                   Greek
                 </button>
@@ -181,61 +150,32 @@ function StrongsContent() {
               {/* Bible Link */}
               <Link
                 href="/bible"
-                className="block mb-4 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold text-center focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="block mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg text-sm font-semibold text-center focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               >
                 Read Bible
               </Link>
 
-              {/* Conditionally render sections */}
-              {(tocSection === 'all' || tocSection === 'hebrew') && (
-                <div className="mb-6" id="hebrew-section">
-                  <h3 className={`text-lg font-semibold ${textClass} mb-2`}>
-                    Hebrew Dictionary
-                  </h3>
-                  <p className={`text-sm ${textClass} opacity-75 mb-3`}>Jump to section:</p>
-                  <div className="space-y-1">
-                    {Object.keys(groupedEntries)
-                      .filter(key => key.startsWith('H'))
-                      .map(groupKey => (
-                        <button
-                          key={groupKey}
-                          onClick={() => scrollToGroup(groupKey)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`}
-                        >
-                          {groupKey} ({groupedEntries[groupKey].length} entries)
-                        </button>
-                      ))}
-                  </div>
-                </div>
-              )}
-
-              {(tocSection === 'all' || tocSection === 'greek') && (
-                <div id="greek-section">
-                  <h3 className={`text-lg font-semibold ${textClass} mb-2`}>
-                    Greek Dictionary
-                  </h3>
-                  <p className={`text-sm ${textClass} opacity-75 mb-3`}>Jump to section:</p>
-                  <div className="space-y-1">
-                    {Object.keys(groupedEntries)
-                      .filter(key => key.startsWith('G'))
-                      .map(groupKey => (
-                        <button
-                          key={groupKey}
-                          onClick={() => scrollToGroup(groupKey)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`}
-                        >
-                          {groupKey} ({groupedEntries[groupKey].length} entries)
-                        </button>
-                      ))}
-                  </div>
-                </div>
-              )}
+              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                {activeTab === 'hebrew' ? 'Hebrew Dictionary' : 'Greek Dictionary'}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Jump to section:</p>
+              <div className="space-y-1">
+                {Object.keys(groupedEntries).map(groupKey => (
+                  <button
+                    key={groupKey}
+                    onClick={() => scrollToGroup(groupKey)}
+                    className="w-full text-left px-3 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 rounded-lg transition-colors text-gray-700 dark:text-gray-300"
+                  >
+                    {groupKey} ({groupedEntries[groupKey].length} entries)
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
 
         {/* Tabs */}
-        <div className={`flex border-b ${readingMode === 'sepia' ? 'border-[#d4c5a3]' : 'border-gray-200 dark:border-gray-700'} mb-6`}>
+        <div className="flex border-b border-gray-200 dark:border-gray-700 mb-6">
           <button
             onClick={() => {
               setActiveTab('hebrew');
@@ -244,7 +184,7 @@ function StrongsContent() {
             className={`flex-1 py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
               activeTab === 'hebrew'
                 ? 'bg-blue-600 text-white'
-                : `${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`
+                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
             Hebrew Dictionary ({Object.keys(hebrewDict).length} entries)
@@ -257,7 +197,7 @@ function StrongsContent() {
             className={`flex-1 py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 ${
               activeTab === 'greek'
                 ? 'bg-blue-600 text-white'
-                : `${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`
+                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
             Greek Dictionary ({Object.keys(greekDict).length} entries)
@@ -271,10 +211,10 @@ function StrongsContent() {
             placeholder="Search by reference number, word, or definition..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className={`w-full px-4 py-3 border ${readingMode === 'sepia' ? 'border-[#d4c5a3] bg-[#faf8f3]' : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800'} rounded-lg ${textClass} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {searchQuery && (
-            <p className={`mt-2 text-sm ${textClass} opacity-75`}>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
               Found {filteredEntries.length} entries
             </p>
           )}
@@ -289,48 +229,48 @@ function StrongsContent() {
           <div className="space-y-8">
             {Object.entries(groupedEntries).map(([groupKey, groupEntries]) => (
               <div key={groupKey} id={groupKey}>
-                <h2 className={`text-2xl font-bold ${headerTextClass} mb-4 pb-2 border-b-2 border-blue-600`}>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 pb-2 border-b-2 border-blue-600">
                   {groupKey}
                 </h2>
                 <div className="space-y-4">
                   {groupEntries.map(([ref, entry]) => (
                     <div
                       key={ref}
-                      className={`${cardBgClass} rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow`}
+                      className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow"
                     >
                       <div className="flex items-start justify-between mb-2">
                         <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">
                           {ref}
                         </h3>
                         {entry.lemma && (
-                          <span className={`text-2xl ${textClass}`}>
+                          <span className="text-2xl text-gray-800 dark:text-gray-200">
                             {entry.lemma}
                           </span>
                         )}
                       </div>
 
                       {(entry.xlit || entry.translit) && (
-                        <p className={`text-sm ${textClass} opacity-75 mb-2`}>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                           <span className="font-semibold">Transliteration:</span>{' '}
                           {entry.xlit || entry.translit}
                         </p>
                       )}
 
                       {entry.pron && (
-                        <p className={`text-sm ${textClass} opacity-75 mb-2`}>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                           <span className="font-semibold">Pronunciation:</span> {entry.pron}
                         </p>
                       )}
 
                       {entry.derivation && (
-                        <p className={`text-sm ${textClass} mb-2`}>
+                        <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
                           <span className="font-semibold">Derivation:</span> {entry.derivation}
                         </p>
                       )}
 
-                      <div className={`mt-3 pt-3 border-t ${readingMode === 'sepia' ? 'border-[#d4c5a3]' : 'border-gray-200 dark:border-gray-700'}`}>
-                        <p className={`text-base ${textClass} mb-2`}>
-                          <span className={`font-semibold ${textClass} opacity-75`}>
+                      <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                        <p className="text-base text-gray-800 dark:text-gray-200 mb-2">
+                          <span className="font-semibold text-gray-700 dark:text-gray-400">
                             Strong&apos;s Definition:
                           </span>
                           <br />
@@ -339,8 +279,8 @@ function StrongsContent() {
                       </div>
 
                       <div className="mt-2">
-                        <p className={`text-base ${textClass}`}>
-                          <span className={`font-semibold ${textClass} opacity-75`}>
+                        <p className="text-base text-gray-800 dark:text-gray-200">
+                          <span className="font-semibold text-gray-700 dark:text-gray-400">
                             KJV Translation:
                           </span>
                           <br />
@@ -357,7 +297,7 @@ function StrongsContent() {
 
         {!loading && filteredEntries.length === 0 && (
           <div className="text-center py-12">
-            <p className={`${textClass} text-lg`}>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
               No entries found matching &quot;{searchQuery}&quot;
             </p>
             <button
@@ -377,7 +317,7 @@ export default function StrongsPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#f4f1ea] flex items-center justify-center">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       }
