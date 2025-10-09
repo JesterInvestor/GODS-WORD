@@ -39,3 +39,4 @@ public/data_backup/
 test_report.json
 verification_report_full.json
 *_report.json
+*.json.bak

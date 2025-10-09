@@ -39,9 +39,11 @@ The repository contained corrupted JSON files for seven Bible books that needed 
 #### 3. 2Chronicles.json
 **Corruption Type**: Severe data corruption
 **Details**: Multiple chapters had incorrect verse counts with duplicated content. Many chapters incorrectly had exactly 42 verses.
-**Action Taken**: Replaced entire file with correct version from aruljohn/Bible-kjv repository
-**Result**: ✅ Fixed - 36 chapters, 822 verses with correct structure
-**Note**: Replacement file does not include Strong's numbers but has accurate complete KJV text
+**Action Taken**: 
+1. Replaced entire file with correct version from aruljohn/Bible-kjv repository
+2. Added Strong's Concordance numbers using STEPBible TAHOT data (October 2025)
+**Result**: ✅ Fixed - 36 chapters, 822 verses with correct structure and Strong's numbers
+**Strong's Coverage**: 789 of 822 verses (96%) now include Strong's numbers on significant words
 
 ### Files Verified as Correct (No Changes)
 
