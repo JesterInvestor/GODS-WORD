@@ -17,7 +17,7 @@ let greekDictionary: StrongsData | null = null;
 
 export async function loadHebrewDictionary(): Promise<StrongsData> {
   if (hebrewDictionary) return hebrewDictionary;
-  
+
   try {
     console.log('[loadHebrewDictionary] Fetching Hebrew dictionary...');
     const response = await fetch('/data/strongs-hebrew-dictionary.json');
@@ -35,7 +35,7 @@ export async function loadHebrewDictionary(): Promise<StrongsData> {
 
 export async function loadGreekDictionary(): Promise<StrongsData> {
   if (greekDictionary) return greekDictionary;
-  
+
   try {
     console.log('[loadGreekDictionary] Fetching Greek dictionary...');
     const response = await fetch('/data/strongs-greek-dictionary.json');
@@ -51,16 +51,16 @@ export async function loadGreekDictionary(): Promise<StrongsData> {
   }
 }
 
-export async function lookupStrongs(reference: string): Promise<{ 
-  hebrew?: StrongsEntry; 
+export async function lookupStrongs(reference: string): Promise<{
+  hebrew?: StrongsEntry;
   greek?: StrongsEntry;
   error?: string;
 }> {
   const result: { hebrew?: StrongsEntry; greek?: StrongsEntry; error?: string } = {};
-  
+
   try {
     console.log('[lookupStrongs] Looking up reference:', reference);
-    
+
     // Check if it's a Hebrew reference (starts with H)
     if (reference.startsWith('H')) {
       console.log('[lookupStrongs] Loading Hebrew dictionary for:', reference);
@@ -73,7 +73,7 @@ export async function lookupStrongs(reference: string): Promise<{
         result.error = `Hebrew reference ${reference} not found in dictionary`;
       }
     }
-    
+
     // Check if it's a Greek reference (starts with G)
     if (reference.startsWith('G')) {
       console.log('[lookupStrongs] Loading Greek dictionary for:', reference);
@@ -86,7 +86,7 @@ export async function lookupStrongs(reference: string): Promise<{
         result.error = `Greek reference ${reference} not found in dictionary`;
       }
     }
-    
+
     if (!reference.startsWith('H') && !reference.startsWith('G')) {
       const errorMsg = `Invalid Strong's reference format: ${reference}. Must start with H (Hebrew) or G (Greek)`;
       console.error('[lookupStrongs]', errorMsg);
@@ -97,6 +97,6 @@ export async function lookupStrongs(reference: string): Promise<{
     console.error('[lookupStrongs]', errorMsg);
     result.error = errorMsg;
   }
-  
+
   return result;
 }

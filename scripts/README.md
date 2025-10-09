@@ -13,6 +13,7 @@ Main script for aggregation, verification, and comparison.
 Formats JSON verification reports into human-readable text.
 
 **Usage:**
+
 ```bash
 python3 scripts/format_report.py report.json
 python3 scripts/format_report.py report.json --output report.txt
@@ -21,6 +22,7 @@ python3 scripts/format_report.py report.json --output report.txt
 ### verify_bible_book.py
 
 Comprehensive verification tool for individual Bible book files. Checks for:
+
 - Text accuracy against KJV reference
 - Arrow symbols and special characters
 - Strong's number formatting
@@ -28,6 +30,7 @@ Comprehensive verification tool for individual Bible book files. Checks for:
 - Whitespace and formatting issues
 
 **Usage:**
+
 ```bash
 python3 scripts/verify_bible_book.py <book_file> <reference_file>
 
@@ -40,6 +43,7 @@ python3 scripts/verify_bible_book.py public/data/2Chronicles.json /path/to/refer
 ## aggregate_and_verify.py
 
 A comprehensive Python script that handles:
+
 1. **Aggregation**: Combines per-chapter JSON files into book-level JSON files
 2. **Verification**: Validates structure, chapter counts, and verse counts
 3. **Encoding Checks**: Detects encoding issues and invalid characters
@@ -96,16 +100,16 @@ python3 scripts/aggregate_and_verify.py \
 
 ### Command-Line Options
 
-| Option | Description |
-|--------|-------------|
-| `--source DIR` | Source directory containing per-chapter JSON files |
-| `--target DIR` | Target directory for book-level JSON files (default: `public/data`) |
-| `--compare DIR` | Directory to compare against (for per-verse diff) |
-| `--output FILE` | Output report file (default: `verification_report.json`) |
-| `--book NAME` | Process only a specific book (e.g., `Genesis`) |
-| `--verbose` | Enable verbose output |
-| `--aggregate-only` | Only perform aggregation, skip verification |
-| `--verify-only` | Only verify existing files, skip aggregation |
+| Option             | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `--source DIR`     | Source directory containing per-chapter JSON files                  |
+| `--target DIR`     | Target directory for book-level JSON files (default: `public/data`) |
+| `--compare DIR`    | Directory to compare against (for per-verse diff)                   |
+| `--output FILE`    | Output report file (default: `verification_report.json`)            |
+| `--book NAME`      | Process only a specific book (e.g., `Genesis`)                      |
+| `--verbose`        | Enable verbose output                                               |
+| `--aggregate-only` | Only perform aggregation, skip verification                         |
+| `--verify-only`    | Only verify existing files, skip aggregation                        |
 
 ### Input File Formats
 
@@ -119,31 +123,34 @@ The script supports multiple per-chapter file naming conventions:
 Each per-chapter file can have one of these formats:
 
 **Format 1: Chapter object with verses array**
+
 ```json
 {
   "chapter": "1",
   "verses": [
-    {"verse": "1", "text": "In the beginning..."},
-    {"verse": "2", "text": "And the earth was..."}
+    { "verse": "1", "text": "In the beginning..." },
+    { "verse": "2", "text": "And the earth was..." }
   ]
 }
 ```
 
 **Format 2: Object with verses property**
+
 ```json
 {
   "verses": [
-    {"verse": "1", "text": "In the beginning..."},
-    {"verse": "2", "text": "And the earth was..."}
+    { "verse": "1", "text": "In the beginning..." },
+    { "verse": "2", "text": "And the earth was..." }
   ]
 }
 ```
 
 **Format 3: Array of verses**
+
 ```json
 [
-  {"verse": "1", "text": "In the beginning..."},
-  {"verse": "2", "text": "And the earth was..."}
+  { "verse": "1", "text": "In the beginning..." },
+  { "verse": "2", "text": "And the earth was..." }
 ]
 ```
 
@@ -176,7 +183,7 @@ The script generates a comprehensive JSON report with the following structure:
   "punctuation_issues": {
     "BookName": [
       {
-        "reference": "BookName 1:1", 
+        "reference": "BookName 1:1",
         "issues": ["Punctuation issue description"]
       }
     ]
@@ -269,14 +276,17 @@ The script validates against standard KJV chapter counts for all 66 books:
 ### Troubleshooting
 
 **"No chapter files found for BookName"**
+
 - Check that your source directory contains files matching the expected naming patterns
 - Use `--verbose` to see which files are being found
 
 **"Expected X chapters, found Y"**
+
 - Verify all chapter files are present in the source directory
 - Check for missing or duplicate chapter numbers
 
 **"JSON parse error"**
+
 - Ensure all input files are valid JSON
 - Check file encoding (should be UTF-8)
 

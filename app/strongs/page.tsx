@@ -8,22 +8,23 @@ import { StrongsEntry, loadHebrewDictionary, loadGreekDictionary } from '@/lib/s
 function StrongsContent() {
   const searchParams = useSearchParams();
   const testament = searchParams.get('testament');
-  
+
   const [hebrewDict, setHebrewDict] = useState<{ [key: string]: StrongsEntry }>({});
   const [greekDict, setGreekDict] = useState<{ [key: string]: StrongsEntry }>({});
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
-  const [activeTab, setActiveTab] = useState<'hebrew' | 'greek'>(testament === 'greek' ? 'greek' : 'hebrew');
-  const [selectedEntry, setSelectedEntry] = useState<{ ref: string; entry: StrongsEntry } | null>(null);
+  const [activeTab, setActiveTab] = useState<'hebrew' | 'greek'>(
+    testament === 'greek' ? 'greek' : 'hebrew'
+  );
+  const [_selectedEntry, _setSelectedEntry] = useState<{ ref: string; entry: StrongsEntry } | null>(
+    null
+  );
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
-      const [hebrew, greek] = await Promise.all([
-        loadHebrewDictionary(),
-        loadGreekDictionary()
-      ]);
+      const [hebrew, greek] = await Promise.all([loadHebrewDictionary(), loadGreekDictionary()]);
       setHebrewDict(hebrew);
       setGreekDict(greek);
       setLoading(false);
@@ -86,7 +87,10 @@ function StrongsContent() {
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all">
+          <Link
+            href="/"
+            className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all"
+          >
             ← Home
           </Link>
           <h1 className="text-xl font-bold text-gray-800 dark:text-white">
@@ -105,12 +109,20 @@ function StrongsContent() {
       <div className="max-w-4xl mx-auto px-4 py-6">
         {/* Table of Contents Overlay */}
         {showTOC && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-20 flex items-center justify-center" onClick={() => setShowTOC(false)} onTouchEnd={() => setShowTOC(false)}>
-            <div className="bg-gray-100 dark:bg-gray-900 max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg" onClick={e => e.stopPropagation()} onTouchEnd={e => e.stopPropagation()}>
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-20 flex items-center justify-center"
+            onClick={() => setShowTOC(false)}
+            onTouchEnd={() => setShowTOC(false)}
+          >
+            <div
+              className="bg-gray-100 dark:bg-gray-900 max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg"
+              onClick={e => e.stopPropagation()}
+              onTouchEnd={e => e.stopPropagation()}
+            >
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                 Table of Contents
               </h2>
-              
+
               {/* Quick Navigation */}
               <div className="mb-4 flex gap-2">
                 <button
@@ -134,7 +146,7 @@ function StrongsContent() {
                   Greek
                 </button>
               </div>
-              
+
               {/* Bible Link */}
               <Link
                 href="/bible"
@@ -142,13 +154,11 @@ function StrongsContent() {
               >
                 Read Bible
               </Link>
-              
+
               <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
                 {activeTab === 'hebrew' ? 'Hebrew Dictionary' : 'Greek Dictionary'}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                Jump to section:
-              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Jump to section:</p>
               <div className="space-y-1">
                 {Object.keys(groupedEntries).map(groupKey => (
                   <button
@@ -200,7 +210,7 @@ function StrongsContent() {
             type="text"
             placeholder="Search by reference number, word, or definition..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={e => setSearchQuery(e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {searchQuery && (
@@ -241,7 +251,8 @@ function StrongsContent() {
 
                       {(entry.xlit || entry.translit) && (
                         <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                          <span className="font-semibold">Transliteration:</span> {entry.xlit || entry.translit}
+                          <span className="font-semibold">Transliteration:</span>{' '}
+                          {entry.xlit || entry.translit}
                         </p>
                       )}
 
@@ -259,14 +270,20 @@ function StrongsContent() {
 
                       <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
                         <p className="text-base text-gray-800 dark:text-gray-200 mb-2">
-                          <span className="font-semibold text-gray-700 dark:text-gray-400">Strong&apos;s Definition:</span><br />
+                          <span className="font-semibold text-gray-700 dark:text-gray-400">
+                            Strong&apos;s Definition:
+                          </span>
+                          <br />
                           {entry.strongs_def}
                         </p>
                       </div>
 
                       <div className="mt-2">
                         <p className="text-base text-gray-800 dark:text-gray-200">
-                          <span className="font-semibold text-gray-700 dark:text-gray-400">KJV Translation:</span><br />
+                          <span className="font-semibold text-gray-700 dark:text-gray-400">
+                            KJV Translation:
+                          </span>
+                          <br />
                           {entry.kjv_def}
                         </p>
                       </div>
@@ -298,11 +315,13 @@ function StrongsContent() {
 
 export default function StrongsPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        </div>
+      }
+    >
       <StrongsContent />
     </Suspense>
   );
