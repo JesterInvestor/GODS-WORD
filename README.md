@@ -68,29 +68,91 @@ npm start
 
 ## Technology Stack
 
-- **Next.js 15** - React framework for production
-- **React 18** - UI library
-- **TypeScript** - Type-safe JavaScript
+- **Next.js 15** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type-safe JavaScript with strict mode
 - **Tailwind CSS** - Utility-first CSS framework
+- **SWR** - Client-side data fetching with caching
 - **Bible Data** - KJV with Strong's numbers from [kaiserlik/kjv](https://github.com/kaiserlik/kjv)
 - **Strong's Concordance** - From [openscriptures/strongs](https://github.com/openscriptures/strongs)
+
+### Next.js 14/15 Best Practices
+
+This project implements modern Next.js best practices including:
+
+- ✅ TypeScript with strict mode configuration
+- ✅ ESLint and Prettier for code quality
+- ✅ Custom React hooks for reusable logic
+- ✅ API routes with edge runtime and ISR
+- ✅ Server Actions for data mutations
+- ✅ Enhanced metadata and SEO optimization
+- ✅ Performance monitoring with instrumentation
+- ✅ Error boundaries and custom error pages
+- ✅ SWR for client-side data fetching
+- ✅ Custom caching strategies
+- ✅ Turbopack support for faster builds
+
+For detailed implementation, see [NEXTJS_BEST_PRACTICES.md](NEXTJS_BEST_PRACTICES.md).
 
 ## Project Structure
 
 ```
 GODS-WORD/
 ├── app/
+│   ├── actions/           # Server Actions
+│   ├── api/               # API Routes (serverless functions)
 │   ├── bible/
-│   │   └── page.tsx      # Bible reading interface
-│   ├── globals.css       # Global styles
-│   ├── layout.tsx        # Root layout
-│   └── page.tsx          # Home page
-├── lib/
-│   └── bible.ts          # Bible data utilities
+│   │   └── page.tsx       # Bible reading interface
+│   ├── strongs/
+│   │   └── page.tsx       # Strong's Concordance page
+│   ├── error.tsx          # Error boundary
+│   ├── not-found.tsx      # 404 page
+│   ├── loading.tsx        # Loading UI
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout with metadata
+│   └── page.tsx           # Home page
+├── components/            # Reusable React components
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utility functions and configs
+│   ├── bible.ts           # Bible data utilities
+│   ├── strongs.ts         # Strong's dictionary utilities
+│   ├── seo.config.ts      # SEO configuration
+│   └── swr-config.ts      # SWR configuration
 ├── public/
-│   └── data/             # Bible JSON files and Strong's data
-├── components/           # Reusable React components
+│   └── data/              # Bible JSON files and Strong's data
+├── instrumentation.ts     # Performance monitoring
 └── package.json
+```
+
+## Development Commands
+
+```bash
+# Start development server
+npm run dev
+
+# Start with Turbopack (faster)
+npm run dev:turbo
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Lint code
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
+
+# Format code with Prettier
+npm run format
+
+# Check formatting
+npm run format:check
+
+# Type check
+npm run type-check
 ```
 
 ## Data Sources
