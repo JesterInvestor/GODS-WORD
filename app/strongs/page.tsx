@@ -76,12 +76,54 @@ function StrongsContent() {
     groupedEntries[groupKey].push([ref, entry]);
   });
 
-  const scrollToGroup = (groupKey: string) => {
-    const element = document.getElementById(groupKey);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setShowTOC(false);
+  // Create separate grouped entries for Hebrew and Greek for TOC (always available)
+  const hebrewEntries = Object.entries(hebrewDict).sort((a, b) => {
+    const numA = parseInt(a[0].substring(1));
+    const numB = parseInt(b[0].substring(1));
+    return numA - numB;
+  });
+  const hebrewGroupedEntries: { [key: string]: [string, StrongsEntry][] } = {};
+  hebrewEntries.forEach(([ref, entry]) => {
+    const num = parseInt(ref.substring(1));
+    const groupStart = Math.floor((num - 1) / 100) * 100 + 1;
+    const groupEnd = groupStart + 99;
+    const groupKey = `${ref[0]}${groupStart}-${ref[0]}${groupEnd}`;
+    if (!hebrewGroupedEntries[groupKey]) {
+      hebrewGroupedEntries[groupKey] = [];
     }
+    hebrewGroupedEntries[groupKey].push([ref, entry]);
+  });
+
+  const greekEntries = Object.entries(greekDict).sort((a, b) => {
+    const numA = parseInt(a[0].substring(1));
+    const numB = parseInt(b[0].substring(1));
+    return numA - numB;
+  });
+  const greekGroupedEntries: { [key: string]: [string, StrongsEntry][] } = {};
+  greekEntries.forEach(([ref, entry]) => {
+    const num = parseInt(ref.substring(1));
+    const groupStart = Math.floor((num - 1) / 100) * 100 + 1;
+    const groupEnd = groupStart + 99;
+    const groupKey = `${ref[0]}${groupStart}-${ref[0]}${groupEnd}`;
+    if (!greekGroupedEntries[groupKey]) {
+      greekGroupedEntries[groupKey] = [];
+    }
+    greekGroupedEntries[groupKey].push([ref, entry]);
+  });
+
+  const scrollToGroup = (groupKey: string) => {
+    // Switch to the correct tab based on the group key prefix
+    const isHebrew = groupKey.startsWith('H');
+    setActiveTab(isHebrew ? 'hebrew' : 'greek');
+    
+    // Close TOC and scroll after a brief delay to allow tab switch
+    setShowTOC(false);
+    setTimeout(() => {
+      const element = document.getElementById(groupKey);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   const headerBgClass =
@@ -163,14 +205,20 @@ function StrongsContent() {
               {/* Quick Navigation */}
               <div className="mb-4 flex gap-2">
                 <button
-                  onClick={() => setTocSection('hebrew')}
+                  onClick={() => {
+                    setTocSection('hebrew');
+                    setActiveTab('hebrew');
+                  }}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   aria-label="Jump to Hebrew"
                 >
                   Hebrew
                 </button>
                 <button
-                  onClick={() => setTocSection('greek')}
+                  onClick={() => {
+                    setTocSection('greek');
+                    setActiveTab('greek');
+                  }}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-700 dark:text-blue-200 px-3 py-2 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   aria-label="Jump to Greek"
                 >
@@ -194,17 +242,15 @@ function StrongsContent() {
                   </h3>
                   <p className={`text-sm ${textClass} opacity-75 mb-3`}>Jump to section:</p>
                   <div className="space-y-1">
-                    {Object.keys(groupedEntries)
-                      .filter(key => key.startsWith('H'))
-                      .map(groupKey => (
-                        <button
-                          key={groupKey}
-                          onClick={() => scrollToGroup(groupKey)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`}
-                        >
-                          {groupKey} ({groupedEntries[groupKey].length} entries)
-                        </button>
-                      ))}
+                    {Object.keys(hebrewGroupedEntries).map(groupKey => (
+                      <button
+                        key={groupKey}
+                        onClick={() => scrollToGroup(groupKey)}
+                        className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`}
+                      >
+                        {groupKey} ({hebrewGroupedEntries[groupKey].length} entries)
+                      </button>
+                    ))}
                   </div>
                 </div>
               )}
@@ -216,17 +262,15 @@ function StrongsContent() {
                   </h3>
                   <p className={`text-sm ${textClass} opacity-75 mb-3`}>Jump to section:</p>
                   <div className="space-y-1">
-                    {Object.keys(groupedEntries)
-                      .filter(key => key.startsWith('G'))
-                      .map(groupKey => (
-                        <button
-                          key={groupKey}
-                          onClick={() => scrollToGroup(groupKey)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`}
-                        >
-                          {groupKey} ({groupedEntries[groupKey].length} entries)
-                        </button>
-                      ))}
+                    {Object.keys(greekGroupedEntries).map(groupKey => (
+                      <button
+                        key={groupKey}
+                        onClick={() => scrollToGroup(groupKey)}
+                        className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${textClass} hover:bg-gray-100 dark:hover:bg-gray-700`}
+                      >
+                        {groupKey} ({greekGroupedEntries[groupKey].length} entries)
+                      </button>
+                    ))}
                   </div>
                 </div>
               )}
