@@ -25,12 +25,19 @@ This document describes the corrections made to corrupted JSON files in the Bibl
 **Solution**: 
 1. Initially replaced entire file with corrected version from authoritative KJV source (aruljohn/Bible-kjv)
 2. Subsequently added Strong's Concordance numbers using STEPBible TAHOT (Translators Amalgamated Hebrew OT) data
+3. **Fixed malformed Strong's references** (December 2024): Removed suffix letters (e.g., H0001G → H1) and leading zeros (e.g., H0430 → H430) to match dictionary format
 
 **Strong's Numbers Addition Process**:
 - Source: STEPBible-Data TAHOT files (Hebrew OT with Strong's numbers)
 - Method: Automated word matching and manual verification
 - Coverage: 789 of 822 verses (96%) now include Strong's numbers on significant words
 - Pattern: Similar to 1 Chronicles - Strong's added to proper nouns, key verbs, and important nouns while leaving common function words unmarked
+
+**Strong's Numbers Format Fix**:
+- Fixed 3912 malformed references that had suffix letters (e.g., H0001G, H1121A, H2388G)
+- Fixed 1159 references with leading zeros (e.g., H0430, H0505, H0001)
+- All 1003 unique Strong's references now correctly match the Hebrew dictionary format
+- References now successfully resolve in the Strong's lookup feature
 
 ## Verification
 
