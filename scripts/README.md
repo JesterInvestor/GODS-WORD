@@ -18,6 +18,23 @@ python3 scripts/format_report.py report.json
 python3 scripts/format_report.py report.json --output report.txt
 ```
 
+### verify_bible_book.py
+
+Comprehensive verification tool for individual Bible book files. Checks for:
+- Text accuracy against KJV reference
+- Arrow symbols and special characters
+- Strong's number formatting
+- Punctuation consistency
+- Whitespace and formatting issues
+
+**Usage:**
+```bash
+python3 scripts/verify_bible_book.py <book_file> <reference_file>
+
+# Example:
+python3 scripts/verify_bible_book.py public/data/2Chronicles.json /path/to/reference/2Chronicles.json
+```
+
 ---
 
 ## aggregate_and_verify.py
