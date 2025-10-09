@@ -14,7 +14,7 @@ function StrongsContent() {
   const [loading, setLoading] = useState(true);
   const [showTOC, setShowTOC] = useState(false);
   const [activeTab, setActiveTab] = useState<'hebrew' | 'greek'>(testament === 'greek' ? 'greek' : 'hebrew');
-  const [selectedEntry, setSelectedEntry] = useState<{ ref: string; entry: StrongsEntry } | null>(null);
+  const [_selectedEntry, _setSelectedEntry] = useState<{ ref: string; entry: StrongsEntry } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
