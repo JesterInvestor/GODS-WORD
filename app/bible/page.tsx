@@ -3,9 +3,16 @@
 import { useState, useEffect, Suspense, ReactElement } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
-import StrongsModal from '@/components/StrongsModal';
 import { shouldHighlightAsJesusWords } from '@/lib/jesusWords';
+import { ThemeToggle } from '@/components/ThemeToggle';
+
+// Dynamic import for StrongsModal to reduce initial bundle size
+const StrongsModal = dynamic(() => import('@/components/StrongsModal'), {
+  loading: () => <div className="fixed inset-0 bg-black/50 flex items-center justify-center"><div className="bg-card p-6 rounded-lg">Loading...</div></div>,
+  ssr: false,
+});
 
 function BibleContent() {
   const searchParams = useSearchParams();
@@ -27,7 +34,6 @@ function BibleContent() {
   const [fontSize, setFontSize] = useState<number>(18);
   const [strongsEnabled, setStrongsEnabled] = useState<boolean>(true);
   const [jesusWordsEnabled, setJesusWordsEnabled] = useState<boolean>(true);
-  const readingMode = 'sepia'; // Fixed to sepia mode
   const [fontFamily, setFontFamily] = useState<'sans' | 'serif' | 'crimson'>('serif');
   const [lineHeight, setLineHeight] = useState<'compact' | 'normal' | 'relaxed'>('normal');
   const [textWidth, setTextWidth] = useState<'narrow' | 'normal' | 'wide'>('normal');
@@ -80,11 +86,6 @@ function BibleContent() {
     localStorage.setItem('fontFamily', fontFamily);
     localStorage.setItem('lineHeight', lineHeight);
     localStorage.setItem('textWidth', textWidth);
-
-    // Apply sepia mode to body (always enabled)
-    if (typeof document !== 'undefined') {
-      document.body.classList.add('sepia-mode');
-    }
   }, [fontSize, fontFamily, lineHeight, textWidth]);
 
   // Keyboard shortcuts
@@ -312,40 +313,12 @@ function BibleContent() {
     return <>{parts}</>;
   };
 
-  const headerBgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#faf8f3] shadow-sm'
-      : readingMode === 'dark'
-        ? 'bg-gray-800 shadow-sm'
-        : 'bg-white dark:bg-gray-800 shadow-sm';
-
-  const headerTextClass =
-    readingMode === 'sepia'
-      ? 'text-[#5c4f3a]'
-      : readingMode === 'dark'
-        ? 'text-white'
-        : 'text-gray-800 dark:text-white';
-
-  const bgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#f4f1ea]'
-      : readingMode === 'dark'
-        ? 'bg-gray-900'
-        : 'bg-gray-50 dark:bg-gray-900';
-
-  const cardBgClass =
-    readingMode === 'sepia'
-      ? 'bg-[#faf8f3]'
-      : readingMode === 'dark'
-        ? 'bg-gray-800'
-        : 'bg-white dark:bg-gray-800';
-
-  const textClass =
-    readingMode === 'sepia'
-      ? 'text-[#5c4f3a]'
-      : readingMode === 'dark'
-        ? 'text-gray-200'
-        : 'text-gray-800 dark:text-gray-200';
+  // Use theme-aware classes that work with light/dark/sepia modes
+  const headerBgClass = 'bg-card shadow-sm';
+  const headerTextClass = 'text-card-foreground';
+  const bgClass = 'bg-background';
+  const cardBgClass = 'bg-card';
+  const textClass = 'text-foreground';
 
   return (
     <div className={`min-h-screen ${bgClass}`}>
@@ -364,6 +337,7 @@ function BibleContent() {
             {bookDisplayName} {selectedChapter}
           </h1>
           <div className="flex gap-2">
+            <ThemeToggle />
             <button
               onClick={() => setShowSettings(!showSettings)}
               className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all"
