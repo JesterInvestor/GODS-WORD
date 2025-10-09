@@ -115,7 +115,7 @@ function StrongsContent() {
             onTouchEnd={() => setShowTOC(false)}
           >
             <div
-              className="bg-gray-100 dark:bg-gray-900 max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg"
+              className="bg-white dark:bg-gray-800 max-h-[90vh] w-80 overflow-y-auto p-6 md:p-8 rounded-lg shadow-lg"
               onClick={e => e.stopPropagation()}
               onTouchEnd={e => e.stopPropagation()}
             >
