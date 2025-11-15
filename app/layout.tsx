@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import FarcasterProvider from '@/components/FarcasterProvider';
 import ThemeToggle from '@/components/ThemeToggle';
 import AddMiniAppButton from '@/components/AddMiniAppButton';
+import SendTipButton from '@/components/SendTipButton';
 
 export const viewport: Viewport = {
   width: 'device-width',

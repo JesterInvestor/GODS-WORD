@@ -57,7 +57,7 @@ export default function AddMiniAppButton() {
           <div className="fixed inset-0 bg-black/40" onClick={closeModal} />
 
           <div className="relative z-10 w-full max-w-md rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg p-6">
-            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Add GOD'S WORD Mini App</h3>
+            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Add GOD&apos;S WORD Mini App</h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
               This will prompt your Farcaster client to add this Mini App to your collection and enable notifications.
             </p>
