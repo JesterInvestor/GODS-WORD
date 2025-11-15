@@ -1,12 +1,29 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
+import FarcasterProvider from '@/components/FarcasterProvider';
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
   themeColor: '#2563eb',
+};
+
+// Farcaster Mini App frame configuration
+const farcasterFrame = {
+  version: "1",
+  imageUrl: "https://gods-word.vercel.app/og-image.png",
+  button: {
+    title: "Open GOD'S WORD",
+    action: {
+      type: "launch_frame",
+      name: "GOD'S WORD - KJV Bible",
+      url: "https://gods-word.vercel.app",
+      splashImageUrl: "https://gods-word.vercel.app/icon-512.png",
+      splashBackgroundColor: "#2563eb"
+    }
+  }
 };
 
 export const metadata: Metadata = {
@@ -36,6 +53,9 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  other: {
+    "fc:miniapp": JSON.stringify(farcasterFrame)
   },
   openGraph: {
     type: 'website',
@@ -86,7 +106,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <FarcasterProvider>
+          {children}
+        </FarcasterProvider>
         <Analytics />
       </body>
     </html>
