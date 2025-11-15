@@ -1,0 +1,90 @@
+"use client";
+
+import { useState } from 'react';
+import { sdk } from '@farcaster/miniapp-sdk';
+
+export default function AddMiniAppButton() {
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+
+  const openModal = () => {
+    setMessage(null);
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+    setLoading(false);
+    setMessage(null);
+  };
+
+  const handleAdd = async () => {
+    setLoading(true);
+    setMessage(null);
+    try {
+      // Call the Farcaster SDK action to prompt the user to add this Mini App
+      if (!sdk.actions || !sdk.actions.addMiniApp) {
+        throw new Error('addMiniApp action not available');
+      }
+      await sdk.actions.addMiniApp();
+      setMessage('Mini App added (or prompt shown).');
+    } catch (e: unknown) {
+      const err = e as Error;
+      setMessage('Failed to add Mini App: ' + (err.message || String(err)));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <button
+        onClick={openModal}
+        aria-haspopup="dialog"
+        className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-white/80 dark:bg-gray-800/80 backdrop-blur border border-gray-200 dark:border-gray-700 shadow-sm hover:scale-105 transition-transform mr-2"
+        title="Add Mini App"
+      >
+        ➕
+      </button>
+
+      {open && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+        >
+          <div className="fixed inset-0 bg-black/40" onClick={closeModal} />
+
+          <div className="relative z-10 w-full max-w-md rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg p-6">
+            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Add GOD'S WORD Mini App</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              This will prompt your Farcaster client to add this Mini App to your collection and enable notifications.
+            </p>
+
+            {message && (
+              <div className="mb-3 text-sm text-gray-700 dark:text-gray-200">{message}</div>
+            )}
+
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={closeModal}
+                className="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700"
+              >
+                Cancel
+              </button>
+
+              <button
+                onClick={handleAdd}
+                disabled={loading}
+                className="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-sm disabled:opacity-60"
+              >
+                {loading ? 'Adding…' : 'Add Mini App'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
