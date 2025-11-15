@@ -42,7 +42,7 @@ export default function AddMiniAppButton() {
       <button
         onClick={openModal}
         aria-haspopup="dialog"
-        className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-white/80 dark:bg-gray-800/80 backdrop-blur border border-gray-200 dark:border-gray-700 shadow-sm hover:scale-105 transition-transform mr-2"
+        className="control-button hover:scale-105 transition-transform mr-2"
         title="Add Mini App"
       >
         ➕

@@ -54,6 +54,32 @@ body.sepia-mode {
     text-wrap: balance;
   }
 
+  /* Top-right control buttons (theme, add, tip) */
+  .control-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(226, 232, 240, 1); /* tailwind gray-200 */
+    color: var(--foreground);
+    box-shadow: 0 1px 2px rgba(16,24,40,0.05);
+    backdrop-filter: blur(6px);
+  }
+
+  :root.dark .control-button,
+  html.dark .control-button {
+    background: rgba(31, 41, 55, 0.85); /* dark gray */
+    border: 1px solid rgba(55, 65, 81, 1); /* tailwind gray-700 */
+    color: var(--foreground);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+
   /* Jesus's words highlighting with subtle red border */
   .jesus-words {
     border-bottom: 2px solid rgba(220, 38, 38, 0.4);

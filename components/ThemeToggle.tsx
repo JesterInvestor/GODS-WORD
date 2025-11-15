@@ -48,7 +48,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label="Toggle color theme"
       title="Toggle color theme"
-      className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-white/80 dark:bg-gray-800/80 backdrop-blur border border-gray-200 dark:border-gray-700 shadow-sm hover:scale-105 transition-transform"
+      className="control-button hover:scale-105 transition-transform"
     >
       <span className="sr-only">Toggle theme</span>
       {theme === 'dark' ? '🌙' : '☀️'}
