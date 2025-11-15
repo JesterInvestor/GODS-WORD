@@ -50,19 +50,19 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/bible?testament=old"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
+              className="w-full sm:w-auto text-center inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
             >
               Old Testament
             </Link>
             <Link
               href="/bible?testament=new"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
+              className="w-full sm:w-auto text-center inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
             >
               New Testament
             </Link>
             <Link
               href="/strongs"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
+              className="w-full sm:w-auto text-center inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
             >
               Strong&apos;s Concordance
             </Link>
@@ -84,94 +84,94 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">
               Popular Chapters
             </h3>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <Link
                 href={getBibleLink('Genesis', 1)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Genesis 1</span>
               </Link>
               <Link
                 href={getBibleLink('Exodus', 20)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Exodus 20</span>
               </Link>
               <Link
                 href={getBibleLink('Luke', 2)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Luke 2</span>
               </Link>
               <Link
                 href={getBibleLink('John', 3)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">John 3</span>
               </Link>
               <Link
                 href={getBibleLink('Psalm', 23)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Psalm 23</span>
               </Link>
               <Link
                 href={getBibleLink('Romans', 8)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 8</span>
               </Link>
               <Link
                 href={getBibleLink('John', 1)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">John 1</span>
               </Link>
               <Link
                 href={getBibleLink('Hebrews', 11)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Hebrews 11</span>
               </Link>
               <Link
                 href={getBibleLink('Romans', 1)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 1</span>
               </Link>
               <Link
                 href={getBibleLink('Romans', 3)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 3</span>
               </Link>
               <Link
                 href={getBibleLink('Genesis', 6)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Genesis 6</span>
               </Link>
               <Link
                 href={getBibleLink('Psalm', 14)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Psalm 14</span>
               </Link>
               <Link
                 href={getBibleLink('Isaiah', 53)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Isaiah 53</span>
               </Link>
               <Link
                 href={getBibleLink('Ephesians', 2)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Ephesians 2</span>
               </Link>
               <Link
                 href={getBibleLink('Jeremiah', 17)}
-                className="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
               >
                 <span className="font-semibold text-blue-600 dark:text-blue-400">Jeremiah 17</span>
               </Link>
