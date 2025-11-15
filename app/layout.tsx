@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import FarcasterProvider from '@/components/FarcasterProvider';
-import ThemeToggle from '@/components/ThemeToggle';
+import MenuButton from '@/components/MenuButton';
+import SettingsButton from '@/components/SettingsButton';
 import AddMiniAppButton from '@/components/AddMiniAppButton';
-import SendTipButton from '@/components/SendTipButton';
 import StrongsToggle from '@/components/StrongsToggle';
 import JesusToggle from '@/components/JesusToggle';
 
@@ -123,11 +123,11 @@ export default function RootLayout({
         ` }} />
 
         <div className="fixed top-4 right-4 z-50 flex items-center space-x-2">
-          <SendTipButton />
           <AddMiniAppButton />
           <StrongsToggle />
           <JesusToggle />
-          <ThemeToggle />
+          <MenuButton />
+          <SettingsButton />
         </div>
         <FarcasterProvider>
           <div className="pt-16">{children}</div>

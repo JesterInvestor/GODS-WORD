@@ -66,19 +66,40 @@ function BibleContent() {
       } catch (err) {}
     };
 
+    const onToggleTOC = () => setShowTOC(s => !s);
+    const onToggleSettings = () => setShowSettings(s => !s);
+
     window.addEventListener('strongsEnabledChanged', onStr);
     window.addEventListener('jesusWordsEnabledChanged', onJes);
     // Also listen to forwarded sync events just in case
     window.addEventListener('sync-str', onStr);
     window.addEventListener('sync-jesus', onJes);
+    // Listen for control bar toggles
+    window.addEventListener('toggleTOC', onToggleTOC);
+    window.addEventListener('toggleSettings', onToggleSettings);
 
     return () => {
       window.removeEventListener('strongsEnabledChanged', onStr);
       window.removeEventListener('jesusWordsEnabledChanged', onJes);
       window.removeEventListener('sync-str', onStr);
       window.removeEventListener('sync-jesus', onJes);
+      window.removeEventListener('toggleTOC', onToggleTOC);
+      window.removeEventListener('toggleSettings', onToggleSettings);
     };
   }, []);
+
+  // Notify top-right controls when TOC/settings state changes so they can update active state
+  useEffect(() => {
+    try {
+      window.dispatchEvent(new CustomEvent('tocChanged', { detail: showTOC }));
+    } catch {}
+  }, [showTOC]);
+
+  useEffect(() => {
+    try {
+      window.dispatchEvent(new CustomEvent('settingsChanged', { detail: showSettings }));
+    } catch {}
+  }, [showSettings]);
 
   useEffect(() => {
     // Save Strong's preference to localStorage
@@ -392,23 +413,7 @@ function BibleContent() {
           <h1 className={`text-xl font-bold ${headerTextClass}`}>
             {bookDisplayName} {selectedChapter}
           </h1>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setShowSettings(!showSettings)}
-              className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all"
-              aria-label="Open reading settings"
-              title="Reading Settings"
-            >
-              ⚙️
-            </button>
-            <button
-              onClick={() => setShowTOC(!showTOC)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
-              aria-label={showTOC ? 'Close table of contents' : 'Open table of contents'}
-            >
-              {showTOC ? 'Close' : 'Menu'}
-            </button>
-          </div>
+          <div />
         </div>
       </header>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
 
 export default function AddMiniAppButton() {
@@ -18,6 +18,25 @@ export default function AddMiniAppButton() {
     setLoading(false);
     setMessage(null);
   };
+
+  // Open the modal when the user presses the '+' key (global shortcut)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      try {
+        const target = e.target as HTMLElement | null;
+        const tag = target?.tagName;
+        // ignore when typing in inputs/textareas or contenteditable
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || target?.isContentEditable) return;
+        if (e.key === '+') {
+          openModal();
+        }
+      } catch (err) {
+        // ignore
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   const handleAdd = async () => {
     setLoading(true);
