@@ -13,21 +13,21 @@ export const viewport: Viewport = {
 // Farcaster Mini App frame configuration
 const farcasterFrame = {
   version: "1",
-  imageUrl: "https://godswordkjv.com/og-image.png",
+  imageUrl: "https://gods-word.vercel.app/og-image.png",
   button: {
     title: "Open GOD'S WORD",
     action: {
       type: "launch_frame",
       name: "GOD'S WORD - KJV Bible",
-      url: "https://godswordkjv.com",
-      splashImageUrl: "https://godswordkjv.com/icon-512.png",
+      url: "https://gods-word.vercel.app",
+      splashImageUrl: "https://gods-word.vercel.app/icon-512.png",
       splashBackgroundColor: "#2563eb"
     }
   }
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://godswordkjv.com'),
+  metadataBase: new URL('https://gods-word.vercel.app'),
   title: {
     default: "GOD'S WORD - KJV Bible",
     template: "%s | GOD'S WORD - KJV Bible",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://godswordkjv.com',
+    url: 'https://gods-word.vercel.app',
     siteName: "GOD'S WORD - KJV Bible",
     title: "GOD'S WORD - King James Version Bible",
     description:

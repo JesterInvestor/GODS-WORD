@@ -2,13 +2,13 @@
   "frame": {
     "name": "GODS WORD",
     "version": "1",
-    "iconUrl": "https://godswordkjv.com/icon.png",
-    "homeUrl": "https://godswordkjv.com",
-    "imageUrl": "https://godswordkjv.com/image.png",
+    "iconUrl": "https://gods-word.vercel.app/icon.png",
+    "homeUrl": "https://gods-word.vercel.app",
+    "imageUrl": "https://gods-word.vercel.app/image.png",
     "buttonTitle": "Open GODS WORD",
-    "splashImageUrl": "https://godswordkjv.com/splash.png",
+    "splashImageUrl": "https://gods-word.vercel.app/splash.png",
     "splashBackgroundColor": "#0ea5e9",
-    "webhookUrl": "https://godswordkjv.com/api/webhook",
+    "webhookUrl": "https://gods-word.vercel.app/api/webhook",
     "subtitle": "Read and Study the Bible KJV",
     "description": "A King James Version Bible with Strong Concordence Links",
     "primaryCategory": "health-fitness",
@@ -20,11 +20,11 @@
     "tagline": "Read and Grow Spiritually",
     "ogTitle": "GODS WORD - Read",
     "ogDescription": "Read GODS WORD with Strong's references",
-    "ogImageUrl": "https://godswordkjv.com/image.png"
+    "ogImageUrl": "https://gods-word.vercel.app/image.png"
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjExNzU1MDYsInR5cGUiOiJhdXRoIiwia2V5IjoiMHhmRWZiMTRCOTkyNjQwZDUwZWJiMDBmYTlkOTY3NGFlMzlDNjA3ZDhiIn0",
-    "payload": "eyJkb21haW4iOiJnb2Rzd29yZGtqdi5jb20ifQ",
-    "signature": "EVb0BJMWfjg/IatMsSlGhGzdv4WN7Iq/nR0GsqozxrIr+2pzTp++ZHmwjWWbsPocqWpSa6CMN9TMUKqSsCvXGBs="
+    "payload": "eyJkb21haW4iOiJnb2RzLXdvcmQudmVyY2VsLmFwcCJ9",
+    "signature": "IS8FwGPqr5io3N3Y+zpdNGCC0Uy1ic3klH8UCrollGw8N+YzOuRRYucQVAjW3v+faWNDN+wxZT/q19cercphxBs="
   }
 }
