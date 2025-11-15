@@ -8,20 +8,13 @@ export default function FarcasterProvider({ children }: { children: React.ReactN
     // Initialize Farcaster SDK and call ready() immediately
     const initSDK = async () => {
       try {
-        // CRITICAL: Always call ready() to hide splash screen
-        await sdk.actions.ready();
-        
-        // Then check context for additional info (optional)
+        // Obtain context for optional behaviors (do NOT call ready() here;
+        // ready() is called directly from the page to avoid duplicate calls)
         const context = await sdk.context;
-        console.log('[Farcaster] Mini App ready, context:', context);
+        console.log('[Farcaster] SDK context available:', context);
       } catch (error) {
-        // Call ready() even if not in Farcaster context
-        console.log('[Farcaster] Error during init, ensuring ready() was called:', error);
-        try {
-          await sdk.actions.ready();
-        } catch (e) {
-          console.log('[Farcaster] Not in Mini App context - running standalone');
-        }
+        // It's fine if context isn't available when running outside a host.
+        console.log('[Farcaster] Error obtaining context (not running in host?):', error);
       }
     };
 
