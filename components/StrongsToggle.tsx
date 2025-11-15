@@ -31,7 +31,7 @@ export default function StrongsToggle() {
   return (
     <button
       onClick={toggle}
-      className="control-button hover:scale-105 transition-transform mr-2"
+      className={`control-button hover:scale-105 transition-transform mr-2 ${enabled ? 'active' : ''}`}
       title={enabled ? "Strong's references enabled" : "Strong's references disabled"}
       aria-pressed={enabled}
     >

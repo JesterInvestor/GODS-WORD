@@ -122,7 +122,7 @@ export default function RootLayout({
           })();
         ` }} />
 
-        <div className="fixed top-4 right-4 z-50 flex items-center">
+        <div className="fixed top-4 right-4 z-50 flex items-center space-x-2">
           <SendTipButton />
           <AddMiniAppButton />
           <StrongsToggle />
@@ -130,7 +130,7 @@ export default function RootLayout({
           <ThemeToggle />
         </div>
         <FarcasterProvider>
-          {children}
+          <div className="pt-16">{children}</div>
         </FarcasterProvider>
         <Analytics />
       </body>

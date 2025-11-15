@@ -30,7 +30,7 @@ export default function JesusToggle() {
   return (
     <button
       onClick={toggle}
-      className="control-button hover:scale-105 transition-transform mr-2"
+      className={`control-button hover:scale-105 transition-transform mr-2 ${enabled ? 'active' : ''}`}
       title={enabled ? "Jesus's words highlighting enabled" : "Jesus's words highlighting disabled"}
       aria-pressed={enabled}
     >
