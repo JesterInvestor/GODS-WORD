@@ -1,0 +1,30 @@
+{
+  "frame": {
+    "name": "GODS WORD",
+    "version": "1",
+    "iconUrl": "https://godswordkjv.com/icon.png",
+    "homeUrl": "https://godswordkjv.com",
+    "imageUrl": "https://godswordkjv.com/image.png",
+    "buttonTitle": "Open GODS WORD",
+    "splashImageUrl": "https://godswordkjv.com/splash.png",
+    "splashBackgroundColor": "#0ea5e9",
+    "webhookUrl": "https://godswordkjv.com/api/webhook",
+    "subtitle": "Read and Study the Bible KJV",
+    "description": "A King James Version Bible with Strong Concordence Links",
+    "primaryCategory": "health-fitness",
+    "tags": [
+      "bible",
+      "god",
+      "christ"
+    ],
+    "tagline": "Read and Grow Spiritually",
+    "ogTitle": "GODS WORD - Read",
+    "ogDescription": "Read GODS WORD with Strong's references",
+    "ogImageUrl": "https://godswordkjv.com/image.png"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjExNzU1MDYsInR5cGUiOiJhdXRoIiwia2V5IjoiMHhmRWZiMTRCOTkyNjQwZDUwZWJiMDBmYTlkOTY3NGFlMzlDNjA3ZDhiIn0",
+    "payload": "eyJkb21haW4iOiJnb2Rzd29yZGtqdi5jb20ifQ",
+    "signature": "EVb0BJMWfjg/IatMsSlGhGzdv4WN7Iq/nR0GsqozxrIr+2pzTp++ZHmwjWWbsPocqWpSa6CMN9TMUKqSsCvXGBs="
+  }
+}
