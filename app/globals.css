@@ -65,19 +65,21 @@ body.sepia-mode {
     font-size: 1.25rem;
     line-height: 1;
     padding: 0;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(226, 232, 240, 1); /* tailwind gray-200 */
-    color: var(--foreground);
-    box-shadow: 0 1px 2px rgba(16,24,40,0.05);
+    /* Default to dark button styling for consistent dark appearance */
+    background: rgba(31, 41, 55, 0.95); /* dark gray, slightly more opaque */
+    border: 1px solid rgba(55, 65, 81, 1); /* tailwind gray-700 */
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
     backdrop-filter: blur(6px);
   }
 
+  /* Preserve same appearance when dark class is present */
   :root.dark .control-button,
   html.dark .control-button {
-    background: rgba(31, 41, 55, 0.85); /* dark gray */
-    border: 1px solid rgba(55, 65, 81, 1); /* tailwind gray-700 */
-    color: var(--foreground);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    background: rgba(31, 41, 55, 0.95);
+    border: 1px solid rgba(55, 65, 81, 1);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
   }
 
   /* Active state for control buttons (used by S# and J toggles) */
