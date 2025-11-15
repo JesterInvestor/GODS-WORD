@@ -21,9 +21,9 @@ html {
   }
 }
 
-/* When user explicitly selects dark mode, apply the dark variables via the .dark class on the root element */
-.dark :root,
-.dark {
+/* When user explicitly selects dark mode, apply the dark variables via the `dark` class on the <html> element */
+html.dark,
+:root.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
