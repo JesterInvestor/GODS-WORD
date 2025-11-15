@@ -1,4 +1,8 @@
+"use client";
+
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { sdk } from '@farcaster/miniapp-sdk';
 
 // Helper function to generate Bible reference links
 function getBibleLink(book: string, chapter: number): string {
@@ -21,6 +25,18 @@ function getBibleLink(book: string, chapter: number): string {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const init = async () => {
+      try {
+        await sdk.actions.ready();
+        console.log('[Farcaster] ready() called from app/page');
+      } catch (e) {
+        console.log('[Farcaster] ready() failed in app/page (not in host?):', e);
+      }
+    };
+
+    init();
+  }, []);
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="text-center space-y-8 max-w-4xl">
