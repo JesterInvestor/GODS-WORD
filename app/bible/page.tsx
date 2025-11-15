@@ -51,6 +51,35 @@ function BibleContent() {
     }
   }, []);
 
+  // Listen to toggle events dispatched by the top-right controls so the page state stays in sync
+  useEffect(() => {
+    const onStr = (e: Event) => {
+      try {
+        const detail = (e as CustomEvent).detail;
+        setStrongsEnabled(Boolean(detail));
+      } catch (err) {}
+    };
+    const onJes = (e: Event) => {
+      try {
+        const detail = (e as CustomEvent).detail;
+        setJesusWordsEnabled(Boolean(detail));
+      } catch (err) {}
+    };
+
+    window.addEventListener('strongsEnabledChanged', onStr);
+    window.addEventListener('jesusWordsEnabledChanged', onJes);
+    // Also listen to forwarded sync events just in case
+    window.addEventListener('sync-str', onStr);
+    window.addEventListener('sync-jesus', onJes);
+
+    return () => {
+      window.removeEventListener('strongsEnabledChanged', onStr);
+      window.removeEventListener('jesusWordsEnabledChanged', onJes);
+      window.removeEventListener('sync-str', onStr);
+      window.removeEventListener('sync-jesus', onJes);
+    };
+  }, []);
+
   useEffect(() => {
     // Save Strong's preference to localStorage
     localStorage.setItem('strongsEnabled', String(strongsEnabled));
@@ -373,34 +402,6 @@ function BibleContent() {
               ⚙️
             </button>
             <button
-              onClick={() => setStrongsEnabled(!strongsEnabled)}
-              className={`${strongsEnabled ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 hover:bg-gray-500'} text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all`}
-              aria-label={
-                strongsEnabled ? "Disable Strong's references" : "Enable Strong's references"
-              }
-              title={
-                strongsEnabled ? "Strong's references enabled" : "Strong's references disabled"
-              }
-            >
-              S#
-            </button>
-            <button
-              onClick={() => setJesusWordsEnabled(!jesusWordsEnabled)}
-              className={`${jesusWordsEnabled ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-400 hover:bg-gray-500'} text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all`}
-              aria-label={
-                jesusWordsEnabled
-                  ? "Disable Jesus's words highlighting"
-                  : "Enable Jesus's words highlighting"
-              }
-              title={
-                jesusWordsEnabled
-                  ? "Jesus's words highlighting enabled"
-                  : "Jesus's words highlighting disabled"
-              }
-            >
-              J
-            </button>
-            <button
               onClick={() => setShowTOC(!showTOC)}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
               aria-label={showTOC ? 'Close table of contents' : 'Open table of contents'}
@@ -410,6 +411,20 @@ function BibleContent() {
           </div>
         </div>
       </header>
+
+      {/* Listen for toggle events from top-right controls to keep this page in sync */}
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function(){
+          try {
+            window.addEventListener('strongsEnabledChanged', function(e){
+              try { window.dispatchEvent(new CustomEvent('sync-str', { detail: e.detail })); } catch(e){}
+            });
+            window.addEventListener('jesusWordsEnabledChanged', function(e){
+              try { window.dispatchEvent(new CustomEvent('sync-jesus', { detail: e.detail })); } catch(e){}
+            });
+          } catch(e){}
+        })();
+      `}} />
 
       <div className={`${getTextWidthClass()} mx-auto px-4 py-6`}>
         {/* Reading Settings Panel */}

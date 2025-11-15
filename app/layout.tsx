@@ -5,6 +5,8 @@ import FarcasterProvider from '@/components/FarcasterProvider';
 import ThemeToggle from '@/components/ThemeToggle';
 import AddMiniAppButton from '@/components/AddMiniAppButton';
 import SendTipButton from '@/components/SendTipButton';
+import StrongsToggle from '@/components/StrongsToggle';
+import JesusToggle from '@/components/JesusToggle';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -109,9 +111,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        {/* Inline script to initialize theme before React hydration to avoid flash */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){
+            try{
+              var t = localStorage.getItem('theme');
+              if(t === 'dark') document.documentElement.classList.add('dark');
+              else if(t === 'light') document.documentElement.classList.remove('dark');
+            }catch(e){/* ignore */}
+          })();
+        ` }} />
+
         <div className="fixed top-4 right-4 z-50 flex items-center">
           <SendTipButton />
           <AddMiniAppButton />
+          <StrongsToggle />
+          <JesusToggle />
           <ThemeToggle />
         </div>
         <FarcasterProvider>
