@@ -5,18 +5,23 @@ import { sdk } from '@farcaster/miniapp-sdk';
 
 export default function FarcasterProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Initialize Farcaster SDK
+    // Initialize Farcaster SDK and call ready() immediately
     const initSDK = async () => {
       try {
-        // Check if running in Farcaster context
-        const context = await sdk.context;
-        console.log('[Farcaster] SDK initialized', context);
-        
-        // Signal that the app is ready - CRITICAL for hiding splash screen
+        // CRITICAL: Always call ready() to hide splash screen
         await sdk.actions.ready();
+        
+        // Then check context for additional info (optional)
+        const context = await sdk.context;
+        console.log('[Farcaster] Mini App ready, context:', context);
       } catch (error) {
-        // Not in Farcaster context - that's okay, app works standalone too
-        console.log('[Farcaster] Not running in Mini App context', error);
+        // Call ready() even if not in Farcaster context
+        console.log('[Farcaster] Error during init, ensuring ready() was called:', error);
+        try {
+          await sdk.actions.ready();
+        } catch (e) {
+          console.log('[Farcaster] Not in Mini App context - running standalone');
+        }
       }
     };
 
