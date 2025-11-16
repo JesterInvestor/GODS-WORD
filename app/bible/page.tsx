@@ -89,9 +89,9 @@ function BibleContent() {
 
   return (
     <div>
-      <div className="bg-gray-200 h-1 mb-4"></div> {/* Divider added here */}
-      <div className="bg-gray-300 h-1 mb-4"></div> {/* Divider added here */}
-      <div className="bg-gray-400 h-1 mb-4"></div> {/* Divider added here */}
+      <div className="bg-gray-200 h-1 mb-4"></div> {/* Divider above chapter title */}
+      <div className="bg-gray-300 h-1 mb-4"></div> {/* Divider above chapter title */}
+      <div className="bg-gray-400 h-1 mb-4"></div> {/* Divider above chapter title */}
       {loading ? (
         <div>Loading...</div>
       ) : currentChapter ? (
