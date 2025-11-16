@@ -13,7 +13,10 @@ export default function ControlBar() {
   const isAllowed = pathname.startsWith('/bible') || pathname.startsWith('/strongs');
 
   return (
-    <div className="fixed bottom-4 right-4 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2 z-50 flex items-center space-x-2">
+    <div
+      className="fixed right-4 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2 z-50 flex items-center space-x-2"
+      style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
+    >
       <AddMiniAppButton />
       <StrongsToggle />
       <JesusToggle />

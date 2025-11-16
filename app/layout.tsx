@@ -122,7 +122,7 @@ export default function RootLayout({
         <ControlBar />
         <GlobalPanels />
         <FarcasterProvider>
-          <div className="pt-24 md:pt-16">{children}</div>
+          <div className="pt-24 md:pt-16 pb-24 md:pb-0">{children}</div>
         </FarcasterProvider>
         <Analytics />
       </body>

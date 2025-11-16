@@ -401,14 +401,17 @@ function BibleContent() {
     <div className={`min-h-screen ${bgClass}`}>
       {/* Header */}
       <header className={`${headerBgClass} sticky top-24 md:top-16 z-10`}>
-        <div
-          className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}
-        >
+        <div className={`${getTextWidthClass()} mx-auto px-4 py-2`}> 
+          <div className="flex justify-center mb-2">
+            <span className="inline-block w-20 h-1 rounded-full bg-gradient-to-r from-blue-300 to-blue-500 dark:from-blue-700 dark:to-blue-400 opacity-80"></span>
+          </div>
+        </div>
+        <div className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}>
           <Link
-            href="/"
+            href="/bible?book=Genesis&chapter=1"
             className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all"
           >
-            ← Home
+            ← Genesis 1
           </Link>
           <h1 className={`text-xl font-bold ${headerTextClass}`}>
             {bookDisplayName} {selectedChapter}
