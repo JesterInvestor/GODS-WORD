@@ -791,7 +791,7 @@ function BibleContent() {
                 }
               }}
               disabled={selectedBook === BOOKS[0] && selectedChapter === 1}
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-60 text-white px-8 py-4 rounded-xl md:rounded-2xl text-lg md:text-xl font-semibold shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all active:scale-[.99]"
               aria-label="Go to previous chapter"
             >
               ← Previous
@@ -815,7 +815,7 @@ function BibleContent() {
                 bookData &&
                 selectedChapter === bookData.chapters.length
               }
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-60 text-white px-8 py-4 rounded-xl md:rounded-2xl text-lg md:text-xl font-semibold shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all active:scale-[.99]"
               aria-label="Go to next chapter"
             >
               Next →
