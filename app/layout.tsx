@@ -8,7 +8,6 @@ import AddMiniAppButton from '@/components/AddMiniAppButton';
 import StrongsToggle from '@/components/StrongsToggle';
 import JesusToggle from '@/components/JesusToggle';
 import GlobalPanels from '@/components/GlobalPanels';
-import Link from 'next/link';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -124,20 +123,12 @@ export default function RootLayout({
           })();
         ` }} />
 
-        <div className="fixed bottom-4 left-4 z-50 flex flex-col items-start space-y-2">
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center space-x-2">
           <AddMiniAppButton />
           <StrongsToggle />
           <JesusToggle />
           <MenuButton />
           <SettingsButton />
-          <Link
-            href="/"
-            aria-label="Home"
-            title="Home"
-            className="control-button hover:scale-105 transition-transform mt-1"
-          >
-            ← Home
-          </Link>
         </div>
         <GlobalPanels />
         <FarcasterProvider>
