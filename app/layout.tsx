@@ -123,12 +123,20 @@ export default function RootLayout({
           })();
         ` }} />
 
-        <div className="fixed top-4 right-4 z-50 flex items-center space-x-2">
+        <div className="fixed bottom-4 left-4 z-50 flex flex-col items-start space-y-2">
           <AddMiniAppButton />
           <StrongsToggle />
           <JesusToggle />
           <MenuButton />
           <SettingsButton />
+          <a
+            href="/"
+            aria-label="Home"
+            title="Home"
+            className="control-button hover:scale-105 transition-transform mt-1"
+          >
+            ← Home
+          </a>
         </div>
         <GlobalPanels />
         <FarcasterProvider>
