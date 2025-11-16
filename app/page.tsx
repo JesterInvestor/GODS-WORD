@@ -72,6 +72,7 @@ export default function Home() {
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
             Reading setting (change with ⚙️) Click on any word to view Strong&apos;s Concordance
             reference (toggle off with S#). Jesus&apos; word red underline (toggle off with J)
+            Use ➕ to add miniapp. More updates coming soon........ 
           </p>
         </div>
 
