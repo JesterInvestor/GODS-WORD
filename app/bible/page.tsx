@@ -408,10 +408,10 @@ function BibleContent() {
         </div>
         <div className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}>
           <Link
-            href="/bible?book=Genesis&chapter=1"
+            href="/"
             className="text-blue-600 hover:text-blue-700 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 transition-all"
           >
-            ← Genesis 1
+            ← Home
           </Link>
           <h1 className={`text-xl font-bold ${headerTextClass}`}>
             {bookDisplayName} {selectedChapter}
