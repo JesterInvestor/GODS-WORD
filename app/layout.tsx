@@ -123,7 +123,10 @@ export default function RootLayout({
           })();
         ` }} />
 
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center space-x-2">
+        <div
+          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center space-x-2"
+          style={{ position: 'fixed', bottom: '1rem', left: '50%', transform: 'translateX(-50%)' }}
+        >
           <AddMiniAppButton />
           <StrongsToggle />
           <JesusToggle />
