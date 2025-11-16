@@ -724,6 +724,9 @@ function BibleContent() {
             <div>
               {/* Chapter Header with decorative divider */}
               <div className="mb-8 pb-6 border-b-2 border-blue-200 dark:border-blue-800">
+                <div className="flex justify-center mb-3">
+                  <span className="inline-block w-24 h-1 rounded-full bg-gradient-to-r from-blue-300 to-blue-500 dark:from-blue-700 dark:to-blue-400 opacity-80"></span>
+                </div>
                 <h2 className={`text-3xl md:text-4xl font-bold ${headerTextClass} text-center`}>
                   {bookDisplayName}
                 </h2>
@@ -735,7 +738,7 @@ function BibleContent() {
                 {currentChapter.verses.map(verse => (
                   <div
                     key={verse.verse}
-                    className="flex group hover:bg-gray-50 dark:hover:bg-gray-700/30 rounded px-2 py-1 transition-colors"
+                    className="flex group hover:bg-gray-50 dark:hover:bg-gray-700/30 rounded px-2 pt-4 pb-1 transition-colors border-t border-blue-100 dark:border-blue-800"
                   >
                     <span
                       className="text-blue-600 font-bold mr-4 flex-shrink-0 select-none bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded min-w-[2rem] text-center"
