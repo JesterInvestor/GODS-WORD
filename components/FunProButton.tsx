@@ -27,38 +27,49 @@ export default function FunProButton({ label, href, onClick, className }: FunPro
     minWidth: 160,
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const el = e.currentTarget;
+  const handleMouseEnter = (el: HTMLElement) => {
     el.style.transform = "translateY(-2px)";
     el.style.boxShadow = "0 6px 14px rgba(0,0,0,0.2)";
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const el = e.currentTarget;
+  const handleMouseLeave = (el: HTMLElement) => {
     el.style.transform = "translateY(0)";
     el.style.boxShadow = "0 4px 10px rgba(0,0,0,0.15)";
   };
 
-  const btn = (
-    <button
-      type="button"
-      onClick={onClick}
-      style={style}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={className}
-    >
-      {label} ✨
-    </button>
+  const content = (
+    <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+      {label} <span style={{ marginLeft: 8 }}>✨</span>
+    </span>
   );
 
   if (href) {
+    // Render an anchor when href is provided (avoid button inside link)
     return (
       <Link href={href} className="inline-block">
-        {btn}
+        <a
+          role="button"
+          onMouseEnter={(e) => handleMouseEnter(e.currentTarget as HTMLElement)}
+          onMouseLeave={(e) => handleMouseLeave(e.currentTarget as HTMLElement)}
+          style={style}
+          className={className}
+        >
+          {content}
+        </a>
       </Link>
     );
   }
 
-  return btn;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
+      onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
+      style={style}
+      className={className}
+    >
+      {content}
+    </button>
+  );
 }

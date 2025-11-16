@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import { useEffect } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
 import FunProButton from '../components/FunProButton';
@@ -49,24 +48,21 @@ export default function Home() {
         </p>
         <div className="space-y-4">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <FunProButton
               href="/bible?testament=old"
-              className="w-full sm:w-auto text-center inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
-            >
-              Old Testament
-            </Link>
-            <Link
+              label="Old Testament"
+              className="w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
+            />
+            <FunProButton
               href="/bible?testament=new"
-              className="w-full sm:w-auto text-center inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
-            >
-              New Testament
-            </Link>
-            <Link
+              label="New Testament"
+              className="w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
+            />
+            <FunProButton
               href="/strongs"
-              className="w-full sm:w-auto text-center inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
-            >
-              Strong&apos;s Concordance
-            </Link>
+              label="Strong's Concordance"
+              className="w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
+            />
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
             Reading setting (change with ⚙️) Click on any word to view Strong&apos;s Concordance
