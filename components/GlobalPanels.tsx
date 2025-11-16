@@ -57,7 +57,7 @@ export default function GlobalPanels() {
 
         <div className="border-t border-gray-100 dark:border-gray-800 pt-3 space-y-1">
           <div className="text-xs text-gray-600 dark:text-gray-300">Sepia reading mode: <span className="font-semibold">enabled</span></div>
-          <div className="text-xs text-gray-600 dark:text-gray-300">Strong's toggle: <span className="font-semibold">S#</span></div>
+          <div className="text-xs text-gray-600 dark:text-gray-300">Strong&apos;s toggle: <span className="font-semibold">S#</span></div>
         </div>
       </div>
     </div>
