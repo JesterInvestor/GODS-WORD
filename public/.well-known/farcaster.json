@@ -1,5 +1,5 @@
 {
-  "frame": {
+  "miniapp": {
     "name": "GODS WORD KJV",
     "version": "1",
     "iconUrl": "https://gods-word.vercel.app/icon.png",
@@ -25,11 +25,9 @@
     "header": "eyJmaWQiOjExNzU1MDYsInR5cGUiOiJhdXRoIiwia2V5IjoiMHhmRWZiMTRCOTkyNjQwZDUwZWJiMDBmYTlkOTY3NGFlMzlDNjA3ZDhiIn0",
     "payload": "eyJkb21haW4iOiJnb2RzLXdvcmQudmVyY2VsLmFwcCJ9",
     "signature": "IS8FwGPqr5io3N3Y+zpdNGCC0Uy1ic3klH8UCrollGw8N+YzOuRRYucQVAjW3v+faWNDN+wxZT/q19cercphxBs="
-  }
-  {
-  "accountAssociation": { ... },
-  "miniapp": { ... },
+  },
   "baseBuilder": {
     "ownerAddress": "0x24DE6CF049988BADfCa76dD54D72a3b3CEF8095e"
   }
+
 }
