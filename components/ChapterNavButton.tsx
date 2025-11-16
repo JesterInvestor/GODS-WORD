@@ -21,7 +21,7 @@ export default function ChapterNavButton({
   const displayLabel = label ?? (isPrev ? "Previous" : "Next");
 
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 w-full md:w-auto px-8 py-5 text-xl md:text-2xl rounded-2xl font-semibold text-white shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[.99]";
+    "inline-flex items-center justify-center gap-2 w-auto px-8 py-5 text-xl md:text-2xl rounded-2xl font-semibold text-white shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[.99]";
   const colorClasses = disabled
     ? "bg-gray-300 cursor-not-allowed opacity-60"
     : "bg-blue-600 hover:bg-blue-700";

@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { BOOKS, BOOK_NAMES, loadBook, Book } from '@/lib/bible';
 import StrongsModal from '@/components/StrongsModal';
 import { shouldHighlightAsJesusWords } from '@/lib/jesusWords';
-import ChapterNavButton from '@/components/ChapterNavButton';
 
 function BibleContent() {
   const searchParams = useSearchParams();
@@ -34,6 +33,37 @@ function BibleContent() {
   const [textWidth, setTextWidth] = useState<'narrow' | 'normal' | 'wide'>('normal');
   const [showSettings, setShowSettings] = useState(false);
 
+  // Chapter navigation helpers for global controls
+  const goToPrevChapter = () => {
+    if (selectedChapter > 1) {
+      setSelectedChapter(selectedChapter - 1);
+      window.scrollTo(0, 0);
+    } else {
+      const currentIndex = BOOKS.indexOf(selectedBook);
+      if (currentIndex > 0) {
+        const prevBook = BOOKS[currentIndex - 1];
+        setSelectedBook(prevBook);
+        loadBook(prevBook).then(data => {
+          if (data) setSelectedChapter(data.chapters.length);
+        });
+      }
+    }
+  };
+
+  const goToNextChapter = () => {
+    if (bookData && selectedChapter < bookData.chapters.length) {
+      setSelectedChapter(selectedChapter + 1);
+      window.scrollTo(0, 0);
+    } else {
+      const currentIndex = BOOKS.indexOf(selectedBook);
+      if (currentIndex < BOOKS.length - 1) {
+        const nextBook = BOOKS[currentIndex + 1];
+        setSelectedBook(nextBook);
+        setSelectedChapter(1);
+      }
+    }
+  };
+
   useEffect(() => {
     loadBookData(selectedBook);
   }, [selectedBook]);
@@ -51,6 +81,18 @@ function BibleContent() {
       setJesusWordsEnabled(savedJesusWordsEnabled === 'true');
     }
   }, []);
+
+  // Listen for global chapter navigation events dispatched from layout controls
+  useEffect(() => {
+    const onPrev = () => goToPrevChapter();
+    const onNext = () => goToNextChapter();
+    window.addEventListener('bible-prev-chapter', onPrev);
+    window.addEventListener('bible-next-chapter', onNext);
+    return () => {
+      window.removeEventListener('bible-prev-chapter', onPrev);
+      window.removeEventListener('bible-next-chapter', onNext);
+    };
+  }, [selectedBook, selectedChapter, bookData]);
 
   // Listen to toggle events dispatched by the top-right controls so the page state stays in sync
   useEffect(() => {
@@ -772,51 +814,7 @@ function BibleContent() {
           )}
         </div>
 
-        {/* Navigation Buttons */}
-        {bookData && (
-          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-4 mt-6 md:justify-between">
-            <ChapterNavButton
-              direction="prev"
-              onClick={() => {
-                if (selectedChapter > 1) {
-                  setSelectedChapter(selectedChapter - 1);
-                  window.scrollTo(0, 0);
-                } else {
-                  const currentIndex = BOOKS.indexOf(selectedBook);
-                  if (currentIndex > 0) {
-                    const prevBook = BOOKS[currentIndex - 1];
-                    setSelectedBook(prevBook);
-                    loadBook(prevBook).then(data => {
-                      if (data) setSelectedChapter(data.chapters.length);
-                    });
-                  }
-                }
-              }}
-              disabled={selectedBook === BOOKS[0] && selectedChapter === 1}
-            />
-            <ChapterNavButton
-              direction="next"
-              onClick={() => {
-                if (bookData && selectedChapter < bookData.chapters.length) {
-                  setSelectedChapter(selectedChapter + 1);
-                  window.scrollTo(0, 0);
-                } else {
-                  const currentIndex = BOOKS.indexOf(selectedBook);
-                  if (currentIndex < BOOKS.length - 1) {
-                    const nextBook = BOOKS[currentIndex + 1];
-                    setSelectedBook(nextBook);
-                    setSelectedChapter(1);
-                  }
-                }
-              }}
-              disabled={
-                selectedBook === BOOKS[BOOKS.length - 1] &&
-                bookData &&
-                selectedChapter === bookData.chapters.length
-              }
-            />
-          </div>
-        )}
+        {/* Navigation Buttons moved to layout (ChapterNavDock) */}
       </div>
 
       {/* Strong's Concordance Modal */}

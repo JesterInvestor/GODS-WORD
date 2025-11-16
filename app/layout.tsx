@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import FarcasterProvider from '@/components/FarcasterProvider';
 import GlobalPanels from '@/components/GlobalPanels';
 import ControlBar from '@/components/ControlBar';
+import ChapterNavDock from '@/components/ChapterNavDock';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -120,6 +121,7 @@ export default function RootLayout({
         ` }} />
 
         <ControlBar />
+        <ChapterNavDock />
         <GlobalPanels />
         <FarcasterProvider>
           <div className="pt-24 md:pt-16 pb-24 md:pb-0">{children}</div>
