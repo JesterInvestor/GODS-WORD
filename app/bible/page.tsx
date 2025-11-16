@@ -51,6 +51,52 @@ function BibleContent() {
     }
   }, []);
 
+  useEffect(() => {
+    const onStr = (e: Event) => {
+      try {
+        const detail = (e as CustomEvent).detail;
+        setStrongsEnabled(Boolean(detail));
+      } catch (err) {}
+    };
+    const onJes = (e: Event) => {
+      try {
+        const detail = (e as CustomEvent).detail;
+        setJesusWordsEnabled(Boolean(detail));
+      } catch (err) {}
+    };
+
+    const onToggleTOC = () => setShowTOC(s => !s);
+    const onToggleSettings = () => setShowSettings(s => !s);
+
+    window.addEventListener('strongsEnabledChanged', onStr);
+    window.addEventListener('jesusWordsEnabledChanged', onJes);
+    window.addEventListener('sync-str', onStr);
+    window.addEventListener('sync-jesus', onJes);
+    window.addEventListener('toggleTOC', onToggleTOC);
+    window.addEventListener('toggleSettings', onToggleSettings);
+
+    return () => {
+      window.removeEventListener('strongsEnabledChanged', onStr);
+      window.removeEventListener('jesusWordsEnabledChanged', onJes);
+      window.removeEventListener('sync-str', onStr);
+      window.removeEventListener('sync-jesus', onJes);
+      window.removeEventListener('toggleTOC', onToggleTOC);
+      window.removeEventListener('toggleSettings', onToggleSettings);
+    };
+  }, []);
+
+  useEffect(() => {
+    try {
+      window.dispatchEvent(new CustomEvent('tocChanged', { detail: showTOC }));
+    } catch {}
+  }, [showTOC]);
+
+  useEffect(() => {
+    try {
+      window.dispatchEvent(new CustomEvent('settingsChanged', { detail: showSettings }));
+    } catch {}
+  }, [showSettings]);
+
   const loadBookData = async (book: string) => {
     setLoading(true);
     const data = await loadBook(book);
@@ -61,61 +107,8 @@ function BibleContent() {
   const bookDisplayName = BOOK_NAMES[BOOKS.indexOf(selectedBook)];
   const currentChapter = bookData?.chapters.find(ch => ch.chapter === String(selectedChapter));
 
-  const getLineHeightValue = () => {
-    switch (lineHeight) {
-      case 'compact':
-        return '1.5';
-      case 'normal':
-        return '1.8';
-      case 'relaxed':
-        return '2.2';
-      default:
-        return '1.8';
-    }
-  };
-
-  const getFontFamilyClass = () => {
-    switch (fontFamily) {
-      case 'serif':
-        return 'font-reading-serif';
-      case 'crimson':
-        return 'font-reading-crimson';
-      case 'sans':
-        return '';
-      default:
-        return 'font-reading-serif';
-    }
-  };
-
   return (
-    <div>
-      <div className="bg-gray-200 h-1 mb-4"></div> {/* Divider above chapter title */}
-      <div className="bg-gray-300 h-1 mb-4"></div> {/* Divider above chapter title */}
-      <div className="bg-gray-400 h-1 mb-4"></div> {/* Divider above chapter title */}
-      {loading ? (
-        <div>Loading...</div>
-      ) : currentChapter ? (
-        <div>
-          <h1 className="text-3xl font-bold">{bookDisplayName}</h1>
-          <h2 className="text-2xl">Chapter {selectedChapter}</h2>
-          <div className={getFontFamilyClass()}>
-            {currentChapter.verses.map(verse => (
-              <p
-                key={verse.verse}
-                style={{
-                  lineHeight: getLineHeightValue(),
-                }}
-              >
-                <span className="font-bold mr-2">{verse.verse}</span>
-                {verse.text}
-              </p>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div>Chapter not found</div>
-      )}
-    </div>
+    <div>{loading ? <div>Loading...</div> : <div>Render Bible Content Here</div>}</div>
   );
 }
 
