@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
+import FunProButton from '../components/FunProButton';
 
 // Helper function to generate Bible reference links
 function getBibleLink(book: string, chapter: number): string {
-  // Convert book name to match the BOOKS array format
   const bookMap: Record<string, string> = {
     Genesis: 'Genesis',
     Exodus: 'Exodus',
@@ -37,6 +37,7 @@ export default function Home() {
 
     init();
   }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="text-center space-y-8 max-w-4xl">
@@ -84,97 +85,22 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">
               Popular Chapters
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              <Link
-                href={getBibleLink('Genesis', 1)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Genesis 1</span>
-              </Link>
-              <Link
-                href={getBibleLink('Exodus', 20)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Exodus 20</span>
-              </Link>
-              <Link
-                href={getBibleLink('Luke', 2)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Luke 2</span>
-              </Link>
-              <Link
-                href={getBibleLink('John', 3)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">John 3</span>
-              </Link>
-              <Link
-                href={getBibleLink('Psalm', 23)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Psalm 23</span>
-              </Link>
-              <Link
-                href={getBibleLink('Romans', 8)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 8</span>
-              </Link>
-              <Link
-                href={getBibleLink('John', 1)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">John 1</span>
-              </Link>
-              <Link
-                href={getBibleLink('Hebrews', 11)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Hebrews 11</span>
-              </Link>
-              <Link
-                href={getBibleLink('Romans', 1)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 1</span>
-              </Link>
-              <Link
-                href={getBibleLink('Romans', 3)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Romans 3</span>
-              </Link>
-              <Link
-                href={getBibleLink('Genesis', 6)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Genesis 6</span>
-              </Link>
-              <Link
-                href={getBibleLink('Psalm', 14)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Psalm 14</span>
-              </Link>
-              <Link
-                href={getBibleLink('Isaiah', 53)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Isaiah 53</span>
-              </Link>
-              <Link
-                href={getBibleLink('Ephesians', 2)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Ephesians 2</span>
-              </Link>
-              <Link
-                href={getBibleLink('Jeremiah', 17)}
-                className="block bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-700 hover:shadow-md p-3 rounded-lg transition-transform transform hover:-translate-y-1"
-              >
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Jeremiah 17</span>
-              </Link>
+            <div className="flex flex-wrap justify-center items-stretch gap-4">
+              <FunProButton href={getBibleLink('Genesis', 1)} label="Genesis 1" />
+              <FunProButton href={getBibleLink('Exodus', 20)} label="Exodus 20" />
+              <FunProButton href={getBibleLink('Luke', 2)} label="Luke 2" />
+              <FunProButton href={getBibleLink('John', 3)} label="John 3" />
+              <FunProButton href={getBibleLink('Psalm', 23)} label="Psalm 23" />
+              <FunProButton href={getBibleLink('Romans', 8)} label="Romans 8" />
+              <FunProButton href={getBibleLink('John', 1)} label="John 1" />
+              <FunProButton href={getBibleLink('Hebrews', 11)} label="Hebrews 11" />
+              <FunProButton href={getBibleLink('Romans', 1)} label="Romans 1" />
+              <FunProButton href={getBibleLink('Romans', 3)} label="Romans 3" />
+              <FunProButton href={getBibleLink('Genesis', 6)} label="Genesis 6" />
+              <FunProButton href={getBibleLink('Psalm', 14)} label="Psalm 14" />
+              <FunProButton href={getBibleLink('Isaiah', 53)} label="Isaiah 53" />
+              <FunProButton href={getBibleLink('Ephesians', 2)} label="Ephesians 2" />
+              <FunProButton href={getBibleLink('Jeremiah', 17)} label="Jeremiah 17" />
             </div>
           </div>
         </div>

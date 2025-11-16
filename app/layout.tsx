@@ -7,6 +7,7 @@ import SettingsButton from '@/components/SettingsButton';
 import AddMiniAppButton from '@/components/AddMiniAppButton';
 import StrongsToggle from '@/components/StrongsToggle';
 import JesusToggle from '@/components/JesusToggle';
+import GlobalPanels from '@/components/GlobalPanels';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -129,6 +130,7 @@ export default function RootLayout({
           <MenuButton />
           <SettingsButton />
         </div>
+        <GlobalPanels />
         <FarcasterProvider>
           <div className="pt-16">{children}</div>
         </FarcasterProvider>
