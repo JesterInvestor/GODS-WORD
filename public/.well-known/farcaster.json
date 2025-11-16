@@ -1,4 +1,26 @@
 {
+  "frame": {
+    "name": "GODS WORD KJV",
+    "version": "1",
+    "iconUrl": "https://gods-word.vercel.app/icon.png",
+    "homeUrl": "https://gods-word.vercel.app",
+    "imageUrl": "https://gods-word.vercel.app/image.png",
+    "buttonTitle": "Open GODS WORD",
+    "splashImageUrl": "https://gods-word.vercel.app/splash.png",
+    "splashBackgroundColor": "#0ea5e9",
+    "webhookUrl": "https://gods-word.vercel.app/api/webhook",
+    "subtitle": "Read and Study the Bible KJV",
+    "description": "A King James Version Bible with Strong Concordence Links",
+    "primaryCategory": "health-fitness",
+    "tags": [
+      "bible",
+      "god",
+      "christ"
+    ],
+    "tagline": "Read and Grow Spiritually",
+    "ogTitle": "GODS WORD - Read",
+    "ogDescription": "Read GODS WORD with Strong's references"
+  },
   "accountAssociation": {
     "header": "eyJmaWQiOjExNzU1MDYsInR5cGUiOiJhdXRoIiwia2V5IjoiMHhmRWZiMTRCOTkyNjQwZDUwZWJiMDBmYTlkOTY3NGFlMzlDNjA3ZDhiIn0",
     "payload": "eyJkb21haW4iOiJnb2RzLXdvcmQudmVyY2VsLmFwcCJ9",
@@ -6,25 +28,5 @@
   },
   "baseBuilder": {
     "ownerAddress": "0x24DE6CF049988BADfCa76dD54D72a3b3CEF8095e"
-  },
-  "miniapp": {
-    "version": "1",
-    "name": "GODS WORD KJV",
-    "homeUrl": "https://gods-word.vercel.app",
-    "iconUrl": "https://gods-word.vercel.app/icon.png",
-    "splashImageUrl": "https://gods-word.vercel.app/splash.png",
-    "splashBackgroundColor": "#0ea5e9",
-    "webhookUrl": "https://gods-word.vercel.app/api/webhook",
-    "subtitle": "Read and Study the Bible KJV",
-    "description": "A King James Version Bible with Strong Concordance Links",
-    "screenshotUrls": ["https://gods-word.vercel.app/image.png"],
-    "primaryCategory": "religion",
-    "tags": ["bible", "god", "christ"],
-    "heroImageUrl": "https://gods-word.vercel.app/og-image.png",
-    "tagline": "Read and Grow Spiritually",
-    "ogTitle": "GODS WORD - Read",
-    "ogDescription": "Read GODS WORD with Strong's references",
-    "ogImageUrl": "https://gods-word.vercel.app/og-image.png",
-    "noindex": true
   }
 }
