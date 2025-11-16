@@ -400,7 +400,7 @@ function BibleContent() {
   return (
     <div className={`min-h-screen ${bgClass}`}>
       {/* Header */}
-      <header className={`${headerBgClass} sticky top-16 z-10`}>
+      <header className={`${headerBgClass} sticky top-24 md:top-16 z-10`}>
         <div
           className={`${getTextWidthClass()} mx-auto px-4 py-4 flex items-center justify-between`}
         >
