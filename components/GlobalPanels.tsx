@@ -7,8 +7,22 @@ export default function GlobalPanels() {
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
-    const onToggleTOC = () => setShowTOC(s => !s);
-    const onToggleSettings = () => setShowSettings(s => !s);
+    const isAllowedRoute = () => {
+      try {
+        const p = window.location.pathname || '/';
+        return p.startsWith('/bible') || p.startsWith('/strongs');
+      } catch {
+        return false;
+      }
+    };
+
+    const onToggleTOC = () => {
+      if (isAllowedRoute()) setShowTOC(s => !s);
+    };
+
+    const onToggleSettings = () => {
+      if (isAllowedRoute()) setShowSettings(s => !s);
+    };
 
     window.addEventListener('toggleTOC', onToggleTOC);
     window.addEventListener('toggleSettings', onToggleSettings);

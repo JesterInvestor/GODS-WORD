@@ -2,12 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import FarcasterProvider from '@/components/FarcasterProvider';
-import MenuButton from '@/components/MenuButton';
-import SettingsButton from '@/components/SettingsButton';
-import AddMiniAppButton from '@/components/AddMiniAppButton';
-import StrongsToggle from '@/components/StrongsToggle';
-import JesusToggle from '@/components/JesusToggle';
 import GlobalPanels from '@/components/GlobalPanels';
+import ControlBar from '@/components/ControlBar';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -123,16 +119,7 @@ export default function RootLayout({
           })();
         ` }} />
 
-        <div
-          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center space-x-2"
-          style={{ position: 'fixed', bottom: '1rem', left: '50%', transform: 'translateX(-50%)' }}
-        >
-          <AddMiniAppButton />
-          <StrongsToggle />
-          <JesusToggle />
-          <MenuButton />
-          <SettingsButton />
-        </div>
+        <ControlBar />
         <GlobalPanels />
         <FarcasterProvider>
           <div className="pt-24 md:pt-16">{children}</div>
