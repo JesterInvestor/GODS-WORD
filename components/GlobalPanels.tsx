@@ -53,7 +53,7 @@ export default function GlobalPanels() {
             <ul className="text-sm list-disc list-inside space-y-1">
               <li>Old Testament</li>
               <li>New Testament</li>
-              <li>Strong's Concordance</li>
+              <li>Strong&apos;s Concordance</li>
             </ul>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function GlobalPanels() {
           <div className="text-sm text-gray-700 dark:text-gray-200 space-y-2">
             <div>Font size: (use reader page for full options)</div>
             <div>Sepia reading mode: enabled</div>
-            <div>Strong's toggle: S#</div>
+            <div>Strong&apos;s toggle: S#</div>
           </div>
         </div>
       )}
