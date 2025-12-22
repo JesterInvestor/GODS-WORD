@@ -20,12 +20,17 @@ export default function ShareButton() {
 
   const handlePrimaryShare = async () => {
     try {
-      if (typeof navigator !== "undefined" && (navigator as any).share) {
-        await (navigator as any).share({
+      if (typeof navigator !== "undefined") {
+        const nav = navigator as Navigator & {
+          share?: (data: { title?: string; url?: string }) => Promise<void>;
+        };
+        if (nav.share) {
+          await nav.share({
           title: shareTitle || "Share",
           url: shareUrl || window.location.href,
-        });
-        return;
+          });
+          return;
+        }
       }
     } catch {
       // fall back to menu
