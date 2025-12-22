@@ -11,7 +11,7 @@ type FunProButtonProps = {
 export default function FunProButton({ label, href, onClick, className }: FunProButtonProps) {
   const style: React.CSSProperties = {
     // Use site-blue tones to match other buttons
-    background: "linear-gradient(135deg, #2563eb, #60a5fa)",
+    background: "linear-gradient(135deg, #D6BB87, #CCCC99)",
     color: "#fff",
     padding: "12px 24px",
     border: "none",
