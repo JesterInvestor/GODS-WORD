@@ -24,7 +24,7 @@
     "@types/node": "^24.6.2",
     "@types/react": "^19.2.0",
     "@vercel/analytics": "^1.5.0",
-    "next": "^15.5.4",
+    "next": "^15.6.0",
     "next-seo": "^6.8.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -36,7 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^8.46.0",
     "@typescript-eslint/parser": "^8.46.0",
     "eslint": "^9.37.0",
-    "eslint-config-next": "^15.5.4",
+    "eslint-config-next": "^15.6.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.6.2"
