@@ -62,8 +62,7 @@ export default function ShareButton() {
         aria-haspopup="true"
         title="Share"
       >
-        
-        517
+        📤
       </button>
 
       {menuOpen && (
