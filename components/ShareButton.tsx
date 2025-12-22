@@ -50,9 +50,6 @@ export default function ShareButton() {
     }
   };
 
-  const encodedUrl = encodeURIComponent(shareUrl || "");
-  const encodedText = encodeURIComponent(shareTitle || "");
-
   return (
     <div className="relative mr-2">
       <button
@@ -74,38 +71,6 @@ export default function ShareButton() {
           >
             {copied ? "Link copied" : "Copy link"}
           </button>
-          <a
-            href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block hover:text-yellow-300"
-          >
-            Share on X / Twitter
-          </a>
-          <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block hover:text-yellow-300"
-          >
-            Share on Facebook
-          </a>
-          <a
-            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block hover:text-yellow-300"
-          >
-            Share on LinkedIn
-          </a>
-          <a
-            href={`https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedText}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block hover:text-yellow-300"
-          >
-            Share on Reddit
-          </a>
         </div>
       )}
     </div>
