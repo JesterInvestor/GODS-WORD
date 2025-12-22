@@ -1,6 +1,4 @@
 "use client";
-
-import React from 'react';
 import { usePathname } from 'next/navigation';
 import AddMiniAppButton from '@/components/AddMiniAppButton';
 import StrongsToggle from '@/components/StrongsToggle';

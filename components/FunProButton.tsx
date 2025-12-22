@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 type FunProButtonProps = {
   label: string;
@@ -9,7 +9,7 @@ type FunProButtonProps = {
 };
 
 export default function FunProButton({ label, href, onClick, className }: FunProButtonProps) {
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     // Use site-blue tones to match other buttons
     background: "linear-gradient(135deg, #D6BB87, #CCCC99)",
     color: "#fff",
