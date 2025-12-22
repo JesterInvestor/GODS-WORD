@@ -7,6 +7,7 @@ import StrongsToggle from '@/components/StrongsToggle';
 import JesusToggle from '@/components/JesusToggle';
 import MenuButton from '@/components/MenuButton';
 import SettingsButton from '@/components/SettingsButton';
+import ShareButton from '@/components/ShareButton';
 
 export default function ControlBar() {
   const pathname = usePathname() || '/';
@@ -18,6 +19,7 @@ export default function ControlBar() {
       style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
     >
       <AddMiniAppButton />
+      <ShareButton />
       <StrongsToggle />
       <JesusToggle />
       {isAllowed && <MenuButton />}

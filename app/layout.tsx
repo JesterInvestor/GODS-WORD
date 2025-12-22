@@ -10,7 +10,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#2563eb',
+  themeColor: '#D6BB87',
 };
 
 // Farcaster Mini App frame configuration
