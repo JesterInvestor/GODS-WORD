@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 type Direction = "prev" | "next";
 
 export default function ChapterNavButton({
